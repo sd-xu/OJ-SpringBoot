@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.oj.mapper.LikeCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.LikeComment" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="cid" property="cid" jdbcType="BIGINT" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from like_comment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByCidAndUid">
+    delete from like_comment
+    where cid = #{cid,jdbcType=BIGINT}
+      and uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.coding.oj.pojo.entity.LikeComment" >
+    insert into like_comment (id, cid, uid)
+    values (#{id,jdbcType=BIGINT}, #{cid,jdbcType=BIGINT}, #{uid,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.coding.oj.pojo.entity.LikeComment" >
+    update like_comment
+    set cid = #{cid,jdbcType=BIGINT},
+      uid = #{uid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, cid, uid, gmt_create, gmt_modified
+    from like_comment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, cid, uid, gmt_create, gmt_modified
+    from like_comment
+  </select>
+  <select id="selectByCidAndUid" resultType="com.coding.oj.pojo.entity.LikeComment">
+    select *
+    from like_comment
+    where cid = #{cid,jdbcType=BIGINT}
+      and uid = #{uid,jdbcType=INTEGER}
+  </select>
+</mapper>

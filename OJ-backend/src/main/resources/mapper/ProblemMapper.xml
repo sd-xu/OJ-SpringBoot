@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.oj.mapper.ProblemMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.Problem" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="input" property="input" jdbcType="VARCHAR" />
+    <result column="output" property="output" jdbcType="VARCHAR" />
+    <result column="samples" property="samples" jdbcType="VARCHAR" />
+    <result column="difficulty" property="difficulty" jdbcType="INTEGER" />
+    <result column="hint" property="hint" jdbcType="VARCHAR" />
+    <result column="time_limit" property="timeLimit" jdbcType="INTEGER" />
+    <result column="memory_limit" property="memoryLimit" jdbcType="INTEGER" />
+    <result column="stack_limit" property="stackLimit" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from problem
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.coding.oj.pojo.entity.Problem" >
+    insert into problem (id, title, description, 
+      input, output, samples, 
+      difficulty, hint, time_limit, 
+      memory_limit, stack_limit)
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{input,jdbcType=VARCHAR}, #{output,jdbcType=VARCHAR}, #{samples,jdbcType=VARCHAR}, 
+      #{difficulty,jdbcType=INTEGER}, #{hint,jdbcType=VARCHAR}, #{timeLimit,jdbcType=INTEGER}, 
+      #{memoryLimit,jdbcType=INTEGER}, #{stackLimit,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.coding.oj.pojo.entity.Problem" >
+    update problem
+    set title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      input = #{input,jdbcType=VARCHAR},
+      output = #{output,jdbcType=VARCHAR},
+      samples = #{samples,jdbcType=VARCHAR},
+      difficulty = #{difficulty,jdbcType=INTEGER},
+      hint = #{hint,jdbcType=VARCHAR},
+      time_limit = #{timeLimit,jdbcType=INTEGER},
+      memory_limit = #{memoryLimit,jdbcType=INTEGER},
+      stack_limit = #{stackLimit,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, title, description, input, output, samples, difficulty, hint, time_limit, 
+    memory_limit, stack_limit, gmt_create, gmt_modified
+    from problem
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByTitle" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, title, description, input, output, samples, difficulty, hint, time_limit,
+      memory_limit, stack_limit, gmt_create, gmt_modified
+    from problem
+    where title like '%${title,jdbcType=VARCHAR}%'
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, title, description, input, output, samples, difficulty, hint, time_limit, 
+    memory_limit, stack_limit, gmt_create, gmt_modified
+    from problem
+  </select>
+</mapper>

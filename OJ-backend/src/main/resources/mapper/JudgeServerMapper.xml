@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.oj.mapper.JudgeServerMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.JudgeServer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="port" property="port" jdbcType="INTEGER" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="cpu_core" property="cpuCore" jdbcType="INTEGER" />
+    <result column="task_number" property="taskNumber" jdbcType="INTEGER" />
+    <result column="max_task_number" property="maxTaskNumber" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="is_remote" property="isRemote" jdbcType="BIT" />
+    <result column="cf_submittable" property="cfSubmittable" jdbcType="BIT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from judge_server
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.coding.oj.pojo.entity.JudgeServer" >
+    insert into judge_server (id, name, ip, 
+      port, url, cpu_core, 
+      task_number, max_task_number, status, 
+      is_remote, cf_submittable)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{port,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{cpuCore,jdbcType=INTEGER}, 
+      #{taskNumber,jdbcType=INTEGER}, #{maxTaskNumber,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{isRemote,jdbcType=BIT}, #{cfSubmittable,jdbcType=BIT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.coding.oj.pojo.entity.JudgeServer" >
+    update judge_server
+    set name = #{name,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      port = #{port,jdbcType=INTEGER},
+      url = #{url,jdbcType=VARCHAR},
+      cpu_core = #{cpuCore,jdbcType=INTEGER},
+      task_number = #{taskNumber,jdbcType=INTEGER},
+      max_task_number = #{maxTaskNumber,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      is_remote = #{isRemote,jdbcType=BIT},
+      cf_submittable = #{cfSubmittable,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+<!--  boolean updateTaskNum(Integer id);-->
+  <update id="updateTaskNum" parameterType="java.lang.Integer" >
+    update judge_server
+    set task_number = task_number-1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, name, ip, port, url, cpu_core, task_number, max_task_number, status, is_remote, 
+    cf_submittable, gmt_create, gmt_modified
+    from judge_server
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, ip, port, url, cpu_core, task_number, max_task_number, status, is_remote, 
+    cf_submittable, gmt_create, gmt_modified
+    from judge_server
+  </select>
+</mapper>

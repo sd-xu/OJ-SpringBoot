@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.oj.mapper.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.Comment" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="aid" property="aid" jdbcType="BIGINT" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="like_count" property="likeCount" jdbcType="BIGINT" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from comment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.coding.oj.pojo.entity.Comment" >
+    insert into comment (id, aid, uid, like_count, 
+      parent_id, content)
+    values (#{id,jdbcType=BIGINT}, #{aid,jdbcType=BIGINT}, #{uid,jdbcType=INTEGER}, #{likeCount,jdbcType=BIGINT}, 
+      #{parentId,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.coding.oj.pojo.entity.Comment" >
+    update comment
+    set aid = #{aid,jdbcType=BIGINT},
+      uid = #{uid,jdbcType=INTEGER},
+      like_count = #{likeCount,jdbcType=BIGINT},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, aid, uid, like_count, parent_id, gmt_create, gmt_modified, content
+    from comment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByAid" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, aid, uid, like_count, parent_id, gmt_create, gmt_modified, content
+    from comment
+    where aid = #{aid,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, aid, uid, like_count, parent_id, gmt_create, gmt_modified, content
+    from comment
+  </select>
+  <select id="selectChildComment" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select a.*
+    from comment a,comment b
+    where a.parent_id =b.id and a.parent_id = #{parentId,jdbcType=BIGINT} and b.id = #{parentId,jdbcType=BIGINT}
+  </select>
+</mapper>

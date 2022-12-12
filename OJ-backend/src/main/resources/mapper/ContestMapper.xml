@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.oj.mapper.ContestMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.Contest" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <id column="link" property="link" jdbcType="VARCHAR"/>
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="difficulty" property="difficulty" jdbcType="INTEGER"/>
+    <result column="source" property="source" jdbcType="INTEGER" />
+    <result column="auth" property="auth" jdbcType="INTEGER" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="duration" property="duration" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from contest
+    where id = #{id,jdbcType=BIGINT}
+      and uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.coding.oj.pojo.entity.Contest" >
+    insert into contest (id, uid, link,
+      author, title, type,
+      difficulty, description, source,
+      auth, pwd, start_time,
+      end_time, duration, status
+      )
+    values (#{id,jdbcType=BIGINT}, #{uid,jdbcType=INTEGER}, #{link,jdbcType=VARCHAR},
+      #{author,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER},
+      #{difficulty,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR}, #{source,jdbcType=INTEGER},
+      #{auth,jdbcType=INTEGER}, #{pwd,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP},
+      #{endTime,jdbcType=TIMESTAMP}, #{duration,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.coding.oj.pojo.entity.Contest" >
+    update contest
+    set link = #{link,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      difficulty = #{type,jdbcType=INTEGER},
+      description = #{description,jdbcType=LONGVARCHAR},
+      source = #{source,jdbcType=INTEGER},
+      auth = #{auth,jdbcType=INTEGER},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      duration = #{duration,jdbcType=BIGINT},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+      and uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select id, uid, link, author, title, type, difficulty, description, source, auth, pwd, start_time, end_time, duration,
+    status, gmt_create, gmt_modified
+    from contest
+    where id = #{id,jdbcType=BIGINT}
+      and uid = #{uid,jdbcType=INTEGER}
+  </select>
+
+  <select id="getContestNum" resultType="int" parameterType="map" >
+    select COUNT(id)
+    from contest
+    where
+      uid = #{uid,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select *
+    from contest
+  </select>
+
+  <select id="selectByType" resultType="com.coding.oj.pojo.entity.Contest">
+    select title,link,type,start_time
+    from contest
+    where type = #{type,jdbcType=INTEGER}
+  </select>
+</mapper>

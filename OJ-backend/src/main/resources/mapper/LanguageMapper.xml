@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.oj.mapper.LanguageMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.Language" >
+    <id column="lid" property="lid" jdbcType="BIGINT" />
+    <result column="content_type" property="contentType" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="compile_command" property="compileCommand" jdbcType="VARCHAR" />
+    <result column="template" property="template" jdbcType="VARCHAR" />
+    <result column="code_template" property="codeTemplate" jdbcType="VARCHAR" />
+    <result column="is_spj" property="isSpj" jdbcType="BIT" />
+    <result column="oj" property="oj" jdbcType="VARCHAR" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from language
+    where lid = #{lid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.coding.oj.pojo.entity.Language" >
+    insert into language (lid, content_type, description, 
+      name, compile_command, template, 
+      code_template, is_spj, oj)
+    values (#{lid,jdbcType=BIGINT}, #{contentType,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{compileCommand,jdbcType=VARCHAR}, #{template,jdbcType=VARCHAR}, 
+      #{codeTemplate,jdbcType=VARCHAR}, #{isSpj,jdbcType=BIT}, #{oj,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.coding.oj.pojo.entity.Language" >
+    update language
+    set content_type = #{contentType,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      compile_command = #{compileCommand,jdbcType=VARCHAR},
+      template = #{template,jdbcType=VARCHAR},
+      code_template = #{codeTemplate,jdbcType=VARCHAR},
+      is_spj = #{isSpj,jdbcType=BIT},
+      oj = #{oj,jdbcType=VARCHAR}
+    where lid = #{lid,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select lid, content_type, description, name, compile_command, template, code_template, 
+    is_spj, oj, gmt_create, gmt_modified
+    from language
+    where lid = #{lid,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select lid, content_type, description, name, compile_command, template, code_template, 
+    is_spj, oj, gmt_create, gmt_modified
+    from language
+  </select>
+
+  <select id="selectLanguageByLid" resultMap="BaseResultMap" >
+    select name
+    from language where lid = #{lid,jdbcType=BIGINT}
+  </select>
+</mapper>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="testTables" targetRuntime="MyBatis3Simple">
+        <!-- 生成toString -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/oj_database?serverTimezone=UTC"
+                        userId="root"
+                        password="D233">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+            NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- targetProject:生成POJO类的位置 employment -->
+        <javaModelGenerator targetPackage="com.example.oj_backend.pojo.entity" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- targetProject:mapper映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- targetPackage：mapper接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.oj_backend.mapper" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 指定数据库表 -->
+        <table tableName="article" domainObjectName="Article">
+            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="image_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+
+        <table tableName="star" domainObjectName="Star"></table>
+        <table tableName="like_comment" domainObjectName="LikeComment"></table>
+
+
+<!--        <table tableName="problem" domainObjectName="Problem">-->
+<!--            <columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+<!--            <columnOverride column="input" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--            <columnOverride column="output" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--            <columnOverride column="samples" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--            <columnOverride column="hint" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--        </table>-->
+<!--        <table tableName="test_case" domainObjectName="TestCase"></table>-->
+<!--        <table tableName="user_info" domainObjectName="User"></table>-->
+<!--        <table tableName="judge" domainObjectName="Judge">-->
+<!--            <columnOverride column="error_message" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+<!--            <columnOverride column="code" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+<!--        </table>-->
+        <!--        <table tableName="comment"></table>-->
+        <!--        <table tableName="like"></table>-->
+        <!--        <table tableName="status"></table>-->
+        <!--        <table tableName="statusimg"></table>-->
+
+        <!-- 有些表的字段需要指定java类型
+         <table schema="" tableName="">
+            <columnOverride column="" javaType="" />
+        </table> -->
+    </context>
+</generatorConfiguration>
+
