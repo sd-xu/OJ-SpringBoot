@@ -59,7 +59,7 @@ public class CommonResult<T> {
     }
 
     public static <T> CommonResult<T> errorResponse(ResultStatus resultStatus) {
-        return new CommonResult<T>(resultStatus.getStatus(), null, resultStatus.getDescription());
+        return new CommonResult<T>(resultStatus.getStatus(), null, resultStatus.getMsg());
     }
 
     public static <T> CommonResult<T> errorResponse(String msg, ResultStatus resultStatus) {

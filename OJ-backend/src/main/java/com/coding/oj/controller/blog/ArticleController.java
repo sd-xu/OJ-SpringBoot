@@ -3,9 +3,10 @@ package com.coding.oj.controller.blog;
 import com.coding.oj.pojo.entity.Article;
 import com.coding.oj.service.ArticleService;
 
-import jdk.internal.net.http.common.Pair;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;
+import org.springframework.data.util.Pair;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -53,7 +54,7 @@ public class ArticleController {
     public Map<String, Object> getArticleSortPercent() {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        List<Pair<String,String>>  list = articleService.getArticleSortPercent();
+        List<Pair<String, String>>  list = articleService.getArticleSortPercent();
         modelMap.put("articleList", list);
         return modelMap;
     }

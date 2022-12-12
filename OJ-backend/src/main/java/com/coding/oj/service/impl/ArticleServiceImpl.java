@@ -4,7 +4,7 @@ import com.coding.oj.mapper.ArticleMapper;
 import com.coding.oj.pojo.entity.Article;
 import com.coding.oj.service.ArticleService;
 
-import jdk.internal.net.http.common.Pair;
+import org.springframework.data.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

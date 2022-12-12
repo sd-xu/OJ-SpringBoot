@@ -1,7 +1,7 @@
 package com.coding.oj.mapper;
 
 import com.coding.oj.pojo.entity.Article;
-import jdk.internal.net.http.common.Pair;
+import org.springframework.data.util.Pair;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
