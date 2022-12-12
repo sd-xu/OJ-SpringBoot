@@ -1,19 +1,15 @@
 package com.coding.oj.judge;
 
+import com.coding.oj.judge.entity.LanguageConfig;
+import com.coding.oj.pojo.dto.TestJudgeReq;
+import com.coding.oj.pojo.dto.TestJudgeRes;
+import com.coding.oj.pojo.entity.Judge;
+import com.coding.oj.pojo.entity.Problem;
+import com.coding.oj.utils.Constants;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import top.hcode.hoj.common.exception.SystemError;
-import top.hcode.hoj.dao.ContestRecordEntityService;
-import top.hcode.hoj.dao.UserAcproblemEntityService;
-import top.hcode.hoj.judge.entity.LanguageConfig;
-import top.hcode.hoj.pojo.dto.TestJudgeReq;
-import top.hcode.hoj.pojo.dto.TestJudgeRes;
-import top.hcode.hoj.pojo.entity.judge.Judge;
-import top.hcode.hoj.pojo.entity.problem.Problem;
-import top.hcode.hoj.pojo.entity.user.UserAcproblem;
-import top.hcode.hoj.util.Constants;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 
 /**
@@ -26,12 +22,6 @@ public class JudgeContext {
 
     @Autowired
     private JudgeStrategy judgeStrategy;
-
-    @Autowired
-    private UserAcproblemEntityService userAcproblemEntityService;
-
-    @Autowired
-    private ContestRecordEntityService contestRecordEntityService;
 
     @Resource
     private LanguageConfigLoader languageConfigLoader;
@@ -87,36 +77,4 @@ public class JudgeContext {
         return judgeStrategy.testJudge(testJudgeReq);
     }
 
-    public Boolean compileSpj(String code, Long pid, String spjLanguage, HashMap<String, String> extraFiles) throws SystemError {
-        return Compiler.compileSpj(code, pid, spjLanguage, extraFiles);
-    }
-
-    public Boolean compileInteractive(String code, Long pid, String interactiveLanguage, HashMap<String, String> extraFiles) throws SystemError {
-        return Compiler.compileInteractive(code, pid, interactiveLanguage, extraFiles);
-    }
-
-
-    public void updateOtherTable(Long submitId,
-                                 Integer status,
-                                 Long cid,
-                                 String uid,
-                                 Long pid,
-                                 Long gid,
-                                 Integer score,
-                                 Integer useTime) {
-
-        if (cid == 0) { // 非比赛提交
-            // 如果是AC,就更新user_acproblem表,
-            if (status.intValue() == Constants.Judge.STATUS_ACCEPTED.getStatus() && gid == null) {
-                userAcproblemEntityService.saveOrUpdate(new UserAcproblem()
-                        .setPid(pid)
-                        .setUid(uid)
-                        .setSubmitId(submitId)
-                );
-            }
-
-        } else { //如果是比赛提交
-            contestRecordEntityService.updateContestRecord(score, status, submitId, useTime);
-        }
-    }
 }
