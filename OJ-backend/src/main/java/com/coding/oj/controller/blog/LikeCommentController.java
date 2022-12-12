@@ -2,7 +2,7 @@ package com.coding.oj.controller.blog;
 
 
 import com.coding.oj.pojo.entity.LikeComment;
-import com.coding.oj.service.LikeCommentService;
+import com.coding.oj.dao.LikeCommentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;

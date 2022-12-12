@@ -1,7 +1,7 @@
 package com.coding.oj.controller;
 
 import com.coding.oj.pojo.entity.TestCase;
-import com.coding.oj.service.TestCaseService;
+import com.coding.oj.dao.TestCaseService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;

@@ -1,7 +1,7 @@
 package com.coding.oj.controller.blog;
 
 import com.coding.oj.pojo.entity.Comment;
-import com.coding.oj.service.CommentService;
+import com.coding.oj.dao.CommentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;

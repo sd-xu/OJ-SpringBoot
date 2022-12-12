@@ -4,7 +4,7 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 
 import com.coding.oj.pojo.entity.Judge;
-import com.coding.oj.service.JudgeService;
+import com.coding.oj.dao.JudgeEntityService;
 import com.coding.oj.utils.Constants;
 import com.coding.oj.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -22,18 +22,18 @@ public class JudgeDispatcher {
     private RedisUtils redisUtils;
 
     @Autowired
-    private JudgeService judgeService;
+    private JudgeEntityService judgeService;
 
     @Autowired
     private JudgeReceiver judgeReceiver;
 
-    @Value("${oj.judge.token}")
-    private String judgeToken;
+//    @Value("${oj.judge.token}")
+//    private String judgeToken;
 
     public void sendTask(Long submitId, Long pid) {
         JSONObject task = new JSONObject();
         task.set("submitId", submitId);
-        task.set("token",judgeToken);
+//        task.set("token",judgeToken);
         task.set("pid", pid);  // 将提交的id和pid放入到redis队列当中
         try {
             boolean isOk;

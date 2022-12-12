@@ -1,7 +1,7 @@
 package com.coding.oj.controller;
 
 import com.coding.oj.pojo.entity.Developer;
-import com.coding.oj.service.DeveloperService;
+import com.coding.oj.dao.DeveloperService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

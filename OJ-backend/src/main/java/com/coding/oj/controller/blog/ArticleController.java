@@ -1,7 +1,7 @@
 package com.coding.oj.controller.blog;
 
 import com.coding.oj.pojo.entity.Article;
-import com.coding.oj.service.ArticleService;
+import com.coding.oj.dao.ArticleService;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

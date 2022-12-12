@@ -1,10 +1,11 @@
 package com.coding.oj.controller;
 
 import com.coding.oj.common.result.CommonResult;
+import com.coding.oj.dao.JudgeEntityService;
 import com.coding.oj.pojo.dto.SubmitJudgeDTO;
 import com.coding.oj.pojo.entity.Judge;
 import com.coding.oj.service.JudgeService;
-
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,10 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 public class JudgeController {
+
+    @Autowired
+    private JudgeEntityService judgeEntityService;
+
     @Autowired
     private JudgeService judgeService;
 
@@ -31,7 +36,7 @@ public class JudgeController {
     public Map<String, Object> getSubmitHistory(Integer userId, Integer status, Long lid, Long pid, String title) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        List<Judge> list = judgeService.selectByParam(userId, pid, status, lid, title);
+        List<Judge> list = judgeEntityService.selectByParam(userId, pid, status, lid, title);
         modelMap.put("JudgeList", list);
         return modelMap;
     }
@@ -40,7 +45,7 @@ public class JudgeController {
     public Map<String, Object> submitStatusFilter(Integer userId, Integer status) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        List<Judge> list = judgeService.selectJudgeByStatus(userId,status);
+        List<Judge> list = judgeEntityService.selectJudgeByStatus(userId,status);
         modelMap.put("JudgeList", list);
         return modelMap;
     }
@@ -49,7 +54,7 @@ public class JudgeController {
     public Map<String, Object> languageFilter(Integer userId, Long lid) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        List<Judge> list = judgeService.selectJudgeByLanguage(userId, lid);
+        List<Judge> list = judgeEntityService.selectJudgeByLanguage(userId, lid);
         modelMap.put("JudgeList", list);
         return modelMap;
     }
@@ -58,7 +63,7 @@ public class JudgeController {
     public Map<String, Object> problemIdFilter(Integer userId, Long pid) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        List<Judge> list = judgeService.selectJudgeByProblemId(userId, pid);
+        List<Judge> list = judgeEntityService.selectJudgeByProblemId(userId, pid);
         modelMap.put("JudgeList", list);
         return modelMap;
     }
@@ -67,7 +72,7 @@ public class JudgeController {
     public Map<String, Object> userIdFilter(Integer userId) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        List<Judge> list = judgeService.selectJudgeByUserId(userId);
+        List<Judge> list = judgeEntityService.selectJudgeByUserId(userId);
         modelMap.put("JudgeList", list);
         return modelMap;
     }

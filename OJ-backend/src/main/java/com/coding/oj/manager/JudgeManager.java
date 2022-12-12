@@ -1,14 +1,13 @@
 package com.coding.oj.manager;
 
-import com.coding.oj.common.exception.MyException;
 import com.coding.oj.common.exception.StatusForbiddenException;
-import com.coding.oj.common.result.ResultStatus;
+import com.coding.oj.dao.JudgeEntityService;
 import com.coding.oj.judge.self.JudgeDispatcher;
 import com.coding.oj.pojo.dto.SubmitJudgeDTO;
 import com.coding.oj.pojo.entity.Judge;
-import com.coding.oj.service.JudgeService;
 
-import com.coding.oj.service.ProblemService;
+import com.coding.oj.dao.ProblemService;
+import com.coding.oj.service.JudgeService;
 import com.coding.oj.utils.Constants;
 import com.coding.oj.utils.IpUtils;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,14 +21,15 @@ import java.util.Date;
 
 @Component
 public class JudgeManager {
-    @Autowired
-    private JudgeDispatcher judgeDispatcher;
 
     @Autowired
-    private JudgeService judgeService;
+    private JudgeEntityService judgeEntityService;
 
     @Autowired
     private ProblemService problemService;
+
+    @Autowired
+    private JudgeDispatcher judgeDispatcher;
 
 
     /**
@@ -55,7 +55,7 @@ public class JudgeManager {
         if (problemService.selectProblemById(judge.getPid()) == null) {
             throw new StatusForbiddenException("错误！当前题目已不存在，不可提交！");
         }
-        judgeService.addJudge(judge);
+        judgeEntityService.addJudge(judge);
 
         // 将提交加入任务队列
         judgeDispatcher.sendTask(judge.getSubmitId(), judge.getPid());

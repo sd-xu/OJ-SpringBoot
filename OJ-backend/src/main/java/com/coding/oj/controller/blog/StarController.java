@@ -1,7 +1,7 @@
 package com.coding.oj.controller.blog;
 
 import com.coding.oj.pojo.entity.Star;
-import com.coding.oj.service.StarArticleService;
+import com.coding.oj.dao.StarArticleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;

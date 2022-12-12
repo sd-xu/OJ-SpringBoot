@@ -8,12 +8,9 @@ import com.coding.oj.common.result.ResultStatus;
 import com.coding.oj.pojo.dto.ToJudgeDTO;
 import com.coding.oj.pojo.entity.Judge;
 import com.coding.oj.pojo.entity.JudgeServer;
-import com.coding.oj.pojo.entity.Problem;
-import com.coding.oj.service.JudgeServerService;
-import com.coding.oj.service.JudgeService;
-import com.coding.oj.service.ProblemService;
+import com.coding.oj.dao.JudgeServerService;
+import com.coding.oj.dao.JudgeEntityService;
 import com.coding.oj.utils.Constants;
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -34,7 +31,7 @@ public class Dispatcher {
     private RestTemplate restTemplate;
 
     @Autowired
-    private JudgeService judgeService;
+    private JudgeEntityService judgeEntityService;
 
     @Autowired
     private JudgeServerService judgeServerService;
@@ -101,13 +98,13 @@ public class Dispatcher {
             judge.setSubmitId(submitId);
             judge.setStatus(Constants.Judge.STATUS_SUBMITTED_FAILED.getStatus());
             judge.setErrorMessage("Failed to connect the judgeServer. Please resubmit this submission again!");
-            judgeService.updateById(judge);
+            judgeEntityService.updateById(judge);
         } else {
             if (result.getStatus() != ResultStatus.SUCCESS.getStatus()) { // 如果是结果码不是200 说明调用有错误
                 // 判为系统错误
                 judge.setStatus(Constants.Judge.STATUS_SYSTEM_ERROR.getStatus());
                 judge.setErrorMessage(result.getMsg());
-                judgeService.updateById(judge);
+                judgeEntityService.updateById(judge);
             }
         }
 

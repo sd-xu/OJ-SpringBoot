@@ -1,7 +1,7 @@
 package com.coding.oj.controller.blog;
 
 import com.coding.oj.pojo.entity.LikeArticle;
-import com.coding.oj.service.LikeArticleService;
+import com.coding.oj.dao.LikeArticleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;

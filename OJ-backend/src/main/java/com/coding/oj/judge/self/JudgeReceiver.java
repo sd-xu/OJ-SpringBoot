@@ -7,7 +7,7 @@ import com.coding.oj.judge.AbstractReceiver;
 import com.coding.oj.judge.Dispatcher;
 import com.coding.oj.pojo.dto.ToJudgeDTO;
 import com.coding.oj.pojo.entity.Judge;
-import com.coding.oj.service.JudgeService;
+import com.coding.oj.dao.JudgeEntityService;
 import com.coding.oj.utils.Constants;
 import com.coding.oj.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +26,7 @@ public class JudgeReceiver extends AbstractReceiver {
     private RedisUtils redisUtils;
 
     @Autowired
-    private JudgeService judgeService;
+    private JudgeEntityService judgeEntityService;
 
     public void processWaitingTask() {
         // 优先处理比赛的提交任务
@@ -51,7 +51,7 @@ public class JudgeReceiver extends AbstractReceiver {
     public void handleJudgeMsg(String taskStr, String queueName) {
         JSONObject task = JSONUtil.parseObj(taskStr);
         Long submitId = task.getLong("submitId");
-        Judge judge = judgeService.getBySubmitId(submitId);
+        Judge judge = judgeEntityService.getBySubmitId(submitId);
         if (judge != null) {
             // 调度评测时发现该评测任务被取消，则结束评测
             if (!Objects.equals(judge.getStatus(), Constants.Judge.STATUS_CANCELLED.getStatus())) {

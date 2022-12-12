@@ -3,7 +3,7 @@ package com.coding.oj.controller;
 import com.coding.oj.pojo.entity.User;
 import com.coding.oj.pojo.entity.UserHistory;
 import com.coding.oj.pojo.entity.UserInfo;
-import com.coding.oj.service.UserService;
+import com.coding.oj.dao.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.json.JsonParseException;

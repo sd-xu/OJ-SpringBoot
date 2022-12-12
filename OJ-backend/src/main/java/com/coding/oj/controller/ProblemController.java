@@ -1,7 +1,7 @@
 package com.coding.oj.controller;
 
 import com.coding.oj.pojo.entity.Problem;
-import com.coding.oj.service.ProblemService;
+import com.coding.oj.dao.ProblemService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParseException;

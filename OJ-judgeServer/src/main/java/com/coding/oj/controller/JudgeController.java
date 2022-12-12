@@ -4,7 +4,7 @@ import com.coding.oj.common.CommonResult;
 import com.coding.oj.common.ResultStatus;
 import com.coding.oj.pojo.dto.ToJudgeDTO;
 import com.coding.oj.pojo.entity.Judge;
-import com.coding.oj.service.JudgeServerService;
+import com.coding.oj.dao.JudgeServerService;
 import com.coding.oj.service.JudgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,19 +27,15 @@ public class JudgeController {
     @Autowired
     private JudgeService judgeService;
 
-    @Value("${oj.judge.token}")
-    private String judgeToken;
+//    @Value("${oj.judge.token}")
+//    private String judgeToken;
 
-    @Autowired
-    private JudgeServerService judgeServerService;
-
-    //
     @PostMapping(value = "/judge")
     public CommonResult<Void> submitProblemJudge(@RequestBody ToJudgeDTO toJudgeDTO) {
 
-        if (!Objects.equals(toJudgeDTO.getToken(), judgeToken)) {
-            return CommonResult.errorResponse("对不起！您使用的判题服务调用凭证不正确！访问受限！", ResultStatus.ACCESS_DENIED);
-        }
+//        if (!Objects.equals(toJudgeDTO.getToken(), judgeToken)) {
+//            return CommonResult.errorResponse("对不起！您使用的判题服务调用凭证不正确！访问受限！", ResultStatus.ACCESS_DENIED);
+//        }
 
         Judge judge = toJudgeDTO.getJudge();
 

@@ -1,7 +1,7 @@
 package com.coding.oj.controller;
 
 import com.coding.oj.pojo.entity.Language;
-import com.coding.oj.service.LanguageService;
+import com.coding.oj.dao.LanguageService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

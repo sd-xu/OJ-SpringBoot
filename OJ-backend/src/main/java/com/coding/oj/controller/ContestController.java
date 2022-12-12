@@ -1,7 +1,7 @@
 package com.coding.oj.controller;
 
 import com.coding.oj.pojo.entity.Contest;
-import com.coding.oj.service.ContestService;
+import com.coding.oj.dao.ContestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
