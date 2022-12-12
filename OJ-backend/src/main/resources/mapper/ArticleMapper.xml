@@ -59,7 +59,7 @@
     from article
   </select>
 
-  <select id="selectSortPercent" resultType="jdk.internal.net.http.common.Pair">
+  <select id="selectSortPercent" resultType="org.springframework.data.util.Pair">
     SELECT sort,CONCAT(ROUND(a.cnt/b.sum *100,2),'','%')
     FROM
       (

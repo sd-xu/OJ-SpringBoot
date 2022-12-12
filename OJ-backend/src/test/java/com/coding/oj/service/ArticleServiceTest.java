@@ -1,7 +1,7 @@
 package com.coding.oj.service;
 
 import com.coding.oj.pojo.entity.Article;
-import jdk.internal.net.http.common.Pair;
+import org.springframework.data.util.Pair;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
