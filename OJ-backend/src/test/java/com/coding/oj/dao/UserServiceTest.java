@@ -64,29 +64,7 @@ public class UserServiceTest {
 
     @Test
     public void getUserHistory(){
-        UserHistory userHistory = new UserHistory();
-        int problem_num = judgeMapper.getProblemNum(1);
-        int contest_num = contestMapper.getContestNum(1);
-        Date last_submit = judgeMapper.getLastSubmit(1);
-        String language = judgeMapper.getUsualLanguage(1);
-        int difficulty = judgeMapper.getDifficulty(1);
-        String area = "";
-        switch (difficulty){
-            case 0:
-                area = "简单"; break;
-            case 1:
-                area = "中等"; break;
-            case 2:
-                area = "困难"; break;
-        }
-        int max_submit = judgeMapper.getMaxSubmit(1);
-        userHistory.setProblem_num(problem_num);
-        userHistory.setContest_num(contest_num);
-        userHistory.setLast_submit(last_submit);
-        userHistory.setLanguage(language);
-        userHistory.setArea(area);
-        userHistory.setMax_submit(max_submit);
-        assertEquals("1", userHistory.getLanguage());
+        System.out.println(userService.getUserHistory(2));
     }
 
     @Test
