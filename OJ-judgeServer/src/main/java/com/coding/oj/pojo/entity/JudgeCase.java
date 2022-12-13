@@ -8,9 +8,6 @@ import lombok.experimental.Accessors;
 import java.util.Date;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-@Builder
 public class JudgeCase {
     private Long id;
 
