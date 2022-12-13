@@ -144,19 +144,21 @@ public class JudgeStrategy {
             String inputFileName = jsonObject.getStr("inputFileName");
             String outputFileName = jsonObject.getStr("outputFileName");
             String msg = jsonObject.getStr("errMsg");
-            JudgeCase judgeCase = new JudgeCase();
-            judgeCase.setTime(time);
-            judgeCase.setMemory(memory);
-            judgeCase.setStatus(status);
-            judgeCase.setInputData(inputFileName);
-            judgeCase.setOutputData(outputFileName);
-            judgeCase.setPid(problem.getId());
-            judgeCase.setUid(judge.getUid());
-            judgeCase.setCaseId(caseId);
-            judgeCase.setSeq(seq);
-            judgeCase.setGroupNum(groupNum);
-            judgeCase.setMode(judgeCaseMode);
-            judgeCase.setSubmitId(judge.getSubmitId());
+
+            JudgeCase judgeCase = JudgeCase.builder()
+                    .time(time)
+                    .memory(memory)
+                    .status(status)
+                    .inputData(inputFileName)
+                    .outputData(outputFileName)
+                    .pid(problem.getId())
+                    .uid(judge.getUid())
+                    .caseId(caseId)
+                    .seq(seq)
+                    .groupNum(groupNum)
+                    .mode(judgeCaseMode)
+                    .submitId(judge.getSubmitId())
+                    .build();
 
             if (!StringUtils.isEmpty(msg) && !Objects.equals(status, Constants.Judge.STATUS_COMPILE_ERROR.getStatus())) {
                 judgeCase.setUserOutput(msg);
