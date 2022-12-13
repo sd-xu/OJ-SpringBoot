@@ -21,8 +21,8 @@ import java.util.List;
  */
 public class Compiler {
 
-    public static String compile(LanguageConfig languageConfig, String code,
-                                 String language, HashMap<String, String> extraFiles) throws SystemError, CompileError, SubmitError {
+    public static String compile(LanguageConfig languageConfig, String code, String language)
+            throws SystemError, CompileError, SubmitError {
 
         if (languageConfig == null) {
             throw new RuntimeException("Unsupported language " + language);
@@ -38,7 +38,6 @@ public class Compiler {
                 parseCompileCommand(languageConfig.getCompileCommand()),
                 languageConfig.getCompileEnvs(),
                 code,
-                extraFiles,
                 true,
                 false,
                 null

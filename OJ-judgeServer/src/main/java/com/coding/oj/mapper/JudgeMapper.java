@@ -13,4 +13,10 @@ import java.util.Map;
 @Mapper
 public interface JudgeMapper {
 
+    Judge selectByPrimaryKey(@Param("submitId") Long submitId);
+
+    int updateByPrimaryKey(Judge record);
+
+    int updateStatusByPrimaryKey(@Param("status") Integer status, @Param("submitId") Long submitId);
+
 }

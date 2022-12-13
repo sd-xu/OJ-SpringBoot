@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.oj.mapper.JudgeServerMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.JudgeServer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="port" property="port" jdbcType="INTEGER" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="cpu_core" property="cpuCore" jdbcType="INTEGER" />
+    <result column="task_number" property="taskNumber" jdbcType="INTEGER" />
+    <result column="max_task_number" property="maxTaskNumber" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="is_remote" property="isRemote" jdbcType="BIT" />
+    <result column="cf_submittable" property="cfSubmittable" jdbcType="BIT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+</mapper>

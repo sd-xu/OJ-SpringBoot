@@ -14,6 +14,8 @@
     <result column="group_num" property="groupNum" jdbcType="INTEGER" />
     <result column="seq" property="seq" jdbcType="INTEGER" />
     <result column="mode" property="mode" jdbcType="VARCHAR" />
+    <result column="input_data" property="inputData" jdbcType="VARCHAR" />
+    <result column="output_data" property="outputData" jdbcType="VARCHAR" />
     <result column="user_output" property="userOutput" jdbcType="VARCHAR" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
@@ -30,12 +32,12 @@
       pid, case_id, status,
       time, memory, score,
       group_num, seq, mode,
-      user_output)
+      input_data, output_data, user_output)
     values (#{id,jdbcType=BIGINT}, #{submitId,jdbcType=BIGINT}, #{uid,jdbcType=INTEGER},
       #{pid,jdbcType=BIGINT}, #{caseId,jdbcType=BIGINT}, #{status,jdbcType=INTEGER},
       #{time,jdbcType=INTEGER}, #{memory,jdbcType=INTEGER}, #{score,jdbcType=INTEGER},
       #{groupNum,jdbcType=INTEGER}, #{seq,jdbcType=INTEGER}, #{mode,jdbcType=VARCHAR},
-      #{userOutput,jdbcType=VARCHAR})
+      #{inputData,jdbcType=VARCHAR}, #{outputData,jdbcType=VARCHAR}, #{userOutput,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.coding.oj.pojo.entity.JudgeCase" >
     update judge_case
@@ -47,6 +49,8 @@
       group_num = #{groupNum,jdbcType=INTEGER},
       seq = #{seq,jdbcType=INTEGER},
       mode = #{mode,jdbcType=VARCHAR},
+      input_data = #{inputData,jdbcType=VARCHAR},
+      output_data = #{outputData,jdbcType=VARCHAR},
       user_output = #{userOutput,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
       and submit_id = #{submitId,jdbcType=BIGINT}
@@ -55,7 +59,7 @@
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
     select id, submit_id, uid, pid, case_id, status, time, memory, score, group_num, 
-    seq, mode, user_output, gmt_create, gmt_modified
+    seq, mode, input_data, output_data, user_output, gmt_create, gmt_modified
     from judge_case
     where id = #{id,jdbcType=BIGINT}
       and submit_id = #{submitId,jdbcType=BIGINT}
@@ -64,7 +68,7 @@
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
     select id, submit_id, uid, pid, case_id, status, time, memory, score, group_num, 
-    seq, mode, user_output, gmt_create, gmt_modified
+    seq, mode, input_data, output_data, user_output, gmt_create, gmt_modified
     from judge_case
   </select>
 </mapper>

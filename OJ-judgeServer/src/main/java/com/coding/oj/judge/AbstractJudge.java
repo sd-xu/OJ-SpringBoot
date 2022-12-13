@@ -18,12 +18,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * @Author: Himit_ZH
- * @Date: 2022/1/2 20:46
  * @Description:
  */
 public abstract class AbstractJudge {
-/*
+
     protected static final int SPJ_PC = 99;
 
     protected static final int SPJ_AC = 100;
@@ -41,12 +39,8 @@ public abstract class AbstractJudge {
         JSONArray judgeResultList = judgeCase(judgeDTO, judgeGlobalDTO);
 
         switch (judgeGlobalDTO.getJudgeMode()) {
-            case SPJ:
-            case TEST:
             case DEFAULT:
                 return process(judgeDTO, judgeGlobalDTO, judgeResultList);
-            case INTERACTIVE:
-                return processMultiple(judgeDTO, judgeGlobalDTO, judgeResultList);
             default:
                 throw new RuntimeException("The problem mode is error:" + judgeGlobalDTO.getJudgeMode());
         }
@@ -176,5 +170,5 @@ public abstract class AbstractJudge {
         if (value == null) return null;
         return EOL_PATTERN.matcher(StrUtil.trimEnd(value)).replaceAll("");
     }
-*/
+
 }
