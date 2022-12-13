@@ -30,11 +30,11 @@ public interface JudgeEntityService {
     List<Judge> selectJudgeByUserId(int userId);
 
     // 通过用户id和程序语言获取评测信息表
-    List<Judge> selectJudgeByLanguage(int userId, Long language);
+    List<Judge> selectJudgeByLanguage(int userId, String language);
 
     // 通过用户id和题目id获取评测信息表
     List<Judge> selectJudgeByProblemId(int userId, Long pid);
 
-    List<Judge> selectByParam(int userId, Long pid, int status, Long lid, String title);
+    List<Judge> selectByParam(int userId, Long pid, int status, String language, String title);
 
 }

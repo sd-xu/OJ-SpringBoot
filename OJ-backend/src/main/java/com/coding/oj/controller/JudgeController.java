@@ -33,10 +33,10 @@ public class JudgeController {
     }
 
     @GetMapping(value = "/getSubmitHistory")
-    public Map<String, Object> getSubmitHistory(Integer userId, Integer status, Long lid, Long pid, String title) {
+    public Map<String, Object> getSubmitHistory(Integer userId, Integer status, String language, Long pid, String title) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        List<Judge> list = judgeEntityService.selectByParam(userId, pid, status, lid, title);
+        List<Judge> list = judgeEntityService.selectByParam(userId, pid, status, language, title);
         modelMap.put("JudgeList", list);
         return modelMap;
     }
@@ -51,10 +51,10 @@ public class JudgeController {
     }
 
     @GetMapping(value = "/languageFilter")
-    public Map<String, Object> languageFilter(Integer userId, Long lid) {
+    public Map<String, Object> languageFilter(Integer userId, String language) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        List<Judge> list = judgeEntityService.selectJudgeByLanguage(userId, lid);
+        List<Judge> list = judgeEntityService.selectJudgeByLanguage(userId, language);
         modelMap.put("JudgeList", list);
         return modelMap;
     }

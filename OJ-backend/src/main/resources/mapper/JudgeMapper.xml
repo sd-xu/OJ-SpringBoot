@@ -15,7 +15,7 @@
     <result column="score" property="score" jdbcType="INTEGER" />
     <result column="length" property="length" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="VARCHAR" />
-    <result column="lid" property="lid" jdbcType="BIGINT" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
     <result column="judger" property="judger" jdbcType="VARCHAR" />
     <result column="ip" property="ip" jdbcType="VARCHAR" />
     <result column="vjudge_submit_id" property="vjudgeSubmitId" jdbcType="BIGINT" />
@@ -36,14 +36,14 @@
       username, submit_time, status, 
       share, error_message, time, 
       memory, score, length, 
-      code, lid, judger,
+      code, language, judger,
       ip, vjudge_submit_id, vjudge_username, 
       vjudge_password, is_manual)
     values (#{submitId,jdbcType=BIGINT}, #{pid,jdbcType=BIGINT}, #{uid,jdbcType=INTEGER}, 
       #{username,jdbcType=VARCHAR}, #{submitTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
       #{share,jdbcType=BIT}, #{errorMessage,jdbcType=VARCHAR}, #{time,jdbcType=INTEGER}, 
       #{memory,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, #{length,jdbcType=INTEGER}, 
-      #{code,jdbcType=VARCHAR}, #{lid,jdbcType=BIGINT}, #{judger,jdbcType=VARCHAR},
+      #{code,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{judger,jdbcType=VARCHAR},
       #{ip,jdbcType=VARCHAR}, #{vjudgeSubmitId,jdbcType=BIGINT}, #{vjudgeUsername,jdbcType=VARCHAR}, 
       #{vjudgePassword,jdbcType=VARCHAR}, #{isManual,jdbcType=BIT})
   </insert>
@@ -59,7 +59,7 @@
       score = #{score,jdbcType=INTEGER},
       length = #{length,jdbcType=INTEGER},
       code = #{code,jdbcType=VARCHAR},
-      lid = #{lid,jdbcType=BIGINT},
+      language = #{language,jdbcType=VARCHAR},
       judger = #{judger,jdbcType=VARCHAR},
       ip = #{ip,jdbcType=VARCHAR},
       vjudge_submit_id = #{vjudgeSubmitId,jdbcType=BIGINT},
@@ -83,7 +83,7 @@
         score = #{score,jdbcType=INTEGER},
         length = #{length,jdbcType=INTEGER},
         code = #{code,jdbcType=VARCHAR},
-        lid = #{lid,jdbcType=BIGINT},
+        language = #{lid,jdbcType=VARCHAR},
         judger = #{judger,jdbcType=VARCHAR},
         ip = #{ip,jdbcType=VARCHAR},
         vjudge_submit_id = #{vjudgeSubmitId,jdbcType=BIGINT},
@@ -130,14 +130,14 @@
     select *
     from judge
     where uid = #{userId,jdbcType=BIGINT}
-    and   lid = #{lid,jdbcType=BIGINT}
+    and   language = #{language,jdbcType=VARCHAR}
   </select>
 
   <select id="selectByUserIdAndPid" resultMap="BaseResultMap" parameterType="map" >
     select *
     from judge
     where uid = #{userId,jdbcType=BIGINT}
-      and   pid = #{pid,jdbcType=BIGINT}
+      and pid = #{pid,jdbcType=BIGINT}
   </select>
 
   <select id="selectByPidAndStatus" resultMap="BaseResultMap" parameterType="map" >
@@ -152,7 +152,7 @@
     select *
     from judge
     where uid = #{userId,jdbcType=BIGINT}
-      and lid = #{lid,jdbcType=BIGINT}
+      and language = #{lid,jdbcType=VARCHAR}
       and pid = #{pid,jdbcType=BIGINT}
   </select>
 
@@ -169,8 +169,8 @@
       <if test="status &gt; -11 and status &lt; 10">
         and j.status = #{status,jdbcType=BIGINT}
       </if>
-      <if test="lid &gt; 0">
-        and j.lid = #{lid,jdbcType=BIGINT}
+      <if test="language != '' and title != null">
+        and j.language = #{language,jdbcType=VARCHAR}
       </if>
       <if test="title != '' and title != null">
         and j.pid = p.id and p.title like '%${title}%'
@@ -194,10 +194,10 @@
   </select>
 
   <select id="getUsualLanguage" resultType="String" parameterType="map" >
-    select name
+    select language
     from language
-        where lid =(select lid from judge where uid = #{userId,jdbcType=BIGINT}
-    GROUP BY `lid`  ORDER BY COUNT(1) DESC LIMIT 1 )
+        where language =(select language from judge where uid = #{userId,jdbcType=BIGINT}
+    GROUP BY `language` ORDER BY COUNT(1) DESC LIMIT 1 )
   </select>
 
 <select id="getMaxSubmit" resultType="int" parameterType="map" >
@@ -211,7 +211,7 @@
     select difficulty
     from judge j,problem p
 		where uid = #{userId,jdbcType=BIGINT} and j.pid = p.id
-    GROUP BY `difficulty`  ORDER BY COUNT(1) DESC LIMIT 1
+    GROUP BY `difficulty` ORDER BY COUNT(1) DESC LIMIT 1
 
   </select>
 

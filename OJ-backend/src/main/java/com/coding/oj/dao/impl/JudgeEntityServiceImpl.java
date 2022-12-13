@@ -79,7 +79,7 @@ public class JudgeEntityServiceImpl implements JudgeEntityService {
     }
 
     @Override
-    public List<Judge> selectJudgeByLanguage(int userId, Long language) {
+    public List<Judge> selectJudgeByLanguage(int userId, String language) {
         return judgeMapper.selectByUserIdAndLanguage(userId, language);
     }
 
@@ -89,7 +89,7 @@ public class JudgeEntityServiceImpl implements JudgeEntityService {
     }
 
     @Override
-    public List<Judge> selectByParam(int userId, Long pid, int status, Long lid, String title) {
-        return judgeMapper.selectByAllParam(userId, pid, status, lid, title);
+    public List<Judge> selectByParam(int userId, Long pid, int status, String language, String title) {
+        return judgeMapper.selectByAllParam(userId, pid, status, language, title);
     }
 }

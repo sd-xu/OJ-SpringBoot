@@ -50,9 +50,9 @@ public class JudgeServiceTest {
     }
     @Test
     public void selectByParam() {
-        int userId=1; Long pid=1L; int status=1; Long lid=-1L;
-        List<Judge> list = new ArrayList<>();
-        list = judgeEntityService.selectByParam(userId, pid, status, lid, null);
-        assertEquals(1,list.size());
+        int userId=1; Long pid=1L; int status=1; String language="C++";
+        List<Judge> list;
+        list = judgeEntityService.selectByParam(userId, pid, status, language, null);
+        assertEquals(1, list.size());
     }
 }

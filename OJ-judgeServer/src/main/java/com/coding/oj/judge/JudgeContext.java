@@ -60,7 +60,7 @@ public class JudgeContext {
         // score
         finalJudgeRes.setScore((Integer) judgeResult.getOrDefault("score", null));
         // oi_rank_score
-        finalJudgeRes.setOiRankScore((Integer) judgeResult.getOrDefault("oiRankScore", null));
+        //finalJudgeRes.setOiRankScore((Integer) judgeResult.getOrDefault("oiRankScore", null));
 
         return finalJudgeRes;
     }

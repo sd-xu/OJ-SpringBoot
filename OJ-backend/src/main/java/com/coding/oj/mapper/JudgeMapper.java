@@ -27,13 +27,13 @@ public interface JudgeMapper {
 
     List<Judge> selectByStatus(int status);
 
-    List<Judge> selectByUserIdAndStatus(@Param("userId")int userId,@Param("status")int status);
+    List<Judge> selectByUserIdAndStatus(@Param("userId") int userId, @Param("status") int status);
 
     List<Judge> selectByUserId(int userId);
 
-    List<Judge> selectByUserIdAndLanguage(@Param("userId")int userId,@Param("lid")Long lid);
+    List<Judge> selectByUserIdAndLanguage(@Param("userId") int userId, @Param("language") String language);
 
-    List<Judge> selectByUserIdAndPid(@Param("userId")int userId,@Param("pid")Long pid);
+    List<Judge> selectByUserIdAndPid(@Param("userId") int userId, @Param("pid") Long pid);
 
     int getProblemNum(int userId);
 
@@ -48,14 +48,14 @@ public interface JudgeMapper {
 
     int lastDateCount(int userId);
 
-    List<Judge> selectByPidAndStatus(@Param("userId")int userId, @Param("pid")Long pid, @Param("status")int status);
+    List<Judge> selectByPidAndStatus(@Param("userId") int userId, @Param("pid")Long pid, @Param("status") int status);
 
-    List<Judge> selectByPidAndLanguage(@Param("userId")int userId, @Param("pid")Long pid, @Param("lid")Long lid);
+    List<Judge> selectByPidAndLanguage(@Param("userId") int userId, @Param("pid") Long pid, @Param("language") String language);
 
-    List<Judge> selectByAllParam(@Param("userId")int userId, @Param("pid")Long pid, @Param("status")int status, @Param("lid")Long lid, @Param("title")String title);
+    List<Judge> selectByAllParam(@Param("userId") int userId, @Param("pid") Long pid, @Param("status") int status, @Param("lid") String lid, @Param("title") String title);
 
     @MapKey("uid")
-    List<Map<?, ?>> getRank(@Param("rankSize")int rankSize);
+    List<Map<?, ?>> getRank(@Param("rankSize") int rankSize);
 
     @MapKey("date")
     List<Map<?, ?>> selectSolvedProblemNumInDate(@Param("userId") int userId);

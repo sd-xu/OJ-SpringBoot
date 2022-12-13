@@ -32,7 +32,7 @@ public class Judge {
 
     private String code;
 
-    private Long lid;
+    private String language;
 
     private String judger;
 
