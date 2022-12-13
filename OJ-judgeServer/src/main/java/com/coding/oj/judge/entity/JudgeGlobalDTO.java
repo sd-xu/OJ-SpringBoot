@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.util.HashMap;
+
 
 /**
  * @Description: 一次评测全局通用的传输实体类

@@ -8,6 +8,4 @@ public interface JudgeService {
 
     public void judge(Judge judge);
 
-    public TestJudgeRes testJudge(TestJudgeReq testJudgeReq);
-
 }

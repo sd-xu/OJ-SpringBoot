@@ -99,16 +99,11 @@ public class DefaultJudge extends AbstractJudge {
         return result;
     }
 
-    @Override
-    public JSONObject checkMultipleResult(SandBoxRes userSandBoxRes, SandBoxRes interactiveSandBoxRes, JudgeDTO judgeDTO, JudgeGlobalDTO judgeGlobalDTO) {
-        return null;
-    }
-
     // 根据评测结果与用户程序输出的字符串MD5进行对比
     private Integer compareOutput(String userOutput, Boolean isRemoveEOLBlank, JSONObject testcaseInfo) {
 
         // 如果当前题目选择默认去掉字符串末位空格
-        if (isRemoveEOLBlank) {
+        if (Boolean.TRUE.equals(isRemoveEOLBlank)) {
             String userOutputMd5 = DigestUtils.md5DigestAsHex(rtrim(userOutput).getBytes(StandardCharsets.UTF_8));
             if (userOutputMd5.equals(testcaseInfo.getStr("EOFStrippedOutputMd5"))) {
                 return Constants.Judge.STATUS_ACCEPTED.getStatus();

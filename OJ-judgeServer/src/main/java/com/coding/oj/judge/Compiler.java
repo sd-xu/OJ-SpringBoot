@@ -44,6 +44,7 @@ public class Compiler {
         );
         JSONObject compileResult = (JSONObject) result.get(0);
         if (compileResult.getInt("status").intValue() != Constants.Judge.STATUS_ACCEPTED.getStatus()) {
+
             throw new CompileError("Compile Error.", ((JSONObject) compileResult.get("files")).getStr("stdout"),
                     ((JSONObject) compileResult.get("files")).getStr("stderr"));
         }
@@ -53,6 +54,7 @@ public class Compiler {
             throw new SubmitError("Executable file not found.", ((JSONObject) compileResult.get("files")).getStr("stdout"),
                     ((JSONObject) compileResult.get("files")).getStr("stderr"));
         }
+
         return fileId;
     }
 

@@ -1,8 +1,7 @@
 package com.coding.oj.judge.entity;
 
 /**
- * @Author Himit_ZH
- * @Date 2022/8/29
+ *
  */
 public class Pair_<T1, T2> {
 

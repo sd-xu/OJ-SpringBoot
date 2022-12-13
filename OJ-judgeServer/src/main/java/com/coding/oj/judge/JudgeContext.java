@@ -1,8 +1,6 @@
 package com.coding.oj.judge;
 
 import com.coding.oj.judge.entity.LanguageConfig;
-import com.coding.oj.pojo.dto.TestJudgeReq;
-import com.coding.oj.pojo.dto.TestJudgeRes;
 import com.coding.oj.pojo.entity.Judge;
 import com.coding.oj.pojo.entity.Problem;
 import com.coding.oj.utils.Constants;
@@ -13,8 +11,6 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 
 /**
- * @Author: Himit_ZH
- * @Date: 2022/3/12 15:49
  * @Description:
  */
 @Component
@@ -26,7 +22,7 @@ public class JudgeContext {
     @Resource
     private LanguageConfigLoader languageConfigLoader;
 
-    public Judge Judge(Problem problem, Judge judge) {
+    public Judge judge(Problem problem, Judge judge) {
 
         // c和c++为一倍时间和空间，其它语言为2倍时间和空间
         LanguageConfig languageConfig = languageConfigLoader.getLanguageConfigByName(judge.getLanguage());
@@ -37,7 +33,7 @@ public class JudgeContext {
             problem.setMemoryLimit(problem.getMemoryLimit() * 2);
         }
 
-        HashMap<String, Object> judgeResult = judgeStrategy.judge(problem, judge);
+        HashMap<String, Object> judgeResult = (HashMap<String, Object>) judgeStrategy.judge(problem, judge);
 
         Judge finalJudgeRes = new Judge();
         finalJudgeRes.setSubmitId(judge.getSubmitId());
@@ -64,18 +60,6 @@ public class JudgeContext {
         finalJudgeRes.setScore((Integer) judgeResult.getOrDefault("score", null));
 
         return finalJudgeRes;
-    }
-
-    public TestJudgeRes testJudge(TestJudgeReq testJudgeReq) {
-        // c和c++为一倍时间和空间，其它语言为2倍时间和空间
-        LanguageConfig languageConfig = languageConfigLoader.getLanguageConfigByName(testJudgeReq.getLanguage());
-        if (languageConfig.getSrcName() == null
-                || (!languageConfig.getSrcName().endsWith(".c")
-                && !languageConfig.getSrcName().endsWith(".cpp"))) {
-            testJudgeReq.setTimeLimit(testJudgeReq.getTimeLimit() * 2);
-            testJudgeReq.setMemoryLimit(testJudgeReq.getMemoryLimit() * 2);
-        }
-        return judgeStrategy.testJudge(testJudgeReq);
     }
 
 }

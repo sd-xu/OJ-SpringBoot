@@ -6,8 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * @Author: Himit_ZH
- * @Date: 2022/1/3 15:27
  * @Description: 单个测评结果实体类
  */
 @Data

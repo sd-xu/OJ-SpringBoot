@@ -20,5 +20,20 @@
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
   </resultMap>
+    <insert id="insertBatch" parameterType="java.util.List">
+      insert into judge_case (id, submit_id, uid,
+        pid, case_id, status,
+        time, memory, score,
+        group_num, seq, mode,
+        input_data, output_data, user_output)
+      values
+      <foreach collection="judgeCaseList" item="judgeCase" separator=",">
+        (#{judgeCase.id,jdbcType=BIGINT}, #{judgeCase.submitId,jdbcType=BIGINT}, #{judgeCase.uid,jdbcType=INTEGER},
+        #{judgeCase.pid,jdbcType=BIGINT}, #{judgeCase.caseId,jdbcType=BIGINT}, #{judgeCase.status,jdbcType=INTEGER},
+        #{judgeCase.time,jdbcType=INTEGER}, #{judgeCase.memory,jdbcType=INTEGER}, #{judgeCase.score,jdbcType=INTEGER},
+        #{judgeCase.groupNum,jdbcType=INTEGER}, #{judgeCase.seq,jdbcType=INTEGER}, #{judgeCase.mode,jdbcType=VARCHAR},
+        #{judgeCase.inputData,jdbcType=VARCHAR}, #{judgeCase.outputData,jdbcType=VARCHAR}, #{judgeCase.userOutput,jdbcType=VARCHAR})
+      </foreach>
+    </insert>
 
 </mapper>

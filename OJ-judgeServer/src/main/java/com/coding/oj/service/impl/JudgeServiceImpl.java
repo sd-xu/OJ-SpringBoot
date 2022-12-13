@@ -46,17 +46,12 @@ public class JudgeServiceImpl implements JudgeService {
 
         // 进行判题操作
         Problem problem = problemEntityService.selectProblemById(judge.getPid());
-        Judge finalJudgeRes = judgeContext.Judge(problem, judge);
+        Judge finalJudgeRes = judgeContext.judge(problem, judge);
 
         // 更新该次提交
         judgeEntityService.updateById(finalJudgeRes);
 
         // 要更新其他表吗 ?
-    }
-
-    @Override
-    public TestJudgeRes testJudge(TestJudgeReq testJudgeReq) {
-        return judgeContext.testJudge(testJudgeReq);
     }
 
 }

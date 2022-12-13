@@ -22,9 +22,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 /**
- * @Author: Himit_ZH
- * @Date: 2021/4/16 12:15
- * @Description: 判题流程解耦重构3.0，该类负责输入数据进入程序进行测评
+ * @Description: 判题流程解耦重构，该类负责输入数据进入程序进行测评
  */
 @Component
 public class JudgeRun {
@@ -132,7 +130,7 @@ public class JudgeRun {
                     .build();
 
             futureTasks.add(new FutureTask<>(() -> {
-                JSONObject result = abstractJudge.judge(judgeDTO, judgeGlobalDTO);
+                JSONObject result = abstractJudge.judge(judgeDTO, judgeGlobalDTO); // 判断部分, 看这里 !!
                 result.set("caseId", caseId);
                 result.set("score", judgeDTO.getScore());
                 result.set("inputFileName", judgeDTO.getTestCaseInputFileName());
@@ -143,7 +141,7 @@ public class JudgeRun {
             }));
 
         }
-        return SubmitBatchTask2ThreadPool(futureTasks);
+        return SubmitBatchTask2ThreadPool(futureTasks); // 这里提交线程池干嘛 ?
     }
 
     private AbstractJudge getAbstractJudge(Constants.JudgeMode judgeMode) {

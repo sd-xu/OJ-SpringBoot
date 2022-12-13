@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Author: Himit_ZH
- * @Date: 2021/1/23 13:44
  * @Description:
  */
 
@@ -66,7 +64,7 @@ public class SandboxRun {
 
     private static final String SANDBOX_BASE_URL = "http://localhost:5050";
 
-    public static final HashMap<String, Integer> RESULT_MAP_STATUS = new HashMap<>();
+    public static final Map<String, Integer> RESULT_MAP_STATUS = new HashMap<>();
 
     private static final int maxProcessNumber = 128;
 
@@ -253,11 +251,11 @@ public class SandboxRun {
         cmd.set("copyIn", copyIn);
         cmd.set("copyOut", new JSONArray().put("stdout").put("stderr"));
 
-        if (needCopyOutCached) {
+        if (Boolean.TRUE.equals(needCopyOutCached)) {
             cmd.set("copyOutCached", new JSONArray().put(exeName));
         }
 
-        if (needCopyOutExe) {
+        if (Boolean.TRUE.equals(needCopyOutExe)) {
             cmd.set("copyOutDir", copyOutDir);
         }
 
