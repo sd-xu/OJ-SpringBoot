@@ -3,7 +3,7 @@ package com.coding.oj.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.coding.oj.dao.JudgeEntityService;
-import com.coding.oj.dao.ProblemService;
+import com.coding.oj.dao.ProblemEntityService;
 import com.coding.oj.judge.JudgeContext;
 import com.coding.oj.pojo.dto.TestJudgeReq;
 import com.coding.oj.pojo.dto.TestJudgeRes;
@@ -14,8 +14,6 @@ import com.coding.oj.utils.Constants;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import java.util.Objects;
 
 /**
  * @Description:
@@ -33,7 +31,7 @@ public class JudgeServiceImpl implements JudgeService {
     private JudgeService judgeService;
 
     @Resource
-    private ProblemService problemService;
+    private ProblemEntityService problemEntityService;
 
     @Resource
     private JudgeContext judgeContext;
@@ -56,7 +54,26 @@ public class JudgeServiceImpl implements JudgeService {
         }
 
         // 进行判题操作
-        Problem problem = problemService.selectProblemById(judge.getPid());
+        QueryWrapper<Problem> problemQueryWrapper = new QueryWrapper<>();
+        problemQueryWrapper.select("id",
+                        //"type",
+                        //"io_score",
+                        "difficulty",
+                        //"judge_mode",
+                        //"judge_case_mode",
+                        "time_limit",
+                        "memory_limit",
+                        "stack_limit"
+                        //"user_extra_file",
+                        //"judge_extra_file",
+                        //"case_version",
+                        //"spj_code",
+                        //"spj_language",
+                        //"problem_id",
+                        //"is_remove_end_blank"
+                        )
+                .eq("id", judge.getPid());
+        Problem problem = problemEntityService.getOne(problemQueryWrapper);
         Judge finalJudgeRes = judgeContext.Judge(problem, judge);
 
         // 更新该次提交

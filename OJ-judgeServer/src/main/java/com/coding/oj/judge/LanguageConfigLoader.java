@@ -15,12 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * @Author Himit_ZH
- * @Date 2022/11/22
- */
 @Component
-@Slf4j(topic = "hoj")
+@Slf4j(topic = "oj")
 public class LanguageConfigLoader {
 
     private static List<String> defaultEnv = Arrays.asList(

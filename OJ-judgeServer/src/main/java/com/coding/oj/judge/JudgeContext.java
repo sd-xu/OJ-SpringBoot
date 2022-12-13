@@ -41,6 +41,7 @@ public class JudgeContext {
 
         Judge finalJudgeRes = new Judge();
         finalJudgeRes.setSubmitId(judge.getSubmitId());
+
         // 如果是编译失败、提交错误或者系统错误就有错误提醒
         if (judgeResult.get("code") == Constants.Judge.STATUS_COMPILE_ERROR.getStatus() ||
                 judgeResult.get("code") == Constants.Judge.STATUS_SYSTEM_ERROR.getStatus() ||
@@ -48,8 +49,10 @@ public class JudgeContext {
                 judgeResult.get("code") == Constants.Judge.STATUS_SUBMITTED_FAILED.getStatus()) {
             finalJudgeRes.setErrorMessage((String) judgeResult.getOrDefault("errMsg", ""));
         }
+
         // 设置最终结果状态码
         finalJudgeRes.setStatus((Integer) judgeResult.get("code"));
+
         // 设置最大时间和最大空间不超过题目限制时间和空间
         // kb
         Integer memory = (Integer) judgeResult.get("memory");

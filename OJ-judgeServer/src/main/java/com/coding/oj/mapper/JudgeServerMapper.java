@@ -9,15 +9,4 @@ import java.util.List;
 @Mapper
 public interface JudgeServerMapper extends BaseMapper<JudgeServer> {
 
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(JudgeServer record);
-
-    JudgeServer selectByPrimaryKey(Integer id);
-
-    List<JudgeServer> selectAll();
-
-    int updateByPrimaryKey(JudgeServer record);
-
-    int updateTaskNum(Integer id);
 }

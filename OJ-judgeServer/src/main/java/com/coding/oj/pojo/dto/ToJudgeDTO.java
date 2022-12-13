@@ -37,7 +37,6 @@ public class ToJudgeDTO implements Serializable {
      */
     private Integer judgeServerPort;
 
-
     private Integer size;
 
 }
