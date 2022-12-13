@@ -7,6 +7,6 @@ import com.coding.oj.pojo.entity.Judge;
  * 服务类
  *
  */
-public interface JudgeEntityService extends IService<Judge> {
+public interface JudgeEntityService {
 
 }
