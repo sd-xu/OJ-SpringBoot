@@ -41,6 +41,9 @@ public class JudgeDispatcherTest {
             boolean isOk;
             isOk = redisUtils.llPush(Constants.Queue.GENERAL_JUDGE_WAITING.getName(), JSONUtil.toJsonStr(task));
             System.out.println(isOk);
+            System.out.println( redisUtils.lGetListSize(Constants.Queue.GENERAL_JUDGE_WAITING.getName()));
+            String taskstr = (String) redisUtils.lrPop(Constants.Queue.GENERAL_JUDGE_WAITING.getName());
+            System.out.println(taskstr);
             if (!isOk) {
                 System.out.println("redis有点小错误");
             }
