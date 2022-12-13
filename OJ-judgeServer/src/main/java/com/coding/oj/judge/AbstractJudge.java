@@ -4,13 +4,14 @@ import cn.hutool.core.util.ReUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
+import com.coding.oj.common.exception.SystemError;
+import com.coding.oj.judge.entity.JudgeDTO;
+import com.coding.oj.judge.entity.JudgeGlobalDTO;
+import com.coding.oj.judge.entity.SandBoxRes;
+import com.coding.oj.utils.Constants;
+import com.coding.oj.utils.JudgeUtils;
 import org.springframework.util.StringUtils;
-import top.hcode.hoj.common.exception.SystemError;
-import top.hcode.hoj.judge.entity.JudgeDTO;
-import top.hcode.hoj.judge.entity.JudgeGlobalDTO;
-import top.hcode.hoj.judge.entity.SandBoxRes;
-import top.hcode.hoj.util.Constants;
-import top.hcode.hoj.util.JudgeUtils;
+
 
 import java.io.File;
 import java.util.List;
@@ -22,7 +23,7 @@ import java.util.regex.Pattern;
  * @Description:
  */
 public abstract class AbstractJudge {
-
+/*
     protected static final int SPJ_PC = 99;
 
     protected static final int SPJ_AC = 100;
@@ -175,4 +176,5 @@ public abstract class AbstractJudge {
         if (value == null) return null;
         return EOL_PATTERN.matcher(StrUtil.trimEnd(value)).replaceAll("");
     }
+*/
 }

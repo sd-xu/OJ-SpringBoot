@@ -11,6 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 @Mapper
-public interface JudgeMapper extends BaseMapper<Judge> {
+public interface JudgeMapper {
 
 }

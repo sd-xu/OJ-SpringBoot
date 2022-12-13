@@ -10,6 +10,6 @@ import org.springframework.stereotype.Service;
  * 服务实现类
  */
 @Service
-public class JudgeEntityServiceImpl extends ServiceImpl<JudgeMapper, Judge> implements JudgeEntityService {
+public class JudgeEntityServiceImpl implements JudgeEntityService {
 
 }

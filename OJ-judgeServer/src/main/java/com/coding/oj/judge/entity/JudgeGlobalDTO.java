@@ -1,11 +1,11 @@
 package com.coding.oj.judge.entity;
 
 import cn.hutool.json.JSONObject;
+import com.coding.oj.utils.Constants;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import top.hcode.hoj.util.Constants;
 
 import java.io.Serializable;
 import java.util.HashMap;

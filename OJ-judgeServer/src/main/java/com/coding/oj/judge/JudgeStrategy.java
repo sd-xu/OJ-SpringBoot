@@ -19,28 +19,14 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-import top.hcode.hoj.common.exception.CompileError;
-import top.hcode.hoj.common.exception.SubmitError;
-import top.hcode.hoj.common.exception.SystemError;
-import top.hcode.hoj.dao.JudgeCaseEntityService;
-import top.hcode.hoj.dao.JudgeEntityService;
-import top.hcode.hoj.judge.entity.LanguageConfig;
-import top.hcode.hoj.judge.entity.Pair_;
-import top.hcode.hoj.pojo.dto.TestJudgeReq;
-import top.hcode.hoj.pojo.dto.TestJudgeRes;
-import top.hcode.hoj.pojo.entity.judge.Judge;
-import top.hcode.hoj.pojo.entity.judge.JudgeCase;
-import top.hcode.hoj.pojo.entity.problem.Problem;
-import top.hcode.hoj.util.Constants;
-import top.hcode.hoj.util.JudgeUtils;
 
-import javax.annotation.Resource;
 import java.io.File;
 import java.util.*;
 
 @Slf4j(topic = "hoj")
 @Component
 public class JudgeStrategy {
+/*
 
     @Resource
     private JudgeEntityService judgeEntityService;
@@ -490,4 +476,6 @@ public class JudgeStrategy {
             return infoJudgeCaseMode;
         }
     }
+
+ */
 }

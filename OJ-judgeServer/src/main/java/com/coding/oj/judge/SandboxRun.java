@@ -3,6 +3,8 @@ package com.coding.oj.judge;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.coding.oj.common.exception.SystemError;
+import com.coding.oj.utils.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,8 +14,6 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
-import top.hcode.hoj.common.exception.SystemError;
-import top.hcode.hoj.util.Constants;
 
 import java.util.Arrays;
 import java.util.HashMap;
