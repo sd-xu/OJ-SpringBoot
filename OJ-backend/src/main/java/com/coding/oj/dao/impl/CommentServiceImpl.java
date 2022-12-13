@@ -9,7 +9,10 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CommentServiceImpl implements CommentService {
@@ -43,13 +46,27 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> getCommentByAid(Long aid, int pageNum, int pageSize) {
+    public List<Map<String,Object>> getCommentByAid(Long aid, Integer uid, int pageNum, int pageSize) {
         // 查询功能之前开启分页功能
+        List<Map<String,Object>> commentMap = new ArrayList<>();
         Page<Object> page = PageHelper.startPage(pageNum, pageSize);
-        List<Comment> list = commentMapper.selectByAid(aid);
+        List<Comment> commentList = commentMapper.selectByAid(aid);
+        PageInfo<Comment> pageInfo = new PageInfo<>(commentList);
+        commentList = pageInfo.getList();
+        boolean ifLike;
         // 查询功能之后可以获取分页相关的所有数据
-        PageInfo<Comment> pageInfo = new PageInfo<>(list);
-        return pageInfo.getList();
+        for (Comment comment : commentList) {
+            Map<String,Object> map = new HashMap<>();
+            map.put("Comment",comment);
+            Long cid = comment.getId();
+            if(commentMapper.selectCommentLike(cid) != null)
+                ifLike = true;
+            else
+                ifLike = false;
+            map.put("ifLike",ifLike);
+            commentMap.add(map);
+        }
+        return commentMap;
     }
 
     @Override

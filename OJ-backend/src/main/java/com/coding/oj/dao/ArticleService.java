@@ -4,6 +4,7 @@ import com.coding.oj.pojo.entity.Article;
 import org.springframework.data.util.Pair;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ArticleService {
     List<Article> getArticleList();
@@ -14,7 +15,7 @@ public interface ArticleService {
 
     boolean addArticle(Article article);
 
-    Article getArticleById(Long id);
+    Map<String,Object> getArticleById(Long id, Integer uid);
 
     boolean deleteArticle(Long id);
 

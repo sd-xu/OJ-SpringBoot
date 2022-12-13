@@ -1,6 +1,7 @@
 package com.coding.oj.mapper;
 
 import com.coding.oj.pojo.entity.Article;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.data.util.Pair;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -23,4 +24,8 @@ public interface ArticleMapper {
     List<Pair<String, String>> selectSortPercent();
 
     List<Article> selectRecommendation();
+
+    Article selectArticleStar(@Param("id") Long id,@Param("uid") Integer uid);
+
+    Article selectArticleLike(@Param("id") Long id,@Param("uid") Integer uid);
 }

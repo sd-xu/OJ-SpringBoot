@@ -49,4 +49,9 @@
     from comment a,comment b
     where a.parent_id =b.id and a.parent_id = #{parentId,jdbcType=BIGINT} and b.id = #{parentId,jdbcType=BIGINT}
   </select>
+  <select id="selectCommentLike" resultMap="BaseResultMap" parameterType="map" >
+    select c.*
+    from comment c,like_comment l
+    where aid = #{aid,jdbcType=BIGINT} and c.id = l.cid and c.uid = #{uid}
+  </select>
 </mapper>

@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -48,8 +49,7 @@ public class ArticleServiceTest {
     }
     @Test
     public void getArticleById(){
-        Article article =  articleService.getArticleById(4L);
-        assertEquals(new Long(4),article.getId());
+        System.out.println(articleService.getArticleById(2l,1));
     }
     @Test
     public void deleteArticle(){
@@ -58,12 +58,7 @@ public class ArticleServiceTest {
     }
     @Test
     public void modifyArticle(){
-        Article article = articleService.getArticleById(4L);
-        System.out.println("----"+article);
-        article.setContent("xch最帅了");
-        System.out.println("----"+article);
-        boolean effectNum = articleService.modifyArticle(article);
-        assertEquals(true,effectNum);
+
     }
 
     @Test

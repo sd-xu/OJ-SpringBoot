@@ -58,6 +58,15 @@ public class UserController {
         return modelMap;
     }
 
+    //获取当前用户信息
+    public Map<String, Object> getUser(Integer userId) {
+        Map<String, Object> modelMap = new HashMap<>();
+        // 获取区域列表
+        User user= userService.getUserById(userId);
+        modelMap.put("user", user);
+        return modelMap;
+    }
+
     // 获取当前用户的历史信息
     @GetMapping(value = "/getUserHistory")
     public Map<String, Object> getUserHistory(Integer userId) {

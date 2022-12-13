@@ -122,4 +122,9 @@ public class UserServiceImpl implements UserService {
         return effectNum > 0;
     }
 
+    @Override
+    public User getUserById(Integer userId) {
+        return userMapper.selectByPrimaryKey(userId);
+    }
+
 }

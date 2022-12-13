@@ -38,8 +38,8 @@ public class CommentServiceTest {
 
     @Test
     public void getCommentByAid() {
-        List<Comment> list = commentService.getCommentByAid(1L, 1, 3);
-        list.forEach(System.out::println);
+
+        commentService.getCommentByAid(1l,1,1,3).forEach(System.out::println);
     }
 
     @Test

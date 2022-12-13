@@ -31,11 +31,9 @@ public class ArticleController {
 
     // 根据id获取单个博文的信息
     @GetMapping(value = "/getArticleById")
-    public Map<String, Object> getArticleById(Long id) {
-        Map<String, Object> modelMap = new HashMap<>();
+    public Map<String, Object> getArticleById(Long id,Integer uid) {
+        Map<String, Object> modelMap = articleService.getArticleById(id,uid);
         // 获取区域列表
-        Article article = articleService.getArticleById(id);
-        modelMap.put("article", article);
         return modelMap;
     }
 

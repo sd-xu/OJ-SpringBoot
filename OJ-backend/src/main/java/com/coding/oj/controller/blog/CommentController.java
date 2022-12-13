@@ -47,9 +47,9 @@ public class CommentController {
 
     // 通过aid获取article对应的评论
     @GetMapping(value = "/getArticleComment")
-    public Map<String, Object> getArticleComment(Long aid, Integer pageNum, Integer pageSize) {
+    public Map<String, Object> getArticleComment(Long aid, Integer uid, Integer pageNum, Integer pageSize) {
         Map<String, Object> modelMap = new HashMap<>();
-        List<Comment> list = commentService.getCommentByAid(aid, pageNum, pageSize);
+        List<Map<String,Object>> list = commentService.getCommentByAid(aid, uid, pageNum, pageSize);
         // 获取区域列表
         modelMap.put("commentList", list);
         return modelMap;

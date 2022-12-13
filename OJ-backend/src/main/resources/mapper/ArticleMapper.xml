@@ -82,4 +82,14 @@
   <select id="selectRecommendation" resultType="com.coding.oj.pojo.entity.Article">
     SELECT * FROM article order by like_count desc, comment_count desc;
   </select>
+
+  <select id="selectArticleStar" resultMap="BaseResultMap" parameterType="map">
+    SELECT a.* FROM article a,star s
+    where a.uid = s.uid and a.id = #{id} and a.uid = #{uid};
+  </select>
+
+  <select id="selectArticleLike" resultMap="BaseResultMap" parameterType="map">
+    SELECT a.* FROM article a,like_article l
+    where a.uid = l.uid and a.id = #{id} and a.uid = #{uid};
+  </select>
 </mapper>

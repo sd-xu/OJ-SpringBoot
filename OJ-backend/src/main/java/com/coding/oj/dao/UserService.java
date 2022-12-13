@@ -33,4 +33,5 @@ public interface UserService {
 
     boolean updateUserGender(Integer userId, Integer gender);
 
+    User getUserById(Integer userId);
 }

@@ -4,11 +4,14 @@ import com.coding.oj.mapper.ArticleMapper;
 import com.coding.oj.pojo.entity.Article;
 import com.coding.oj.dao.ArticleService;
 
+import com.coding.oj.pojo.entity.Star;
 import org.springframework.data.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -49,8 +52,40 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Article getArticleById(Long id) {
-        return articleMapper.selectByPrimaryKey(id);
+    public Map<String,Object> getArticleById(Long id,Integer uid) {
+        Map<String,Object> articleMap = new HashMap<>();
+        Article article;
+        boolean ifLike = false;
+        boolean ifSubscribe = false;
+        if(uid <0)
+        {
+            article = articleMapper.selectByPrimaryKey(id);
+            articleMap.put("Article",article);
+            articleMap.put("ifLike",ifLike);
+            articleMap.put("ifSubscribe",ifSubscribe);
+        }
+        else{
+            article = articleMapper.selectArticleLike(id,uid);
+            if(article != null){
+                ifLike = true;
+                articleMap.put("Article",article);
+                articleMap.put("ifLike",ifLike);
+            }
+            article = articleMapper.selectArticleStar(id,uid);
+            if(article != null){
+                ifSubscribe = true;
+                if(!ifLike)
+                    articleMap.put("Article",article);
+                articleMap.put("ifSubscribe",ifSubscribe);
+            }
+            if(!ifLike && !ifSubscribe) {
+                article = articleMapper.selectByPrimaryKey(id);
+                articleMap.put("Article", article);
+                articleMap.put("ifLike", ifLike);
+                articleMap.put("ifSubscribe", ifSubscribe);
+            }
+        }
+        return articleMap;
     }
 
     @Override
