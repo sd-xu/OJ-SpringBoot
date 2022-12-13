@@ -13,8 +13,8 @@ spring:
   datasource:
     username: root
     password: D233
-    url: jdbc:mysql://localhost:3306/oj_database?serverTimezone=UTC
-    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/oj_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
     #Spring Boot 默认是不注入这些属性值的，需要自己绑定
@@ -56,16 +56,20 @@ spring:
           max-active: 20 # 连接池最大连接数（使用负值表示没有限制）
           max-wait: -1   # 连接池最大阻塞等待时间（使用负值表示没有限制）
 
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.coding.oj.pojo.entity
+
 # 配置myBatisPlus
-mybatis-plus:
-  mapper-locations: classpath*:com/coding/oj/mapper/**Mapper.xml
-  type-aliases-package: com.coding.oj.pojo.entity # 配置指定实体类文件路径, 在xml文件中使用时扫描路径内容
-  configuration:
-    map-underscore-to-camel-case: true
-    cache-enabled: true
-  # 关闭打印 mybatis-plus 的 LOGO
-  global-config:
-    banner: false
+#mybatis-plus:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.coding.oj.pojo.entity # 配置指定实体类文件路径, 在xml文件中使用时扫描路径内容
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    cache-enabled: true
+#  # 关闭打印 mybatis-plus 的 LOGO
+#  global-config:
+#    banner: false
 
 # 分页插件
 pagehelper:
