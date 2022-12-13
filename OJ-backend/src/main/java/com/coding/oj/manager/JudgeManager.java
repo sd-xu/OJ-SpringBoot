@@ -44,7 +44,7 @@ public class JudgeManager {
         judge.setPid(judgeDto.getPid());
         judge.setUid(judgeDto.getUid());
         judge.setUsername(judgeDto.getUsername());
-        judge.setLid(judgeDto.getLid());
+        judge.setLanguage(judgeDto.getLanguage());
         judge.setCode(judgeDto.getCode());
         judge.setLength(judgeDto.getCode().length());
         judge.setSubmitTime(new Date());

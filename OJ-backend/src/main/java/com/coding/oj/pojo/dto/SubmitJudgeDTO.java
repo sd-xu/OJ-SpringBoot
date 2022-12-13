@@ -19,7 +19,7 @@ public class SubmitJudgeDTO {
 
     private String username;
 
-    private Long lid;
+    private String language;
 
     private String code;
 
