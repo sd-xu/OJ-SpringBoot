@@ -77,7 +77,8 @@ public class Dispatcher {
             if (judgeServer != null) { // 获取到判题机资源
                 CommonResult result = null;
                 try {
-                    result = restTemplate.postForObject("http://" + judgeServer.getUrl() + path, data, CommonResult.class);
+                    String url = "http://" + judgeServer.getUrl() + path;
+                    result = restTemplate.postForObject(url, data, CommonResult.class);
                 } catch (Exception e) {
                     log.error("[Self Judge] Request the judge server [" + judgeServer.getUrl() + "] error -------------->", e);
                 } finally {
