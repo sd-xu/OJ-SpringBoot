@@ -44,7 +44,7 @@
       vjudge_submit_id = #{vjudgeSubmitId,jdbcType=BIGINT},
       vjudge_username = #{vjudgeUsername,jdbcType=VARCHAR},
       vjudge_password = #{vjudgePassword,jdbcType=VARCHAR},
-      is_manual = #{isManual,jdbcType=BIT},
+      is_manual = #{isManual,jdbcType=BIT}
     where submit_id = #{submitId,jdbcType=BIGINT}
   </update>
 

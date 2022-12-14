@@ -39,6 +39,7 @@ public class JudgeEntityServiceImpl implements JudgeEntityService {
 
         judge.setStatus(status);
         judge.setJudger(judger);
+        System.out.println(judgeMapper.updateByPrimaryKey(judge));
         return judgeMapper.updateByPrimaryKey(judge) > 0;
     }
 

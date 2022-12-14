@@ -47,7 +47,7 @@ public class JudgeServiceImpl implements JudgeService {
         // 进行判题操作
         Problem problem = problemEntityService.selectProblemById(judge.getPid());
         Judge finalJudgeRes = judgeContext.judge(problem, judge);
-
+        System.out.println(finalJudgeRes);
         // 更新该次提交
         judgeEntityService.updateById(finalJudgeRes);
 
