@@ -31,7 +31,7 @@
       and pid = #{pid,jdbcType=BIGINT}
       and uid = #{uid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.coding.oj.pojo.entity.Judge" >
+  <insert id="insert" useGeneratedKeys="true" keyProperty="submitId" parameterType="com.coding.oj.pojo.entity.Judge" >
     insert into judge (submit_id, pid, uid, 
       username, submit_time, status, 
       share, error_message, time, 
