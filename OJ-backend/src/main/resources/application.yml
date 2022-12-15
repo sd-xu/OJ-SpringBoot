@@ -87,4 +87,5 @@ file:
 # 测试
 # curl -F "file=@C:/Users/19056/Desktop/2.jpeg" -F "username=张三" "http://localhost:8088/postUserImage"
 
-#curl http://localhost:8088/submit-problem-judge -X POST -H "Content-Type: application/json" -d "{\"pid\":\"1001\",\"uid\":\"1\",\"code\":\"xxxxx\",\"language\":\"Java\"}"
+
+#curl -X POST -H "Content-Type: application/json" -d @test/test.json "http://localhost:8088/submit-problem-judge"
