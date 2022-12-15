@@ -4,7 +4,7 @@ src_path: main.c
 exe_path: main
 compile:
   env: default
-  command: /usr/bin/gcc -DONLINE_JUDGE -w -fmax-errors=1 -std=c11 {src_path} -lm -o {exe_path}
+  command: gcc -DONLINE_JUDGE -w -fmax-errors=1 -std=c11 {src_path} -lm -o {exe_path}
   maxCpuTime: 3s
   maxRealTime: 10s
   maxMemory: 256mb
@@ -18,7 +18,7 @@ src_path: main.c
 exe_path: main
 compile:
   env: default
-  command: /usr/bin/gcc -DONLINE_JUDGE -O2 -w -fmax-errors=1 -std=c11 {src_path} -lm -o {exe_path}
+  command: gcc -DONLINE_JUDGE -O2 -w -fmax-errors=1 -std=c11 {src_path} -lm -o {exe_path}
   maxCpuTime: 3s
   maxRealTime: 10s
   maxMemory: 256mb
@@ -31,7 +31,7 @@ language: C++
 src_path: main.cpp
 exe_path: main
 compile:
-  command: /usr/bin/g++ -DONLINE_JUDGE -w -fmax-errors=1 -std=c++14 {src_path} -lm -o {exe_path}
+  command: g++ -DONLINE_JUDGE -w -fmax-errors=1 -std=c++14 {src_path} -lm -o {exe_path}
   env: default
   maxCpuTime: 10s
   maxRealTime: 20s
@@ -46,7 +46,7 @@ src_path: main.cpp
 exe_path: main
 compile:
   env: default
-  command: /usr/bin/g++ -DONLINE_JUDGE -O2 -w -fmax-errors=1 -std=c++14 {src_path} -lm -o {exe_path}
+  command: g++ -DONLINE_JUDGE -O2 -w -fmax-errors=1 -std=c++14 {src_path} -lm -o {exe_path}
   maxCpuTime: 10s
   maxRealTime: 20s
   maxMemory: 512mb
@@ -60,7 +60,7 @@ src_path: main.cpp
 exe_path: main
 compile:
   env: default
-  command: /usr/bin/g++ -DONLINE_JUDGE -w -fmax-errors=1 -std=c++17 {src_path} -lm -o {exe_path}
+  command: g++ -DONLINE_JUDGE -w -fmax-errors=1 -std=c++17 {src_path} -lm -o {exe_path}
   maxCpuTime: 10s
   maxRealTime: 20s
   maxMemory: 512mb
@@ -74,7 +74,7 @@ src_path: main.cpp
 exe_path: main
 compile:
   env: default
-  command: /usr/bin/g++ -DONLINE_JUDGE -O2 -w -fmax-errors=1 -std=c++17 {src_path} -lm -o {exe_path}
+  command: g++ -DONLINE_JUDGE -O2 -w -fmax-errors=1 -std=c++17 {src_path} -lm -o {exe_path}
   maxCpuTime: 10s
   maxRealTime: 20s
   maxMemory: 512mb
@@ -88,7 +88,7 @@ src_path: main.cpp
 exe_path: main
 compile:
   env: default
-  command: /usr/bin/g++ -DONLINE_JUDGE -w -fmax-errors=1 -std=c++2a {src_path} -lm -o {exe_path}
+  command: g++ -DONLINE_JUDGE -w -fmax-errors=1 -std=c++2a {src_path} -lm -o {exe_path}
   maxCpuTime: 10s
   maxRealTime: 20s
   maxMemory: 512mb
@@ -102,7 +102,7 @@ src_path: main.cpp
 exe_path: main
 compile:
   env: default
-  command: /usr/bin/g++ -DONLINE_JUDGE -O2 -w -fmax-errors=1 -std=c++2a {src_path} -lm -o {exe_path}
+  command: g++ -DONLINE_JUDGE -O2 -w -fmax-errors=1 -std=c++2a {src_path} -lm -o {exe_path}
   maxCpuTime: 10s
   maxRealTime: 20s
   maxMemory: 512mb
@@ -110,6 +110,7 @@ run:
   env: default
   command: /w/{exe_path}
 
+# to fix -----------------------------------------------------------------------------
 ---
 language: Java
 src_path: Main.java
@@ -130,13 +131,13 @@ src_path: main.py
 exe_path: main.pyc
 compile:
   env: default
-  command: /usr/bin/python -m py_compile /w/{src_path}
+  command: python -m py_compile /w/{src_path}
   maxCpuTime: 5s
   maxRealTime: 10s
   maxMemory: 256mb
 run:
   env: default
-  command: /usr/bin/python /w/{exe_path}
+  command: python /w/{exe_path}
 
 ---
 language: Python3
@@ -144,13 +145,13 @@ src_path: main.py
 exe_path: __pycache__/main.cpython-37.pyc
 compile:
   env: python3
-  command: /usr/bin/python3.7 -m py_compile /w/{src_path}
+  command: python3.7 -m py_compile /w/{src_path}
   maxCpuTime: 5s
   maxRealTime: 10s
   maxMemory: 256mb
 run:
   env: python3
-  command: /usr/bin/python3.7 /w/{exe_path}
+  command: python3.7 /w/{exe_path}
 
 ---
 language: PyPy2
@@ -158,13 +159,13 @@ src_path: main.py
 exe_path: __pycache__/main.pypy-73.pyc
 compile:
   env: default
-  command: /usr/bin/pypy -m py_compile /w/{src_path}
+  command: pypy -m py_compile /w/{src_path}
   maxCpuTime: 5s
   maxRealTime: 10s
   maxMemory: 256mb
 run:
   env: default
-  command: /usr/bin/pypy /w/{exe_path}
+  command: pypy /w/{exe_path}
 
 ---
 language: PyPy3
@@ -172,15 +173,15 @@ src_path: main.py
 exe_path: __pycache__/main.pypy38.pyc
 compile:
   env: python3
-  command: /usr/bin/pypy3 -m py_compile /w/{src_path}
+  command: pypy3 -m py_compile /w/{src_path}
   maxCpuTime: 5s
   maxRealTime: 10s
   maxMemory: 256mb
 run:
   env: python3
-  command: /usr/bin/pypy3 /w/{exe_path}
+  command: pypy3 /w/{exe_path}
 
-
+# to fix --------------------------------------------------------------------------------------------
 ---
 language: Golang
 src_path: main.go

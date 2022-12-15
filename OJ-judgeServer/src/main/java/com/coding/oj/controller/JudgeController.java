@@ -36,7 +36,7 @@ public class JudgeController {
 //        if (!Objects.equals(toJudgeDTO.getToken(), judgeToken)) {
 //            return CommonResult.errorResponse("对不起！您使用的判题服务调用凭证不正确！访问受限！", ResultStatus.ACCESS_DENIED);
 //        }
-
+        System.out.println(toJudgeDTO);
         Judge judge = toJudgeDTO.getJudge();
 
         if (judge == null || judge.getSubmitId() == null || judge.getUid() == null || judge.getPid() == null) {
