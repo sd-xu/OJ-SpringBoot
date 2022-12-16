@@ -23,6 +23,6 @@ public interface CommentMapper {
 
     Comment selectNewComment();
 
-    List<Comment> selectCommentLike(Long id);
+    List<Comment> selectCommentLike(Long id,Integer uid);
 
 }

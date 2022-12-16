@@ -52,6 +52,6 @@
   <select id="selectCommentLike" resultMap="BaseResultMap" parameterType="map" >
     select c.*
     from comment c,like_comment l
-    where aid = #{aid,jdbcType=BIGINT} and c.id = l.cid and c.uid = #{uid}
+    where  c.id = l.cid and c.uid = #{uid} and c.id = #{id}
   </select>
 </mapper>

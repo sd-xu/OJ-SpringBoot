@@ -39,7 +39,7 @@ public class CommentServiceTest {
     @Test
     public void getCommentByAid() {
 
-        commentService.getCommentByAid(1l,1,1,3).forEach(System.out::println);
+        commentService.getCommentByAid(1l,3,1,3).forEach(System.out::println);
     }
 
     @Test

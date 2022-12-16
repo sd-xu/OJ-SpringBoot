@@ -53,13 +53,13 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> commentList = commentMapper.selectByAid(aid);
         PageInfo<Comment> pageInfo = new PageInfo<>(commentList);
         commentList = pageInfo.getList();
-        boolean ifLike;
+        boolean ifLike = false;
         // 查询功能之后可以获取分页相关的所有数据
         for (Comment comment : commentList) {
             Map<String,Object> map = new HashMap<>();
             map.put("Comment",comment);
             Long cid = comment.getId();
-            if(commentMapper.selectCommentLike(cid) != null)
+            if(commentMapper.selectCommentLike(cid,uid).size() != 0)
                 ifLike = true;
             else
                 ifLike = false;
