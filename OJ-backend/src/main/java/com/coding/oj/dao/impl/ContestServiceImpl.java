@@ -38,12 +38,12 @@ public class ContestServiceImpl implements ContestService {
     public List<Map<String,Object>> getContestsByType(int type) {
         List<Contest> contestList = contestMapper.selectByType(type);
         List<Map<String,Object>> contestInfoList = new ArrayList<>();
-        for(Contest contest :contestList){
+        for(Contest contest : contestList) {
             Map<String,Object> contestInfo = new HashMap<>();
-            contestInfo.put("start_time",contest.getStartTime());
-            contestInfo.put("title",contest.getTitle());
-            contestInfo.put("link",contest.getLink());
-            contestInfo.put("type",contest.getType());
+            contestInfo.put("start_time", contest.getStartTime());
+            contestInfo.put("title", contest.getTitle());
+            contestInfo.put("link", contest.getLink());
+            contestInfo.put("type", contest.getType());
             contestInfoList.add(contestInfo);
         }
         return contestInfoList;

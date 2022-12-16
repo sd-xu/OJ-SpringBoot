@@ -22,6 +22,7 @@ public class ContestMapperTest {
 
     @Test
     public void selectByPrimaryKey() {
+        System.out.println(contestMapper.selectByPrimaryKey(1000L, 1));
     }
 
     @Test
@@ -30,6 +31,7 @@ public class ContestMapperTest {
 
     @Test
     public void updateByPrimaryKey() {
+
     }
 
     @Test

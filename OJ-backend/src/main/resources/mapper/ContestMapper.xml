@@ -77,7 +77,7 @@
     from contest
   </select>
 
-  <select id="selectByType" resultType="com.coding.oj.pojo.entity.Contest">
+  <select id="selectByType" resultMap="BaseResultMap">
     select title,link,type,start_time
     from contest
     where type = #{type,jdbcType=INTEGER}

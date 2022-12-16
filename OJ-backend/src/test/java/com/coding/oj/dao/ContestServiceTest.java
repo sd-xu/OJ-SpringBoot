@@ -17,7 +17,7 @@ public class ContestServiceTest {
 
     @Test
     public void getContestList(){
-        List<Map<String,Object>> list = contestService.getContestsByType(1);
+        List<Map<String,Object>> list = contestService.getContestsByType(0);
         System.out.println(list);
     }
 }

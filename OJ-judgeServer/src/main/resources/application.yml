@@ -1,7 +1,7 @@
 oj-judge-server:
   max-task-num: -1 # -1表示最大并行任务数为cpu核心数+1
   ip: 127.0.0.1    # -1表示使用默认本地ipv4，若是部署其它服务器，务必使用公网ip
-  port: 8090      # 端口号
+  port: 8090       # 端口号
   name: oj-judge-server  # 判题机名字 唯一不可重复！
 
 server:
@@ -19,8 +19,8 @@ spring:
   # 数据源配置
   datasource:
     username: root
-#    password: D233
-    password: 123456
+    password: D233
+#    password: 123456
     url: jdbc:mysql://localhost:3306/oj_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
