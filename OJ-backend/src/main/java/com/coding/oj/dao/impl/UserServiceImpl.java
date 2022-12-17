@@ -37,7 +37,11 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public boolean addUser(User user) {
         if (user.getUsername() != null && !"".equals(user.getUsername())) {
-            if (user.getPassword()!=null && !"".equals(user.getPassword())) {
+            if (user.getPassword() != null && !"".equals(user.getPassword())) {
+                if (user.getDescription() == null)
+                    user.setDescription("xxx");
+                if (user.getImageUrl() == null)
+                    user.setImageUrl("xxx");
                 int effectedNum = userMapper.insert(user);
                 return effectedNum > 0;
             }
