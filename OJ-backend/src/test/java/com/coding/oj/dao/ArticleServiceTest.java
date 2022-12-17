@@ -49,7 +49,7 @@ public class ArticleServiceTest {
     }
     @Test
     public void getArticleById(){
-        System.out.println(articleService.getArticleById(2l,1));
+        System.out.println(articleService.getArticleById(1l,4));
     }
     @Test
     public void deleteArticle(){

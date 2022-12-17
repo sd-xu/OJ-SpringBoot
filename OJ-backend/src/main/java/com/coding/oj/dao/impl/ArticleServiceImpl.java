@@ -72,6 +72,7 @@ public class ArticleServiceImpl implements ArticleService {
                 articleMap.put("ifLike",ifLike);
             }
             article = articleMapper.selectArticleStar(id,uid);
+            System.out.println(article);
             if(article != null){
                 ifSubscribe = true;
                 if(!ifLike)
