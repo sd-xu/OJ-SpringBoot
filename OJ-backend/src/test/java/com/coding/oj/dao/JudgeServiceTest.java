@@ -57,7 +57,7 @@ public class JudgeServiceTest {
 
     @Test
     public void getSubmissionDetail(){
-        System.out.println(judgeEntityService.getSubmissionDetail(96l));
+        System.out.println(judgeEntityService.getSubmissionDetail(76l));
     }
 
     @Test
