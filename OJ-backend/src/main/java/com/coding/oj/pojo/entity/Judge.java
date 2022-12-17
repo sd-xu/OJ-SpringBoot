@@ -2,10 +2,12 @@ package com.coding.oj.pojo.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 public class Judge {
+
     private Long submitId;
 
     private Long pid;

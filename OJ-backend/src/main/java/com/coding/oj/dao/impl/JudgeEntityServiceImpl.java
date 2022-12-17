@@ -1,15 +1,11 @@
 package com.coding.oj.dao.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.coding.oj.common.exception.*;
 import com.coding.oj.common.result.ResultStatus;
-import com.coding.oj.manager.JudgeManager;
-import com.coding.oj.mapper.JudgeCaseMapper;
 import com.coding.oj.mapper.JudgeMapper;
 import com.coding.oj.pojo.entity.Judge;
 import com.coding.oj.dao.JudgeEntityService;
 import com.coding.oj.pojo.entity.JudgeCase;
-import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +13,8 @@ import java.util.List;
 
 @Service
 public class JudgeEntityServiceImpl implements JudgeEntityService {
-
     @Autowired
     private JudgeMapper judgeMapper;
-    @Autowired
-    private JudgeCaseMapper judgeCaseMapper;
 
     @Override
     public boolean updateById(Judge judge) {
@@ -29,7 +22,7 @@ public class JudgeEntityServiceImpl implements JudgeEntityService {
        try{
            // 更新区域信息
            int effectedNum = judgeMapper.updateByPrimaryKey(judge);
-           if(effectedNum > 0) {
+           if (effectedNum > 0) {
                return true;
            } else throw new MyException(ResultStatus.DATASOURCE_ERROR);    // 报数据库操作失败的异常
        }
@@ -40,9 +33,9 @@ public class JudgeEntityServiceImpl implements JudgeEntityService {
     
     @Override
     public boolean updateBySubmitId(Long submitId) {
-        //空值判断,先不写，没准前端可以进行判断
+        // 空值判断,先不写，没准前端可以进行判断
         try{
-            //更新区域信息
+            // 更新区域信息
             int effectedNum = judgeMapper.updateBySubmitId(submitId);
             if (effectedNum > 0) {
                 return true;
@@ -61,11 +54,7 @@ public class JudgeEntityServiceImpl implements JudgeEntityService {
     @Override
     public boolean addJudge(Judge judge) {
         int effectedNum = judgeMapper.insert(judge);
-        if (effectedNum > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return effectedNum > 0;
     }
 
     @Override

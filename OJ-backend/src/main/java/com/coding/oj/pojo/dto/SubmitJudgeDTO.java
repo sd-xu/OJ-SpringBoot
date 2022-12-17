@@ -3,9 +3,6 @@ package com.coding.oj.pojo.dto;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.util.Date;
-
-
 /**
  * @Description: 用户代码提交类
  */

@@ -21,8 +21,6 @@ public interface CommentMapper {
 
     List<Comment> selectChildComment(Long parentId);
 
-    Comment selectNewComment();
-
-    List<Comment> selectCommentLike(Long id,Integer uid);
+    List<Comment> selectCommentLike(Long id, Integer uid);
 
 }

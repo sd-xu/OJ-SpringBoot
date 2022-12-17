@@ -7,11 +7,8 @@ import com.coding.oj.judge.entity.JudgeDTO;
 import com.coding.oj.judge.entity.JudgeGlobalDTO;
 import com.coding.oj.judge.entity.LanguageConfig;
 import com.coding.oj.judge.task.DefaultJudge;
-import com.coding.oj.pojo.dto.TestJudgeReq;
-import com.coding.oj.pojo.dto.TestJudgeRes;
 import com.coding.oj.pojo.entity.Problem;
 import com.coding.oj.utils.Constants;
-import com.coding.oj.utils.JudgeUtils;
 import com.coding.oj.utils.ThreadPoolUtils;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
@@ -161,7 +158,7 @@ public class JudgeRun {
             ThreadPoolUtils.getInstance().getThreadPool().submit(futureTask);
         }
         List<JSONObject> result = new LinkedList<>();
-        while (futureTasks.size() > 0) {
+        while (!futureTasks.isEmpty()) {
             Iterator<FutureTask<JSONObject>> iterable = futureTasks.iterator();
             // 遍历一遍
             while (iterable.hasNext()) {

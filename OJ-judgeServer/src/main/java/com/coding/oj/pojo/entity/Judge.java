@@ -6,6 +6,7 @@ import java.util.Date;
 
 @Data
 public class Judge {
+
     private Long submitId;
 
     private Long pid;

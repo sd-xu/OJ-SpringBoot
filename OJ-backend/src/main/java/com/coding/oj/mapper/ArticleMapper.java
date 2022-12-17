@@ -25,7 +25,7 @@ public interface ArticleMapper {
 
     List<Article> selectRecommendation();
 
-    Article selectArticleStar(@Param("id") Long id,@Param("uid") Integer uid);
+    Article selectArticleStar(@Param("id") Long id, @Param("uid") Integer uid);
 
-    Article selectArticleLike(@Param("id") Long id,@Param("uid") Integer uid);
+    Article selectArticleLike(@Param("id") Long id, @Param("uid") Integer uid);
 }

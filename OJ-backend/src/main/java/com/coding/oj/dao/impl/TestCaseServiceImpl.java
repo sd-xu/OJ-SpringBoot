@@ -20,11 +20,7 @@ public class TestCaseServiceImpl implements TestCaseService {
     @Override
     public boolean addTestCase(TestCase testCase) {
         int effectedNum = testCaseMapper.insert(testCase);
-        if (effectedNum > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return effectedNum > 0;
     }
 
     @Override

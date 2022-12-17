@@ -6,6 +6,7 @@ import java.util.Date;
 
 @Data
 public class Developer {
+
     private Integer id;
 
     private String nickname;

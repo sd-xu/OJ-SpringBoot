@@ -26,7 +26,7 @@ public class Constants {
         STATUS_NULL(15, "No Status", null),
         JUDGE_SERVER_SUBMIT_PREFIX(-1002, "Judge SubmitId-ServerId:", null);
 
-        private Judge(Integer status, String name, String columnName) {
+        Judge(Integer status, String name, String columnName) {
             this.status = status;
             this.name = name;
             this.columnName = columnName;
@@ -60,7 +60,7 @@ public class Constants {
         CONTEST_REMOTE_JUDGE_WAITING_HANDLE("Contest_Remote_Waiting_Handle_Queue"),
         GENERAL_REMOTE_JUDGE_WAITING_HANDLE("General_Remote_Waiting_Handle_Queue");
 
-        private Queue(String name) {
+        Queue(String name) {
             this.name = name;
         }
         private final String name;

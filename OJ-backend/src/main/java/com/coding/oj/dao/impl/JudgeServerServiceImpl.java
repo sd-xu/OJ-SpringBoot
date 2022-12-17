@@ -1,6 +1,5 @@
 package com.coding.oj.dao.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.coding.oj.mapper.JudgeServerMapper;
 import com.coding.oj.pojo.entity.JudgeServer;
 import com.coding.oj.dao.JudgeServerService;
@@ -10,14 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class JudgeServerServiceImpl extends ServiceImpl<JudgeServerMapper, JudgeServer> implements JudgeServerService {
+public class JudgeServerServiceImpl implements JudgeServerService {
     @Autowired
     private JudgeServerMapper judgeServerMapper;
 
-    public boolean updateTaskNum(Integer id){
-        int effect_num = judgeServerMapper.updateTaskNum(id);
-        if(effect_num == 1)  return true;
-        else return  false;
+    public boolean release(Integer id) {
+        return judgeServerMapper.updateTaskNum(id) == 1;
     }
 
     @Override
@@ -25,9 +22,7 @@ public class JudgeServerServiceImpl extends ServiceImpl<JudgeServerMapper, Judge
 
     @Override
     public boolean updateById(JudgeServer judgeServer) {
-        int effect_num = judgeServerMapper.updateByPrimaryKey(judgeServer);
-        if(effect_num == 1)  return true;
-        else return  false;
+        return judgeServerMapper.updateByPrimaryKey(judgeServer) == 1;
     }
 
     @Override

@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -15,10 +16,7 @@ public class JudgeServerServiceTest {
     private  JudgeServerService judgeServerService;
     @Test
     public void updateTaskNum() {
-        //int taskNumber_1 = judgeServerService.selectById(1).getTaskNumber();
-        boolean effect_num = judgeServerService.updateTaskNum(1);
-        //int taskNumber_2 = judgeServerService.selectById(1).getTaskNumber();
-        assertEquals(effect_num,true);
-        //assertEquals(taskNumber_1-1,taskNumber_2);
+        boolean effect_num = judgeServerService.release(1);
+        assertTrue(effect_num);
     }
 }

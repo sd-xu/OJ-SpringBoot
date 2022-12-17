@@ -20,4 +20,5 @@ public interface JudgeServerMapper extends BaseMapper<JudgeServer> {
     int updateByPrimaryKey(JudgeServer record);
 
     int updateTaskNum(Integer id);
+
 }

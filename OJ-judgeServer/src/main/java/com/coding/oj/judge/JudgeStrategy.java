@@ -209,7 +209,7 @@ public class JudgeStrategy {
         StringBuilder sb = new StringBuilder();
         for (String str : strings) {
             if (!StringUtils.isEmpty(str)) {
-                sb.append(str.substring(0, Math.min(1024 * 1024, str.length()))).append("\n");
+                sb.append(str, 0, Math.min(1024 * 1024, str.length())).append("\n");
             }
         }
         return sb.toString();

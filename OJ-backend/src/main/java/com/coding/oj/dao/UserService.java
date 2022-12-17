@@ -7,7 +7,6 @@ import com.coding.oj.pojo.entity.UserInfo;
 import java.util.List;
 import java.util.Map;
 
-
 public interface UserService {
     // 通过用户名获取信息
     User selectByUserName(String username, String password);

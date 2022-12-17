@@ -6,6 +6,7 @@ import java.util.Date;
 
 @Data
 public class JudgeServer {
+
     private Integer id;
 
     private String name;

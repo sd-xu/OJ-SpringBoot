@@ -80,19 +80,13 @@ public class DefaultJudge extends AbstractJudge {
         // ns->ms
         result.set("time", sandBoxRes.getTime());
 
-//        if (!StringUtils.isEmpty(sandBoxRes.getStdout())) {
-//            // 对于当前测试样例，用户程序的输出对应生成的文件
-//            FileWriter stdWriter = new FileWriter(judgeGlobalDTO.getRunDir() + "/" + judgeDTO.getTestCaseId() + ".out");
-//            stdWriter.write(sandBoxRes.getStdout());
-//        }
-
         // 记录该测试点的错误信息
         if (!StringUtils.isEmpty(errMsg.toString())) {
             String str = errMsg.toString();
             result.set("errMsg", str.substring(0, Math.min(1024 * 1024, str.length())));
         }
 
-        if (judgeGlobalDTO.getNeedUserOutputFile()) { // 如果需要获取用户对于该题目的输出
+        if (Boolean.TRUE.equals(judgeGlobalDTO.getNeedUserOutputFile())) { // 如果需要获取用户对于该题目的输出
             result.set("output", sandBoxRes.getStdout());
         }
 

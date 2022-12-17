@@ -2,9 +2,6 @@ package com.coding.oj.utils;
 
 import java.util.concurrent.*;
 
-/**
- * @Description:
- */
 public class ThreadPoolUtils {
 
     private static ExecutorService executorService;
@@ -24,7 +21,7 @@ public class ThreadPoolUtils {
     }
 
     private static class PluginConfigHolder {
-        private final static ThreadPoolUtils INSTANCE = new ThreadPoolUtils();
+        private static final ThreadPoolUtils INSTANCE = new ThreadPoolUtils();
     }
 
     public static ThreadPoolUtils getInstance() {

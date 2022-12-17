@@ -52,16 +52,15 @@ public class JudgeReceiver extends AbstractReceiver {
         JSONObject task = JSONUtil.parseObj(taskStr);
         Long submitId = task.getLong("submitId");
         Judge judge = judgeEntityService.getBySubmitId(submitId);
-        if (judge != null) {
-            // 调度评测时发现该评测任务被取消，则结束评测
-            if (!Objects.equals(judge.getStatus(), Constants.Judge.STATUS_CANCELLED.getStatus())) {
-                String token = task.getStr("token");
-                // 调用判题服务
-                ToJudgeDTO toJudgeDTO = new ToJudgeDTO();
-                toJudgeDTO.setJudge(judge);
-                toJudgeDTO.setToken(token);
-                dispatcher.dispatch(Constants.TaskType.JUDGE, toJudgeDTO);
-            }
+        // 调度评测时发现该评测任务被取消，则结束评测
+        if (judge != null &&
+                !Objects.equals(judge.getStatus(), Constants.Judge.STATUS_CANCELLED.getStatus())) {
+            String token = task.getStr("token");
+            // 调用判题服务
+            ToJudgeDTO toJudgeDTO = new ToJudgeDTO();
+            toJudgeDTO.setJudge(judge);
+            toJudgeDTO.setToken(token);
+            dispatcher.dispatch(Constants.TaskType.JUDGE, toJudgeDTO);
         }
 
         // 接着处理任务

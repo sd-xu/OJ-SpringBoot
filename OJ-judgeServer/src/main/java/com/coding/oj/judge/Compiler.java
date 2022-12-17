@@ -1,6 +1,5 @@
 package com.coding.oj.judge;
 
-import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import com.coding.oj.common.exception.CompileError;
@@ -11,9 +10,6 @@ import com.coding.oj.utils.Constants;
 import com.coding.oj.utils.JudgeUtils;
 import org.springframework.util.StringUtils;
 
-
-import java.io.File;
-import java.util.HashMap;
 import java.util.List;
 
 /**

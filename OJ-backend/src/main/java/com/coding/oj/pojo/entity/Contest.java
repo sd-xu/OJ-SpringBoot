@@ -6,6 +6,7 @@ import java.util.Date;
 
 @Data
 public class Contest {
+
     private Long id;
 
     private Integer uid;

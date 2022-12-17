@@ -7,7 +7,6 @@ import com.coding.oj.pojo.dto.SubmitJudgeDTO;
 import com.coding.oj.pojo.entity.Judge;
 
 import com.coding.oj.dao.ProblemService;
-import com.coding.oj.service.JudgeService;
 import com.coding.oj.utils.Constants;
 import com.coding.oj.utils.IpUtils;
 import jakarta.servlet.http.HttpServletRequest;

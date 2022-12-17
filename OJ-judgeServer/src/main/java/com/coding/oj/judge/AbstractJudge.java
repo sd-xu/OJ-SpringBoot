@@ -1,6 +1,5 @@
 package com.coding.oj.judge;
 
-import cn.hutool.core.util.ReUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
@@ -10,8 +9,6 @@ import com.coding.oj.judge.entity.JudgeGlobalDTO;
 import com.coding.oj.judge.entity.SandBoxRes;
 import com.coding.oj.utils.Constants;
 import com.coding.oj.utils.JudgeUtils;
-import org.springframework.util.StringUtils;
-
 
 import java.io.File;
 import java.util.List;

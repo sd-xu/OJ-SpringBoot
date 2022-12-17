@@ -3,7 +3,7 @@ package com.coding.oj.common.exception;
 /**
  * @Description:
  */
-public class StatusForbiddenException extends Exception{
+public class StatusForbiddenException extends Exception {
 
     public StatusForbiddenException() {
     }

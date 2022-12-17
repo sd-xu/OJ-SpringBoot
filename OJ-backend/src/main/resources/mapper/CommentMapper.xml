@@ -46,7 +46,7 @@
   </select>
   <select id="selectChildComment" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select a.*
-    from comment a,comment b
+    from comment a, comment b
     where a.parent_id =b.id and a.parent_id = #{parentId,jdbcType=BIGINT} and b.id = #{parentId,jdbcType=BIGINT}
   </select>
   <select id="selectCommentLike" resultMap="BaseResultMap" parameterType="map" >

@@ -1,8 +1,6 @@
 package com.coding.oj.judge;
 
-
 import cn.hutool.core.lang.UUID;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.coding.oj.common.result.CommonResult;
 import com.coding.oj.common.result.ResultStatus;
 import com.coding.oj.pojo.dto.ToJudgeDTO;
@@ -36,13 +34,12 @@ public class Dispatcher {
     @Autowired
     private JudgeServerService judgeServerService;
 
+    private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(20);
 
-    private final static ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(20);
-
-    private final static Map<String, Future> futureTaskMap = new ConcurrentHashMap<>(20);
+    private static final Map<String, Future> futureTaskMap = new ConcurrentHashMap<>(20);
 
     // 每个提交任务尝试50次失败则判为提交失败
-    protected final static Integer maxTryNum = 50; // 300
+    protected static final Integer maxTryNum = 50; // 300
 
     public CommonResult dispatch(Constants.TaskType taskType, Object data) {
         switch (taskType) {
@@ -130,34 +127,24 @@ public class Dispatcher {
      * @param judgeServerId
      */
     public void releaseJudgeServer(Integer judgeServerId) {
-        UpdateWrapper<JudgeServer> judgeServerUpdateWrapper = new UpdateWrapper<>();
-        judgeServerUpdateWrapper.setSql("task_number = task_number-1").eq("id", judgeServerId);
-        boolean isOk = judgeServerService.update(judgeServerUpdateWrapper);
+        boolean isOk = judgeServerService.release(judgeServerId);
         if (!isOk) { // 重试八次
-            tryAgainUpdateJudge(judgeServerUpdateWrapper);
+            tryAgainUpdateJudge(judgeServerId);
         }
     }
 
-    public void tryAgainUpdateJudge(UpdateWrapper<JudgeServer> updateWrapper) {
-        boolean retryable;
-        int attemptNumber = 0;
-        do {
-            boolean success = judgeServerService.update(updateWrapper);
+    public void tryAgainUpdateJudge(Integer judgeServerId) {
+        for (int i = 0; i < 8; i++) {
+            boolean success = judgeServerService.release(judgeServerId);
             if (success) {
                 return;
-            } else {
-                attemptNumber++;
-                retryable = attemptNumber < 8;
-                if (attemptNumber == 8) {
-                    break;
-                }
-                try {
-                    Thread.sleep(300);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
-        } while (retryable);
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

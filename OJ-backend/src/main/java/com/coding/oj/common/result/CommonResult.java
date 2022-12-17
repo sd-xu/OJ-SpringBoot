@@ -38,14 +38,14 @@ public class CommonResult<T> {
      * @param msg 返回信息
      */
     public static <T> CommonResult<T> successResponse(String msg) {
-        return new CommonResult<T>(ResultStatus.SUCCESS.getStatus(), null, msg);
+        return new CommonResult<>(ResultStatus.SUCCESS.getStatus(), null, msg);
     }
 
     /**
      * 成功的结果
      */
     public static <T> CommonResult<T> successResponse() {
-        return new CommonResult<T>(ResultStatus.SUCCESS.getStatus(), null, "success");
+        return new CommonResult<>(ResultStatus.SUCCESS.getStatus(), null, "success");
     }
 
 
@@ -55,19 +55,19 @@ public class CommonResult<T> {
      * @param msg 返回信息
      */
     public static <T> CommonResult<T> errorResponse(String msg) {
-        return new CommonResult<T>(ResultStatus.FAIL.getStatus(), null, msg);
+        return new CommonResult<>(ResultStatus.FAIL.getStatus(), null, msg);
     }
 
     public static <T> CommonResult<T> errorResponse(ResultStatus resultStatus) {
-        return new CommonResult<T>(resultStatus.getStatus(), null, resultStatus.getMsg());
+        return new CommonResult<>(resultStatus.getStatus(), null, resultStatus.getMsg());
     }
 
     public static <T> CommonResult<T> errorResponse(String msg, ResultStatus resultStatus) {
-        return new CommonResult<T>(resultStatus.getStatus(), null, msg);
+        return new CommonResult<>(resultStatus.getStatus(), null, msg);
     }
 
     public static <T> CommonResult<T> errorResponse(String msg, Integer status) {
-        return new CommonResult<T>(status, null, msg);
+        return new CommonResult<>(status, null, msg);
     }
 
 }

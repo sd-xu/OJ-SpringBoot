@@ -10,8 +10,6 @@ import com.coding.oj.service.JudgeService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class JudgeServiceImpl implements JudgeService {
 

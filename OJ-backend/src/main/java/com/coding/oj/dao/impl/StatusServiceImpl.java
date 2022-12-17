@@ -17,4 +17,5 @@ public class StatusServiceImpl implements StatusService {
     public List<Status> getStatusList() {
         return statusMapper.selectAll();
     }
+
 }

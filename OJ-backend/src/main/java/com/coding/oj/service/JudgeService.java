@@ -6,7 +6,6 @@ import com.coding.oj.pojo.entity.Judge;
 
 import java.util.List;
 
-
 public interface JudgeService {
 
     // 提交评测

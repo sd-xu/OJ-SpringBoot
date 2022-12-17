@@ -3,7 +3,7 @@ package com.coding.oj.common.exception;
 /**
  * @Description:
  */
-public class StatusNotFoundException extends Exception{
+public class StatusNotFoundException extends Exception {
 
     public StatusNotFoundException() {
     }

@@ -4,7 +4,6 @@ import com.coding.oj.mapper.ArticleMapper;
 import com.coding.oj.pojo.entity.Article;
 import com.coding.oj.dao.ArticleService;
 
-import com.coding.oj.pojo.entity.Star;
 import org.springframework.data.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,45 +44,23 @@ public class ArticleServiceImpl implements ArticleService {
         if(article.getUid() != null && article.getTitle() != null && article.getContent() != null
         && article.getLikeCount() != null && article.getCommentCount() != null && article.getStarCount() != null) {
             int effectNum = articleMapper.insert(article);
-            if(effectNum > 0) return true;
-            else return false;
+            return effectNum > 0;
         }
         return false;
     }
 
     @Override
-    public Map<String,Object> getArticleById(Long id,Integer uid) {
+    public Map<String,Object> getArticleById(Long id, Integer uid) {
         Map<String,Object> articleMap = new HashMap<>();
-        Article article;
-        boolean ifLike = false;
-        boolean ifSubscribe = false;
-        if(uid <0)
-        {
-            article = articleMapper.selectByPrimaryKey(id);
-            articleMap.put("Article", article);
-            articleMap.put("ifLike", ifLike);
-            articleMap.put("ifSubscribe", ifSubscribe);
+        Article article = articleMapper.selectByPrimaryKey(id);
+        articleMap.put("Article", article);
+        if(uid < 0) { // 游客
+            articleMap.put("ifLike", false);
+            articleMap.put("ifSubscribe", false);
         }
-        else{
-            article = articleMapper.selectArticleLike(id,uid);
-            if(article != null){
-                ifLike = true;
-                articleMap.put("Article", article);
-                articleMap.put("ifLike", ifLike);
-            }
-            article = articleMapper.selectArticleStar(id,uid);
-            if(article != null){
-                ifSubscribe = true;
-                if(!ifLike)
-                    articleMap.put("Article", article);
-                articleMap.put("ifSubscribe", ifSubscribe);
-            }
-            if(!ifLike && !ifSubscribe) {
-                article = articleMapper.selectByPrimaryKey(id);
-                articleMap.put("Article", article);
-                articleMap.put("ifLike", ifLike);
-                articleMap.put("ifSubscribe", ifSubscribe);
-            }
+        else {
+            articleMap.put("ifLike", articleMapper.selectArticleLike(id, uid) != null);      // 有点赞
+            articleMap.put("ifSubscribe", articleMapper.selectArticleStar(id, uid) != null); // 有收藏
         }
         return articleMap;
     }

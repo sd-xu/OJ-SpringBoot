@@ -9,7 +9,6 @@ import com.coding.oj.utils.Constants;
 import com.coding.oj.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -27,13 +26,9 @@ public class JudgeDispatcher {
     @Autowired
     private JudgeReceiver judgeReceiver;
 
-//    @Value("${oj.judge.token}")
-//    private String judgeToken;
-
     public void sendTask(Long submitId, Long pid) {
         JSONObject task = new JSONObject();
         task.set("submitId", submitId);
-//        task.set("token",judgeToken);
         task.set("pid", pid);  // 将提交的id和pid放入到redis队列当中
         try {
             boolean isOk;

@@ -26,7 +26,6 @@ public enum ResultStatus {
 
     DATASOURCE_ERROR(11,"数据库操作失败");
 
-
     private int status;
 
     private String msg;

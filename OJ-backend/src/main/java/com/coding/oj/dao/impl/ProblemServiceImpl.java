@@ -26,11 +26,7 @@ public class ProblemServiceImpl implements ProblemService {
     @Override
     public boolean addProblem(Problem problem) {
         int effectedNum = problemMapper.insert(problem);
-        if (effectedNum > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return effectedNum > 0;
     }
 
     @Override
@@ -42,7 +38,7 @@ public class ProblemServiceImpl implements ProblemService {
     public Problem selectProblem(String index) {
        // 如果全为数字（非负数）,说明这是题目的编号
        if(CharSequenceUtil.isNumeric(index)){
-           return selectProblemById(new Long((long)Integer.parseInt(index)));
+           return selectProblemById((long) Integer.parseInt(index));
        }
        else
            return selectProblemByTitle(index);

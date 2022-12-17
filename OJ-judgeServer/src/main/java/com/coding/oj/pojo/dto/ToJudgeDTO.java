@@ -7,9 +7,6 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
-/**
- * @Description:
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)

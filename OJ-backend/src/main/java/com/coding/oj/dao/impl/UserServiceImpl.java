@@ -36,15 +36,14 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public boolean addUser(User user) {
-        if (user.getUsername() != null && !"".equals(user.getUsername())) {
-            if (user.getPassword() != null && !"".equals(user.getPassword())) {
-                if (user.getDescription() == null)
-                    user.setDescription("xxx");
-                if (user.getImageUrl() == null)
-                    user.setImageUrl("xxx");
-                int effectedNum = userMapper.insert(user);
-                return effectedNum > 0;
-            }
+        if (user.getUsername() != null && !"".equals(user.getUsername()) &&
+                user.getPassword() != null && !"".equals(user.getPassword())) {
+            if (user.getDescription() == null)
+                user.setDescription("xxx");
+            if (user.getImageUrl() == null)
+                user.setImageUrl("xxx");
+            int effectedNum = userMapper.insert(user);
+            return effectedNum > 0;
         }
         return false;
     }
@@ -57,14 +56,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserHistory getUserHistory(int userId) {
         UserHistory userHistory = new UserHistory();
-        if(judgeMapper.selectByUserId(userId).size()>0){
+        if(!judgeMapper.selectByUserId(userId).isEmpty()){
             int problem_num = judgeMapper.getProblemNum(userId);
             int contest_num = contestMapper.getContestNum(userId);
             Date last_submit = judgeMapper.getLastSubmit(userId);
             String language = judgeMapper.getUsualLanguage(userId);
             String area = "";
             int  difficulty = judgeMapper.getDifficulty(userId);
-            switch (difficulty){
+            switch (difficulty) {
                 case 0:
                     area = "简单"; break;
                 case 1:

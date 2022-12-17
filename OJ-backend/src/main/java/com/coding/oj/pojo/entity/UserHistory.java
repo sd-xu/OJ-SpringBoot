@@ -6,6 +6,7 @@ import java.util.Date;
 
 @Data
 public class UserHistory {
+
     // 已提交题目数量
     private int problem_num;
 

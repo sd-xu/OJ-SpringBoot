@@ -1,12 +1,8 @@
 package com.coding.oj.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.coding.oj.dao.JudgeEntityService;
 import com.coding.oj.dao.ProblemEntityService;
 import com.coding.oj.judge.JudgeContext;
-import com.coding.oj.pojo.dto.TestJudgeReq;
-import com.coding.oj.pojo.dto.TestJudgeRes;
 import com.coding.oj.pojo.entity.Judge;
 import com.coding.oj.pojo.entity.Problem;
 import com.coding.oj.service.JudgeService;
@@ -15,9 +11,6 @@ import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-/**
- * @Description:
- */
 @Service
 public class JudgeServiceImpl implements JudgeService {
 

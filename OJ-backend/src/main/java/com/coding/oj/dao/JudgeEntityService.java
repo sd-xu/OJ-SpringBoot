@@ -1,7 +1,5 @@
 package com.coding.oj.dao;
 
-import com.coding.oj.common.result.CommonResult;
-import com.coding.oj.pojo.dto.SubmitJudgeDTO;
 import com.coding.oj.pojo.entity.Judge;
 import com.coding.oj.pojo.entity.JudgeCase;
 
@@ -14,7 +12,7 @@ public interface JudgeEntityService {
     boolean updateById(Judge judge);
 
     // 通过提交id更新评测信息
-    public boolean updateBySubmitId(Long submitId);
+    boolean updateBySubmitId(Long submitId);
 
     // 通过提交id获取评测信息
     Judge getBySubmitId(Long submitId);

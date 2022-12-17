@@ -84,12 +84,12 @@
   </select>
 
   <select id="selectArticleStar" resultMap="BaseResultMap" parameterType="map">
-    SELECT a.* FROM article a,star s
+    SELECT a.* FROM article a, star s
     where a.id = s.aid and s.aid = #{id} and s.uid = #{uid};
   </select>
 
   <select id="selectArticleLike" resultMap="BaseResultMap" parameterType="map">
-    SELECT a.* FROM article a,like_article l
+    SELECT a.* FROM article a, like_article l
     where a.id = l.aid and l.aid = #{id} and l.uid = #{uid};
   </select>
 </mapper>

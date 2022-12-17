@@ -6,7 +6,6 @@ import com.coding.oj.pojo.dto.SubmitJudgeDTO;
 import com.coding.oj.pojo.entity.Judge;
 import com.coding.oj.pojo.entity.JudgeCase;
 import com.coding.oj.service.JudgeService;
-import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

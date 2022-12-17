@@ -7,10 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-/**
- * @Author Himit_ZH
- * @Date 2022/5/26
- */
 @Data
 @Builder
 @AllArgsConstructor

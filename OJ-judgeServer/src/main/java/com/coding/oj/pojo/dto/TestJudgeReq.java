@@ -8,10 +8,6 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.util.HashMap;
 
-/**
- * @Author Himit_ZH
- * @Date 2022/5/26
- */
 @Data
 @Accessors(chain = true)
 @AllArgsConstructor

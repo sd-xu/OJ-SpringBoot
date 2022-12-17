@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @Author: Himit_ZH
- * @Date: 2022/3/9 15:17
  * @Description:
  */
 @Getter
@@ -24,8 +22,8 @@ public enum ResultStatus {
 
     SYSTEM_ERROR(500,"系统错误");
 
-
     private int status;
 
     private String description;
+
 }

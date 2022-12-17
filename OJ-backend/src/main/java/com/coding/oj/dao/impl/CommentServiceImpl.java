@@ -32,15 +32,13 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public boolean deleteComment(Long id) {
         int effectNum = commentMapper.deleteByPrimaryKey(id);
-        if(effectNum > 0) return true;
-        else return false;
+        return effectNum > 0;
     }
 
     @Override
     public boolean modifyComment(Comment comment) {
         int effectNum = commentMapper.updateByPrimaryKey(comment);
-        if(effectNum>0) return true;
-        else return  false;
+        return effectNum > 0;
     }
 
     @Override
@@ -51,17 +49,14 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> commentList = commentMapper.selectByAid(aid);
         PageInfo<Comment> pageInfo = new PageInfo<>(commentList);
         commentList = pageInfo.getList();
-        boolean ifLike = false;
-        // 查询功能之后可以获取分页相关的所有数据
+
         for (Comment comment : commentList) {
             Map<String,Object> map = new HashMap<>();
-            map.put("Comment",comment);
+            map.put("Comment", comment);
             Long cid = comment.getId();
-            if(commentMapper.selectCommentLike(cid,uid).size() != 0)
-                ifLike = true;
-            else
-                ifLike = false;
-            map.put("ifLike",ifLike);
+
+            map.put("ifLike", !commentMapper.selectCommentLike(cid, uid).isEmpty());
+
             commentMap.add(map);
         }
         return commentMap;

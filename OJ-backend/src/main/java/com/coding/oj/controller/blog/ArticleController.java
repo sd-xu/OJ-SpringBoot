@@ -31,10 +31,8 @@ public class ArticleController {
 
     // 根据id获取单个博文的信息
     @GetMapping(value = "/getArticleById")
-    public Map<String, Object> getArticleById(Long id,Integer uid) {
-        Map<String, Object> modelMap = articleService.getArticleById(id,uid);
-        // 获取区域列表
-        return modelMap;
+    public Map<String, Object> getArticleById(Long id, Integer uid) {
+        return articleService.getArticleById(id, uid);
     }
 
     // 获取所有不重复技术选型

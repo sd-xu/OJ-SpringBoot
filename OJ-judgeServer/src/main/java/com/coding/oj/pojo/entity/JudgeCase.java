@@ -12,6 +12,7 @@ import java.util.Date;
 @Accessors(chain = true)
 @Builder
 public class JudgeCase {
+
     private Long id;
 
     private Long submitId;

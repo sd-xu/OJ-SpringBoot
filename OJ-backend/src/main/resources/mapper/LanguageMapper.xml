@@ -49,7 +49,6 @@
     is_spj, oj, gmt_create, gmt_modified
     from language
   </select>
-
   <select id="selectLanguageByLid" resultMap="BaseResultMap" >
     select language
     from language where lid = #{lid,jdbcType=BIGINT}
