@@ -52,7 +52,7 @@ public interface JudgeMapper {
 
     List<Judge> selectByPidAndLanguage(@Param("userId") int userId, @Param("pid") Long pid, @Param("language") String language);
 
-    List<Judge> selectByAllParam(@Param("userId") int userId, @Param("pid") Long pid, @Param("status") int status, @Param("lid") String lid, @Param("title") String title);
+    List<Judge> selectByAllParam(@Param("userId") int userId, @Param("pid") Long pid, @Param("status") int status, @Param("language") String language, @Param("title") String title);
 
     @MapKey("uid")
     List<Map<?, ?>> getRank(@Param("rankSize") int rankSize);
