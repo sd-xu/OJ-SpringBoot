@@ -12,8 +12,8 @@ spring:
   # 数据源配置
   datasource:
     username: root
-    password: D233
-#    password: 123456
+#    password: D233
+    password: 123456
     url: jdbc:mysql://localhost:3306/oj_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
@@ -89,3 +89,4 @@ file:
 
 
 #curl -X POST -H "Content-Type: application/json" -d @test/test.json "http://localhost:8088/submit-problem-judge"
+

@@ -32,4 +32,5 @@ public class JudgeCaseServiceTest {
         boolean addCaseRes = judgeCaseService.saveBatch(allCaseResList);
         assertEquals(true,addCaseRes);
     }
+
 }
