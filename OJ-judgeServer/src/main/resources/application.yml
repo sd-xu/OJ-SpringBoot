@@ -90,3 +90,6 @@ pagehelper:
 # 测试
 # 先要进到文件目录的终端进行测试
 #curl -X POST -H "Content-Type: application/json" -d @test/test.json "http://localhost:8090/judge"
+
+# 生成md5的代码
+#certutil -hashfile input MD5

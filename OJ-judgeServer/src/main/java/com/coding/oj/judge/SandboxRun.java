@@ -348,6 +348,7 @@ public class SandboxRun {
 
         // 调用判题安全沙箱
         JSONArray result = instance.run("/run", param);
+        System.out.println(result);
         JSONObject testcaseRes = (JSONObject) result.get(0);
         testcaseRes.set("originalStatus", testcaseRes.getStr("status"));
         testcaseRes.set("status", RESULT_MAP_STATUS.get(testcaseRes.getStr("status")));
