@@ -35,6 +35,6 @@ public interface JudgeEntityService {
     // 通过用户id和题目id获取评测信息表
     List<Judge> selectJudgeByProblemId(int userId, Long pid);
 
-    List<Judge> selectByParam(int userId, Long pid, int status, String language, String title);
+    List<Judge> selectByParam(int userId, Long pid, Integer status, String language, String title);
 
 }
