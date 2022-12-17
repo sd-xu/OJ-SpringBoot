@@ -1,0 +1,14 @@
+{
+  "judge": {
+    "submitId": "47",
+    "pid": "1001",
+    "uid": "1",
+    "status": "5",
+    "share": "false",
+    "length": "108",
+    "code": "#include <iostream>\n using namespace std;\n int main() {\n int a, b;\n cin >> a >> b;\n cout << a + b << endl;\n}",
+    "language": "C++",
+    "ip": "172.27.23.228",
+    "tmp": "#include <iostream>\n  using namespace std;\n  \n  int main() {\n  int n, m;\n   scanf(\"%d%d\", &n, &m);\n   printf(\"%d %d\\n\", n, m);\n}"
+  }
+}

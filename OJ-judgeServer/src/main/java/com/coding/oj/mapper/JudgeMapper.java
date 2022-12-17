@@ -19,4 +19,5 @@ public interface JudgeMapper {
 
     int updateStatusByPrimaryKey(@Param("status") Integer status, @Param("submitId") Long submitId);
 
+    int updateInfo(Judge finalJudgeRes);
 }

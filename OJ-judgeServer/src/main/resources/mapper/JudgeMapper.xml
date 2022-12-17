@@ -60,4 +60,11 @@
     where submit_id = #{submitId,jdbcType=BIGINT}
   </select>
 
+ <update id="updateInfo" parameterType="map">
+    update judge
+    set status = #{status,jdbcType=INTEGER},
+    time = #{time,jdbcType=INTEGER},
+    memory = #{memory,jdbcType=INTEGER}
+    where submit_id = #{submitId,jdbcType=BIGINT}
+  </update>
 </mapper>

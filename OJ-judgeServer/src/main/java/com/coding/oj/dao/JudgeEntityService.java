@@ -1,6 +1,5 @@
 package com.coding.oj.dao;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.coding.oj.pojo.entity.Judge;
 
 /**
@@ -20,4 +19,5 @@ public interface JudgeEntityService {
     // 通过提交id获取评测信息
     Judge getBySubmitId(Long submitId);
 
+    boolean updateInfo(Judge finalJudgeRes);
 }
