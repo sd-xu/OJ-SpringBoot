@@ -11,7 +11,7 @@ public class Language {
 
     private String description;
 
-    private String name;
+    private String language;
 
     private String compileCommand;
 

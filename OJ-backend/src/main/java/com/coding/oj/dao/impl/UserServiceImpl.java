@@ -57,8 +57,10 @@ public class UserServiceImpl implements UserService {
         int contest_num = contestMapper.getContestNum(userId);
         Date last_submit = judgeMapper.getLastSubmit(userId);
         String language = judgeMapper.getUsualLanguage(userId);
-        int difficulty = judgeMapper.getDifficulty(userId);
         String area = "";
+        int difficulty = 0;
+        if(judgeMapper.selectByUserId(userId).size()>0)
+            difficulty = judgeMapper.getDifficulty(userId);
         switch (difficulty){
             case 0:
                 area = "简单"; break;

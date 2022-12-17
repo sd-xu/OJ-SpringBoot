@@ -83,6 +83,7 @@ public class JudgeMapperTest {
 
     @Test
     public void getDifficulty() {
+        System.out.println(judgeMapper.getDifficulty(4));
     }
 
     @Test

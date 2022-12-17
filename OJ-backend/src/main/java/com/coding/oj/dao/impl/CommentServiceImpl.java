@@ -24,9 +24,7 @@ public class CommentServiceImpl implements CommentService {
     public Long addComment(Comment comment) {
         if(comment.getAid() != null && comment.getUid() != null &&
                 comment.getLikeCount() != null && comment.getContent() != null){
-            int effectNum = commentMapper.insert(comment);
-            if(effectNum > 0) return commentMapper.selectNewComment().getId();
-            else return null;
+            return commentMapper.insert(comment);
         }
         return null;
     }

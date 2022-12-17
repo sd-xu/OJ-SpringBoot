@@ -64,7 +64,7 @@ public class UserServiceTest {
 
     @Test
     public void getUserHistory(){
-        System.out.println(userService.getUserHistory(2));
+        System.out.println(userService.getUserHistory(4));
     }
 
     @Test

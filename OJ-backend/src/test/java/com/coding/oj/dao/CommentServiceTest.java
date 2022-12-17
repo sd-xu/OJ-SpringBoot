@@ -22,6 +22,12 @@ public class CommentServiceTest {
 
     @Test
     public void addComment() {
+        Comment comment = new Comment();
+        comment.setAid(1l);
+        comment.setUid(2);
+        comment.setContent("xxxx");
+        comment.setLikeCount(1l);
+        System.out.println(commentService.addComment(comment));
     }
 
     @Test

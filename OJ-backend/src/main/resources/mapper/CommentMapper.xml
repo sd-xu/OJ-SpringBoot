@@ -15,7 +15,7 @@
     delete from comment
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.coding.oj.pojo.entity.Comment" >
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.coding.oj.pojo.entity.Comment" >
     insert into comment (id, aid, uid, like_count, 
       parent_id, content)
     values (#{id,jdbcType=BIGINT}, #{aid,jdbcType=BIGINT}, #{uid,jdbcType=INTEGER}, #{likeCount,jdbcType=BIGINT}, 
