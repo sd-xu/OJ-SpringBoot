@@ -261,7 +261,6 @@ public class SandboxRun {
 
         JSONObject param = new JSONObject();
         param.set("cmd", new JSONArray().put(cmd));
-
         JSONArray result = instance.run("/run", param);
         JSONObject compileRes = (JSONObject) result.get(0);
         compileRes.set("originalStatus", compileRes.getStr("status"));
@@ -304,6 +303,7 @@ public class SandboxRun {
 
         JSONArray files = new JSONArray();
         JSONObject content = new JSONObject();
+        testCasePath = "";
         if (StringUtils.isEmpty(testCasePath)) {
             content.set("content", testCaseContent);
         } else {
@@ -348,7 +348,6 @@ public class SandboxRun {
 
         // 调用判题安全沙箱
         JSONArray result = instance.run("/run", param);
-
         JSONObject testcaseRes = (JSONObject) result.get(0);
         testcaseRes.set("originalStatus", testcaseRes.getStr("status"));
         testcaseRes.set("status", RESULT_MAP_STATUS.get(testcaseRes.getStr("status")));

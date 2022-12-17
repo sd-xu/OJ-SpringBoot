@@ -43,7 +43,6 @@ public class Compiler {
                 null
         );
         JSONObject compileResult = (JSONObject) result.get(0);
-        System.out.println(compileResult.getInt("status").intValue());
         if (compileResult.getInt("status").intValue() != Constants.Judge.STATUS_ACCEPTED.getStatus()) {
 
             throw new CompileError("Compile Error.", ((JSONObject) compileResult.get("files")).getStr("stdout"),

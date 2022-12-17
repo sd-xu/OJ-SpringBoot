@@ -50,7 +50,7 @@ public class JudgeStrategy {
             if (languageConfig.getCompileCommand() != null) {
                 userFileId = Compiler.compile(languageConfig,
                         judge.getCode(),
-                        judge.getLanguage());
+                        judge.getLanguage());  //这就是fileid
             }
 
             // 测试数据文件所在文件夹
@@ -144,7 +144,6 @@ public class JudgeStrategy {
             String inputFileName = jsonObject.getStr("inputFileName");
             String outputFileName = jsonObject.getStr("outputFileName");
             String msg = jsonObject.getStr("errMsg");
-
             JudgeCase judgeCase = JudgeCase.builder()
                     .time(time)
                     .memory(memory)
@@ -168,7 +167,6 @@ public class JudgeStrategy {
             if (!Objects.equals(status, Constants.Judge.STATUS_ACCEPTED.getStatus())) {
                 errorTestCaseList.add(jsonObject);
             }
-
             allCaseResList.add(judgeCase);
         });
 

@@ -1,0 +1,13 @@
+{
+  "judgeCaseMode": "default",
+  "testCases": [
+    {
+      "inputName": "input",
+      "outputName": "output",
+      "caseId": 1000,
+      "score": 100,
+      "outputMd5": "31371f199688ae40ba84c37a303411be",
+      "inputContent": "1 2"
+    }
+  ]
+}

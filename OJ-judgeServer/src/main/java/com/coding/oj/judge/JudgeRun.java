@@ -77,7 +77,7 @@ public class JudgeRun {
                 .testCaseInfo(testCasesInfo)
                 .runConfig(runConfig)
                 .needUserOutputFile(getUserOutput)
-                .removeEOLBlank(true)
+                .removeEOLBlank(false)
                 .build();
 
         return defaultJudgeAllCase(testcaseList, testCasesDir, judgeGlobalDTO, abstractJudge);
@@ -125,6 +125,7 @@ public class JudgeRun {
                     .testCaseInputPath(testCaseInputPath)
                     .testCaseOutputFileName(outputFileName)
                     .testCaseOutputPath(testCaseOutputPath)
+                    .testCaseInputContent(testcase.getStr("inputContent"))
                     .maxOutputSize(maxOutputSize)
                     .score(score)
                     .build();

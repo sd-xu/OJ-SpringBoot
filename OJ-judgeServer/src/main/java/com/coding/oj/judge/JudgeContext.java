@@ -58,7 +58,6 @@ public class JudgeContext {
         finalJudgeRes.setTime(Math.min(time, problem.getTimeLimit()));
         // score
         finalJudgeRes.setScore((Integer) judgeResult.getOrDefault("score", null));
-
         return finalJudgeRes;
     }
 

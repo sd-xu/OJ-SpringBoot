@@ -38,8 +38,8 @@ public class ProblemTestCaseUtils {
 
     // 获取指定题目的info数据
     public JSONObject loadTestCaseInfo(Long problemId, String testCasesDir) throws SystemError {
-        if (FileUtil.exist(testCasesDir + File.separator + "info")) {
-            FileReader fileReader = new FileReader(testCasesDir + File.separator + "info", CharsetUtil.UTF_8);
+        if (FileUtil.exist(testCasesDir + File.separator + "info.json")) {
+            FileReader fileReader = new FileReader(testCasesDir + File.separator + "info.json", CharsetUtil.UTF_8);
             String infoStr = fileReader.readString();
             JSONObject testcaseInfo = JSONUtil.parseObj(infoStr);
             return testcaseInfo;
