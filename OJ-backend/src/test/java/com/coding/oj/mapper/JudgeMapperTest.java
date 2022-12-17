@@ -102,7 +102,7 @@ public class JudgeMapperTest {
     public void selectByAllParam() {
         int userId = 1; Long pid= 1000L; int status = -12; String language= "Java";
         List<Judge> list;
-        list = judgeMapper.selectByAllParam(userId, null, null, language, null);
+        list = judgeMapper.selectByAllParam(userId, null, null, null, "一");
         System.out.println(list);
     }
 }

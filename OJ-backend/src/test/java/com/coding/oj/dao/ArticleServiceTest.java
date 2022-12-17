@@ -64,6 +64,6 @@ public class ArticleServiceTest {
     @Test
     public void getRecommendation() {
         List<Article> list = articleService.getRecommendation();
-        list.forEach(System.out::println);
+        System.out.println(list);
     }
 }
