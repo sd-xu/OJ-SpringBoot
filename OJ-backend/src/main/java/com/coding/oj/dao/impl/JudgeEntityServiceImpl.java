@@ -1,11 +1,14 @@
 package com.coding.oj.dao.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.coding.oj.common.exception.*;
 import com.coding.oj.common.result.ResultStatus;
 import com.coding.oj.manager.JudgeManager;
+import com.coding.oj.mapper.JudgeCaseMapper;
 import com.coding.oj.mapper.JudgeMapper;
 import com.coding.oj.pojo.entity.Judge;
 import com.coding.oj.dao.JudgeEntityService;
+import com.coding.oj.pojo.entity.JudgeCase;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,8 @@ public class JudgeEntityServiceImpl implements JudgeEntityService {
 
     @Autowired
     private JudgeMapper judgeMapper;
+    @Autowired
+    private JudgeCaseMapper judgeCaseMapper;
 
     @Override
     public boolean updateById(Judge judge) {
@@ -89,7 +94,21 @@ public class JudgeEntityServiceImpl implements JudgeEntityService {
     }
 
     @Override
-    public List<Judge> selectByParam(int userId, Long pid, int status, String language, String title) {
+    public List<Judge> selectByParam(int userId, Long pid, Integer status, String language, String title) {
         return judgeMapper.selectByAllParam(userId, pid, status, language, title);
+    }
+
+
+    @Override
+    public Judge getSubmissionDetail(Long submitId) {
+        return judgeMapper.selectBySubmitId(submitId);
+    }
+
+    @Override
+    public List<JudgeCase> getAllcaseResult(Long submitId) {
+        //QueryWrapper<JudgeCase> queryWrapper = new QueryWrapper<JudgeCase>();
+        //queryWrapper.eq("submit_id",submitId);
+        //return judgeCaseMapper.selectList(queryWrapper);
+        return null;
     }
 }

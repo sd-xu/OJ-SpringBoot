@@ -3,6 +3,8 @@ package com.coding.oj.dao;
 import com.coding.oj.common.result.CommonResult;
 import com.coding.oj.pojo.dto.SubmitJudgeDTO;
 import com.coding.oj.pojo.entity.Judge;
+import com.coding.oj.pojo.entity.JudgeCase;
+
 import java.util.List;
 
 
@@ -35,6 +37,9 @@ public interface JudgeEntityService {
     // 通过用户id和题目id获取评测信息表
     List<Judge> selectJudgeByProblemId(int userId, Long pid);
 
-    List<Judge> selectByParam(int userId, Long pid, int status, String language, String title);
+    List<Judge> selectByParam(int userId, Long pid, Integer status, String language, String title);
 
+    Judge getSubmissionDetail(Long submitId);
+
+    List<JudgeCase> getAllcaseResult(Long submitId);
 }

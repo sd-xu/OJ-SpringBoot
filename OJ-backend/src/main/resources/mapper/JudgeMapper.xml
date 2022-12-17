@@ -158,22 +158,23 @@
 
   <select id="selectByAllParam" resultMap="BaseResultMap" parameterType="map" >
     select j.*
-    from judge j, problem p
+    from judge j left outer join problem p
+    on j.pid = p.id
     <where>
       <if test="userId &gt; 0">
         j.uid = #{userId,jdbcType=BIGINT}
       </if>
-      <if test="pid &gt; 0">
+      <if test="pid != null and pid &gt; 0">
         and j.pid = #{pid,jdbcType=BIGINT}
       </if>
-      <if test="status &gt; -11 and status &lt; 10">
+      <if test="status != null and status &gt; -11 and status &lt; 10">
         and j.status = #{status,jdbcType=BIGINT}
       </if>
-      <if test="language != '' and title != null">
+      <if test="language != '' and language != null">
         and j.language = #{language,jdbcType=VARCHAR}
       </if>
       <if test="title != '' and title != null">
-        and j.pid = p.id and p.title like '%${title}%'
+        and p.title like '%${title}%'
       </if>
     </where>
 

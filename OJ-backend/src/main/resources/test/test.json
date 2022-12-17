@@ -1,6 +1,7 @@
 {
   "pid": "1001",
   "uid": "1",
-  "code": "#include <iostream>\n using namespace std;\n int main() {\n int a, b;\n cin >> a >> b;\n cout << a + b << endl;\n}",
+  "code": "#include <iostream>\n  using namespace std;\n  \n  int main() {\n  int n, m;\n   scanf(\"%d%d\", &n, &m);\n   printf(\"%d %d\", n, m);\n}",
   "language": "C++"
 }
+

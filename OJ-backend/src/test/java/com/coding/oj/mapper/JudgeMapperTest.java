@@ -100,9 +100,9 @@ public class JudgeMapperTest {
 
     @Test
     public void selectByAllParam() {
-        int userId = 1; Long pid= 1000L; int status = -12; String language= "C++";
-        List<Judge> list = new ArrayList<>();
-        list = judgeMapper.selectByAllParam(userId, pid, status, language, null);
+        int userId = 1; Long pid= 1000L; int status = -12; String language= "Java";
+        List<Judge> list;
+        list = judgeMapper.selectByAllParam(userId, null, null, null, "一");
         System.out.println(list);
     }
 }

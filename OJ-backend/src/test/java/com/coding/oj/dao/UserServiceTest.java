@@ -69,18 +69,7 @@ public class UserServiceTest {
 
     @Test
     public void getUserInfo() {
-        int userId = 1;
-        String username = "1";
-        UserInfo userInfo = new UserInfo();
-        User user = userMapper.selectByUserName(username);
-        System.out.println(user);
-//        userInfo.setUsername(username);
-//        userInfo.setGender(user.getGender());
-//        userInfo.setDescription(user.getDescription());
-//        userInfo.setImageUrl(userInfo.getImageUrl());
-//        userInfo.setAnswerDate(judgeMapper.getLastSubmit(userId));
-//        userInfo.setCount(judgeMapper.lastDateCount(userId));
-//        assertEquals(1, userInfo.getCount());
+        System.out.println(userService.getUserInfo(1,null));
     }
 
     @Test

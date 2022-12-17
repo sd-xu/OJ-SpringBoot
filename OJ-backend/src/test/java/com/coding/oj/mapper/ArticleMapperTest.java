@@ -27,6 +27,7 @@ public class ArticleMapperTest {
 
     @Test
     public void selectAll() {
+        System.out.println(articleMapper.selectAll());
     }
 
     @Test

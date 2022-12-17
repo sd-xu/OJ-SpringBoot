@@ -58,7 +58,7 @@ public class UserController {
         return modelMap;
     }
 
-    //获取当前用户信息
+    // 获取当前用户信息
     public Map<String, Object> getUser(Integer userId) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表

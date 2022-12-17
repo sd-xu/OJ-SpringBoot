@@ -4,6 +4,7 @@ import com.coding.oj.common.result.CommonResult;
 import com.coding.oj.dao.JudgeEntityService;
 import com.coding.oj.pojo.dto.SubmitJudgeDTO;
 import com.coding.oj.pojo.entity.Judge;
+import com.coding.oj.pojo.entity.JudgeCase;
 import com.coding.oj.service.JudgeService;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,24 @@ public class JudgeController {
     @PostMapping (value = "/submit-problem-judge")
     public CommonResult<Judge> submitProblemJudge(@RequestBody SubmitJudgeDTO judgeDto) {
         return judgeService.submitProblemJudge(judgeDto);
+    }
+
+    @GetMapping(value = "/get-submission-detail")
+    public Map<String, Object> getSubmissionDetail(Long submitId){
+        Map<String, Object> modelMap = new HashMap<>();
+        // 获取区域列表
+        Judge judge = judgeEntityService.getSubmissionDetail(submitId);
+        modelMap.put("Judge", judge);
+        return modelMap;
+    }
+
+    @GetMapping(value = "/get-allcase-result")
+    public Map<String, Object> getAllcaseResult(Long submitId){
+        Map<String, Object> modelMap = new HashMap<>();
+        // 获取区域列表
+        List<JudgeCase> judgeCaseList = judgeEntityService.getAllcaseResult(submitId);
+        modelMap.put("Judge", judgeCaseList);
+        return modelMap;
     }
 
     @GetMapping(value = "/getSubmitHistory")

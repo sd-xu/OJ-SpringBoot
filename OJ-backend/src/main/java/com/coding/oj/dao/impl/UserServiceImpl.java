@@ -37,7 +37,11 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public boolean addUser(User user) {
         if (user.getUsername() != null && !"".equals(user.getUsername())) {
-            if (user.getPassword()!=null && !"".equals(user.getPassword())) {
+            if (user.getPassword() != null && !"".equals(user.getPassword())) {
+                if (user.getDescription() == null)
+                    user.setDescription("xxx");
+                if (user.getImageUrl() == null)
+                    user.setImageUrl("xxx");
                 int effectedNum = userMapper.insert(user);
                 return effectedNum > 0;
             }
@@ -53,30 +57,31 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserHistory getUserHistory(int userId) {
         UserHistory userHistory = new UserHistory();
-        int problem_num = judgeMapper.getProblemNum(userId);
-        int contest_num = contestMapper.getContestNum(userId);
-        Date last_submit = judgeMapper.getLastSubmit(userId);
-        String language = judgeMapper.getUsualLanguage(userId);
-        String area = "";
-        int difficulty = 0;
-        if(judgeMapper.selectByUserId(userId).size()>0)
-            difficulty = judgeMapper.getDifficulty(userId);
-        switch (difficulty){
-            case 0:
-                area = "简单"; break;
-            case 1:
-                area = "中等"; break;
-            case 2:
-                area = "困难"; break;
+        if(judgeMapper.selectByUserId(userId).size()>0){
+            int problem_num = judgeMapper.getProblemNum(userId);
+            int contest_num = contestMapper.getContestNum(userId);
+            Date last_submit = judgeMapper.getLastSubmit(userId);
+            String language = judgeMapper.getUsualLanguage(userId);
+            String area = "";
+            int  difficulty = judgeMapper.getDifficulty(userId);
+            switch (difficulty){
+                case 0:
+                    area = "简单"; break;
+                case 1:
+                    area = "中等"; break;
+                case 2:
+                    area = "困难"; break;
+            }
+            int max_submit = judgeMapper.getMaxSubmit(userId);
+            userHistory.setProblem_num(problem_num);
+            userHistory.setContest_num(contest_num);
+            userHistory.setLast_submit(last_submit);
+            userHistory.setLanguage(language);
+            userHistory.setArea(area);
+            userHistory.setMax_submit(max_submit);
+            return userHistory;
         }
-        int max_submit = judgeMapper.getMaxSubmit(userId);
-        userHistory.setProblem_num(problem_num);
-        userHistory.setContest_num(contest_num);
-        userHistory.setLast_submit(last_submit);
-        userHistory.setLanguage(language);
-        userHistory.setArea(area);
-        userHistory.setMax_submit(max_submit);
-        return userHistory;
+        else return null;
     }
 
     @Override
@@ -87,7 +92,7 @@ public class UserServiceImpl implements UserService {
             user = userMapper.selectByUserName(username);
         else
             user = userMapper.selectByPrimaryKey(userId);
-        userInfo.setUsername(username);
+        userInfo.setUsername(user.getUsername());
         userInfo.setGender(user.getGender());
         userInfo.setDescription(user.getDescription());
         userInfo.setImageUrl(userInfo.getImageUrl());

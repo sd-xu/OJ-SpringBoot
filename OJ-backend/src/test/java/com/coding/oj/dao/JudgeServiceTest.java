@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,5 +53,15 @@ public class JudgeServiceTest {
         List<Judge> list;
         list = judgeEntityService.selectByParam(userId, pid, status, language, null);
         assertEquals(1, list.size());
+    }
+
+    @Test
+    public void getSubmissionDetail(){
+        System.out.println(judgeEntityService.getSubmissionDetail(96l));
+    }
+
+    @Test
+    public void getAllcaseResult(){
+        System.out.println(judgeEntityService.getAllcaseResult(74l));
     }
 }
