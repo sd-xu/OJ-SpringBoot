@@ -36,7 +36,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<Article> getRecommendation() {
         List<Article> list = articleMapper.selectRecommendation();
-        int num = list.size() >= 5 ? 5 : list.size();
+        int num = Math.min(list.size(), 5);
         return list.subList(0, num);
     }
 
@@ -60,24 +60,23 @@ public class ArticleServiceImpl implements ArticleService {
         if(uid <0)
         {
             article = articleMapper.selectByPrimaryKey(id);
-            articleMap.put("Article",article);
-            articleMap.put("ifLike",ifLike);
-            articleMap.put("ifSubscribe",ifSubscribe);
+            articleMap.put("Article", article);
+            articleMap.put("ifLike", ifLike);
+            articleMap.put("ifSubscribe", ifSubscribe);
         }
         else{
             article = articleMapper.selectArticleLike(id,uid);
             if(article != null){
                 ifLike = true;
-                articleMap.put("Article",article);
-                articleMap.put("ifLike",ifLike);
+                articleMap.put("Article", article);
+                articleMap.put("ifLike", ifLike);
             }
             article = articleMapper.selectArticleStar(id,uid);
-            System.out.println(article);
             if(article != null){
                 ifSubscribe = true;
                 if(!ifLike)
-                    articleMap.put("Article",article);
-                articleMap.put("ifSubscribe",ifSubscribe);
+                    articleMap.put("Article", article);
+                articleMap.put("ifSubscribe", ifSubscribe);
             }
             if(!ifLike && !ifSubscribe) {
                 article = articleMapper.selectByPrimaryKey(id);
@@ -92,14 +91,12 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public boolean deleteArticle(Long id) {
         int effectNum = articleMapper.deleteByPrimaryKey(id);
-        if(effectNum > 0) return true;
-        else return  false;
+        return effectNum > 0;
     }
 
     @Override
     public boolean modifyArticle(Article article) {
         int effectNum = articleMapper.updateByPrimaryKey(article);
-        if(effectNum > 0) return true;
-        else return  false;
+        return effectNum > 0;
     }
 }

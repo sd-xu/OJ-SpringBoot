@@ -79,7 +79,7 @@
       ) AS b;
   </select>
 
-  <select id="selectRecommendation" resultType="com.coding.oj.pojo.entity.Article">
+  <select id="selectRecommendation" resultMap="BaseResultMap">
     SELECT * FROM article order by like_count desc, comment_count desc;
   </select>
 
