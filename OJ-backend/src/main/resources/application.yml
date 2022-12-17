@@ -84,6 +84,9 @@ file:
   staticAccessPath: /image/**
   uploadFolder: D:/static/image/
 
+
+
+
 # 测试
 # curl -F "file=@C:/Users/19056/Desktop/2.jpeg" -F "username=张三" "http://localhost:8088/postUserImage"
 
