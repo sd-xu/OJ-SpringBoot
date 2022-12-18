@@ -19,18 +19,10 @@ public class JudgeCaseServiceTest {
 
     @Autowired
     private JudgeCaseService judgeCaseService;
+
     @Test
     public void saveBatch(){
-        List<JudgeCase> allCaseResList = new LinkedList<>();
-        JudgeCase judgeCase = JudgeCase.builder()
-                .pid(new Long((long)1000))
-                .uid(1)
-                .caseId(new Long((long)1000))
-                .submitId(new Long((long)1))
-                .build();
-        allCaseResList.add(judgeCase);
-        boolean addCaseRes = judgeCaseService.saveBatch(allCaseResList);
-        assertEquals(true,addCaseRes);
+
     }
 
 }

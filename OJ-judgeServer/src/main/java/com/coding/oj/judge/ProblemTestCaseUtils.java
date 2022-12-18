@@ -33,7 +33,8 @@ public class ProblemTestCaseUtils {
             JSONObject testcaseInfo = JSONUtil.parseObj(infoStr);
             return testcaseInfo;
         } else { // 若没有测试数据，则直接判系统错误
-            throw new SystemError("problemID:[" + problemId + "] test case has not found.", null, null);
+            //throw new SystemError("problemID:[" + problemId + "] test case has not found.", null, null);
+            throw new SystemError(testCasesDir + File.separator + "info.json", null, null);
         }
     }
 
