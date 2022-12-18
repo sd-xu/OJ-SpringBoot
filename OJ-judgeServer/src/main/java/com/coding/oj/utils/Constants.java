@@ -127,7 +127,7 @@ public class Constants {
 
         RUN_WORKPLACE_DIR("D:\\HBuilderProjects\\oj-spring-boot-1\\OJ-judgeServer\\src\\main\\java\\com\\coding\\oj\\judge\\run"),
 
-        TEST_CASE_DIR("test_case"),
+        TEST_CASE_DIR("D:\\HBuilderProjects\\oj-spring-boot-1\\OJ-judgeServer\\src\\main\\java\\com\\coding\\oj\\judge\\test_case"),
 
         SPJ_WORKPLACE_DIR("/judge/spj"),
 

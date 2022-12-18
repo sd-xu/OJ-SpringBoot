@@ -76,8 +76,9 @@ public class Dispatcher {
                 try {
                     String url = "http://" + judgeServer.getUrl() + path;
                     result = restTemplate.postForObject(url, data, CommonResult.class);
+                    System.out.println(result);
                 } catch (Exception e) {
-                    log.error("[Self Judge] Request the judge server [" + judgeServer.getUrl() + "] error -------------->", e);
+                    log.error("[Self Judge] Request the judge server [" + judgeServer.getUrl() + "] error -------------->", e); //这里有问题
                 } finally {
                     checkResult(result, submitId);
                     releaseJudgeServer(judgeServer.getId());
