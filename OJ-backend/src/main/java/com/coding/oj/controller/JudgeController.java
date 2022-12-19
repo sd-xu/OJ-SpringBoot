@@ -32,8 +32,11 @@ public class JudgeController {
         return judgeService.submitProblemJudge(judgeDto);
     }
 
+    /*
+     * @Description 获取判题结果
+     */
     @GetMapping(value = "/get-submission-detail")
-    public Map<String, Object> getSubmissionDetail(Long submitId){
+    public Map<String, Object> getSubmissionDetail(Long submitId) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
         Judge judge = judgeEntityService.getSubmissionDetail(submitId);
@@ -41,8 +44,11 @@ public class JudgeController {
         return modelMap;
     }
 
-    @GetMapping(value = "/get-allcase-result")
-    public Map<String, Object> getAllcaseResult(Long submitId){
+    /*
+     * @Description 获取所有测试用例评测结果
+     */
+    @GetMapping(value = "/get-all-case-result")
+    public Map<String, Object> getAllCaseResult(Long submitId) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
         List<JudgeCase> judgeCaseList = judgeEntityService.getAllcaseResult(submitId);
