@@ -54,7 +54,7 @@ public class JudgeRun {
         Constants.JudgeMode judgeMode = Constants.JudgeMode.DEFAULT;
 
         // 用户输出的文件夹
-        String runDir = Constants.JudgeDir.RUN_WORKPLACE_DIR.getContent() + File.separator + submitId;
+        //String runDir = Constants.JudgeDir.RUN_WORKPLACE_DIR.getContent() + File.separator + submitId;
 
         LanguageConfig runConfig = languageConfigLoader.getLanguageConfigByName(judgeLanguage);
 
@@ -66,7 +66,6 @@ public class JudgeRun {
                 .judgeMode(judgeMode)
                 .userFileId(userFileId)
                 .userFileContent(userFileContent)
-                .runDir(runDir)
                 .testTime(testTime)
                 .maxMemory((long) problem.getMemoryLimit())
                 .maxTime((long) problem.getTimeLimit())

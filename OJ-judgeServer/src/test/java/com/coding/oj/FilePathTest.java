@@ -19,7 +19,7 @@ public class FilePathTest {
 
     @Test
     public void test() {
-        assertTrue(FileUtil.exist("src/test_case/problem_1001/info.json"));
+        assertTrue(FileUtil.exist("test_case/problem_1001/info.json"));
     }
 
 }
