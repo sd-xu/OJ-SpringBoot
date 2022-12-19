@@ -62,6 +62,6 @@ public class JudgeServiceTest {
 
     @Test
     public void getAllcaseResult(){
-        System.out.println(judgeEntityService.getAllcaseResult(74l));
+        System.out.println(judgeEntityService.getAllcaseResult(80l));
     }
 }

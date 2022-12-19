@@ -71,4 +71,9 @@
     seq, mode, input_data, output_data, user_output, gmt_create, gmt_modified
     from judge_case
   </select>
+  <select id="selectTestCaseBySubmitId" resultMap="BaseResultMap" >
+    select *
+    from judge_case
+    where submit_id = #{submitId,jdbcType=BIGINT}
+  </select>
 </mapper>

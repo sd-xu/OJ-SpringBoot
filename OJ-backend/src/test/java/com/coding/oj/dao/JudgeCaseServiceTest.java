@@ -20,6 +20,7 @@ public class JudgeCaseServiceTest {
     @Autowired
     private JudgeCaseService judgeCaseService;
 
+
     @Test
     public void saveBatch(){
 

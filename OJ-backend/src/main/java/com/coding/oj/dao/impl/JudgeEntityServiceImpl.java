@@ -2,6 +2,7 @@ package com.coding.oj.dao.impl;
 
 import com.coding.oj.common.exception.*;
 import com.coding.oj.common.result.ResultStatus;
+import com.coding.oj.mapper.JudgeCaseMapper;
 import com.coding.oj.mapper.JudgeMapper;
 import com.coding.oj.pojo.entity.Judge;
 import com.coding.oj.dao.JudgeEntityService;
@@ -15,6 +16,9 @@ import java.util.List;
 public class JudgeEntityServiceImpl implements JudgeEntityService {
     @Autowired
     private JudgeMapper judgeMapper;
+
+    @Autowired
+    private JudgeCaseMapper judgeCaseMapper;
 
     @Override
     public boolean updateById(Judge judge) {
@@ -95,9 +99,6 @@ public class JudgeEntityServiceImpl implements JudgeEntityService {
 
     @Override
     public List<JudgeCase> getAllcaseResult(Long submitId) {
-        //QueryWrapper<JudgeCase> queryWrapper = new QueryWrapper<JudgeCase>();
-        //queryWrapper.eq("submit_id",submitId);
-        //return judgeCaseMapper.selectList(queryWrapper);
-        return null;
+        return judgeCaseMapper.selectTestCaseBySubmitId(submitId);
     }
 }
