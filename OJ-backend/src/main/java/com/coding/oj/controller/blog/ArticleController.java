@@ -21,10 +21,10 @@ public class ArticleController {
 
     // 获取所有博文的信息
     @GetMapping(value = "/listArticle")
-    public Map<String, Object> listArticle() {
+    public Map<String, Object> listArticle(Integer userId) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        List<Article> list = articleService.getArticleList();
+        List<Map<String, Object>> list = articleService.getArticleList(userId);
         modelMap.put("articleList", list);
         return modelMap;
     }

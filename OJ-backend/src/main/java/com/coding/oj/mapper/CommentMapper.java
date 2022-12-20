@@ -4,6 +4,7 @@ import com.coding.oj.pojo.entity.Comment;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface CommentMapper {
@@ -23,4 +24,5 @@ public interface CommentMapper {
 
     List<Comment> selectCommentLike(Long id, Integer uid);
 
+    List<Map<?,?>> selectTopThreeComments();
 }

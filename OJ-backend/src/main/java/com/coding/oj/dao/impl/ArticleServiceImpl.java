@@ -8,6 +8,7 @@ import org.springframework.data.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +19,17 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleMapper articleMapper;
 
     @Override
-    public List<Article> getArticleList() {
-        return articleMapper.selectAll();
+    public List<Map<String,Object>> getArticleList(Integer userId) {
+        List<Map<String,Object>> articleMap = new ArrayList<>();
+        List<Article> articleList = articleMapper.selectAll();
+        for(Article article : articleList){
+            Map<String,Object> map = new HashMap<>();
+            map.put("Article", article);
+            Long aid = article.getId();
+            map.put("ifLike", articleMapper.selectArticleLike(aid,userId) != null);
+            articleMap.add(map);
+        }
+        return articleMap;
     }
 
     @Override

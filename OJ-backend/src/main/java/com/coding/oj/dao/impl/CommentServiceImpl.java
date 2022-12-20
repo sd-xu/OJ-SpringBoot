@@ -72,4 +72,9 @@ public class CommentServiceImpl implements CommentService {
         return commentMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public List<Map<?, ?>> getTopThreeComments() {
+        return commentMapper.selectTopThreeComments();
+    }
+
 }

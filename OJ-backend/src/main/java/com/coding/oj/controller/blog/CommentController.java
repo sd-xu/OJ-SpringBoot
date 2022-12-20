@@ -64,4 +64,14 @@ public class CommentController {
         modelMap.put("commentList",list);
         return modelMap;
     }
+
+    // 获取最新的三条评论
+    @GetMapping(value = "/getTopThree")
+    public Map<String,Object> getTopThreeComments(){
+        Map<String, Object> modelMap = new HashMap<>();
+        List<Map<?, ?>> topthree =commentService.getTopThreeComments();
+        // 获取区域列表
+        modelMap.put("topthree",topthree);
+        return modelMap;
+    }
 }

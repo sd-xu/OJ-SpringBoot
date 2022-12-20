@@ -21,6 +21,7 @@ public class ArticleServiceTest {
 
     @Test
     public void getArticleList() {
+        System.out.println(articleService.getArticleList(1));
     }
 
     @Test

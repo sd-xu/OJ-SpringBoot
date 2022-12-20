@@ -19,4 +19,5 @@ public interface CommentService {
 
     Comment getCommentById(Long id);
 
+    List<Map<?,?>> getTopThreeComments();
 }

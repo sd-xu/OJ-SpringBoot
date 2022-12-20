@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface ArticleService {
-    List<Article> getArticleList();
+    List<Map<String,Object>> getArticleList(Integer userId);
 
     List<String> getArticleSort();
 
