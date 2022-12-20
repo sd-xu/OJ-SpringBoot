@@ -45,13 +45,9 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public List<Problem> getProblems(int pageNum, int pageSize) {
+    public List<Problem> getProblems() {
         // 查询功能之前开启分页功能
-        Page<Object> page = PageHelper.startPage(pageNum, pageSize);
-        List<Problem> list = problemMapper.selectAll();
-        // 查询功能之后可以获取分页相关的所有数据
-        PageInfo<Problem> pageInfo = new PageInfo<>(list);
-        return pageInfo.getList();
+        return problemMapper.selectAll();
     }
 
     @Override

@@ -19,9 +19,9 @@ public class ProblemController {
 
     // 获取所有的题目信息
     @GetMapping(value = "/listProblem")
-    public Map<String, Object> listProblem(Integer pageNum, Integer pageSize) {
+    public Map<String, Object> listProblem() {
         Map<String, Object> modelMap = new HashMap<>();
-        List<Problem> list = problemService.getProblems(pageNum, pageSize);
+        List<Problem> list = problemService.getProblems();
         // 获取区域列表
         modelMap.put("problemList", list);
         return modelMap;

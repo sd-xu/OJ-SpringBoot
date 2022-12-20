@@ -1,7 +1,7 @@
 {
-  "pid": "1001",
+  "pid": "1000",
   "uid": "1",
-  "code": "#include <iostream>\n  using namespace std;\n  \n  int main() {\n  int n, m;\n   scanf(\"%d%d\", &n, &m);\n   printf(\"%d %d\", n, m);\n}",
+  "code": "#include <iostream>\nusing namespace std;\n\nint main()\n{\ncout<<\"hello world!\"<<endl;\n return 0;\n}",
   "language": "C++"
 }
 

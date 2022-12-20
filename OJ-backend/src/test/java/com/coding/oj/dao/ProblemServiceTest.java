@@ -72,7 +72,7 @@ public class ProblemServiceTest {
 
     @Test
     public void getProblems() {
-        List<Problem> list = problemService.getProblems(2, 1);
+        List<Problem> list = problemService.getProblems();
         System.out.println(list);
     }
 }

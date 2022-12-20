@@ -18,6 +18,6 @@ public interface ProblemService {
 
     Problem selectProblem(String index);
 
-    List<Problem> getProblems(int pageNum, int pageSize);
+    List<Problem> getProblems();
 
 }
