@@ -54,8 +54,8 @@
     from comment c, like_comment l
     where c.id = l.cid and l.uid = #{uid} and c.id = #{id}
   </select>
-  <select id="selectTopThree" resultType="java.util.Map" >
-    select group_concat(distinct uid) uid,gmt_create
+  <select id="selectTopThreeComments" resultType="java.util.Map" >
+    select group_concat(distinct uid) uid,max(gmt_create) gmt_create
     from comment GROUP BY uid order by gmt_create desc limit 3
   </select>
 </mapper>

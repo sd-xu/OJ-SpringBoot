@@ -53,4 +53,9 @@ public class CommentServiceTest {
         List<Comment> list = commentService.getChildComment(1l);
         assertEquals(2,list.size());
     }
+
+    @Test
+    public void getTopThreeComments(){
+        System.out.println(commentService.getTopThreeComments());
+    }
 }
