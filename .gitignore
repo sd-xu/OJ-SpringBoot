@@ -5,6 +5,8 @@ mvnw.cmd
 **/src/main/**/target/
 **/src/test/**/target/
 
+/oj_image
+
 ### STS ###
 .apt_generated
 .classpath

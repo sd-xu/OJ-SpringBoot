@@ -90,3 +90,8 @@ file:
 
 #curl -X POST -H "Content-Type: application/json" -d @test/test.json "http://localhost:8088/submit-problem-judge"
 
+#docker镜像常用命令
+#docker images      显示当前目录下的所有镜像
+#docker run -itd --rm --privileged --shm-size=256m -p 5050:5050 oj/image:oj /opt/executorserver     启动镜像中的沙盒程序
+#docker ps -a       查看所有容器的状态
+#docker exec -it d2cab347eff9 /bin/bash         docker exec表示在运行的容器xxxxx中执行命令，-it和/bin/bash表示进入该容器的命令行交互模式
