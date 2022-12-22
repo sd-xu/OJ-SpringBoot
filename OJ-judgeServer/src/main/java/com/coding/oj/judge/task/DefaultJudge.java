@@ -106,6 +106,7 @@ public class DefaultJudge extends AbstractJudge {
             }
         } else { // 不选择默认去掉文末空格 与原数据进行对比
             String userOutputMd5 = DigestUtils.md5DigestAsHex(userOutput.getBytes(StandardCharsets.UTF_8));
+            System.out.println(userOutputMd5);
             if (userOutputMd5.equals(testcaseInfo.getStr("outputMd5"))) {
                 return Constants.Judge.STATUS_ACCEPTED.getStatus();
             }

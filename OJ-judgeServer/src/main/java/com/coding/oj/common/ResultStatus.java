@@ -26,4 +26,5 @@ public enum ResultStatus {
 
     private String description;
 
+
 }

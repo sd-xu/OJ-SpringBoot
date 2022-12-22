@@ -2,15 +2,22 @@ package com.coding.oj.common.result;
 
 import lombok.Data;
 
+
 @Data
-public class CommonResult<T> {
+public class CommonResult<T>  {
 
     private final Integer status;   // 状态码
+
 
     private final T data;   // 返回的数据
 
     private final String msg;    // 自定义信息
 
+    public CommonResult(Integer status, T data, String msg) {
+        this.status = status;
+        this.data = data;
+        this.msg = msg;
+    }
 
     /**
      * 成功的结果

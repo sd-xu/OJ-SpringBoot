@@ -1,7 +1,7 @@
 {
   "pid": "1000",
   "uid": "1",
-  "code": "#include <iostream>\nusing namespace std;\n\nint main()\n{\ncout<<\"hello world!\"<<endl;\n return 0;\n}",
-  "language": "C++"
+  "code": "for i in range(1, 3):\n    for j in range(1, 2):\n       print(\"Hello,World\")\n",
+  "language": "Python3"
 }
 

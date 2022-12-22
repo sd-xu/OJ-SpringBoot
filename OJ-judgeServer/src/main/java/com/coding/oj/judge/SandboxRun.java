@@ -261,7 +261,9 @@ public class SandboxRun {
 
         JSONObject param = new JSONObject();
         param.set("cmd", new JSONArray().put(cmd));
+        System.out.println(param);
         JSONArray result = instance.run("/run", param);
+        System.out.println(result);
         JSONObject compileRes = (JSONObject) result.get(0);
         compileRes.set("originalStatus", compileRes.getStr("status"));
         compileRes.set("status", RESULT_MAP_STATUS.get(compileRes.getStr("status")));
@@ -347,6 +349,7 @@ public class SandboxRun {
         param.set("cmd", new JSONArray().put(cmd));
         // 调用判题安全沙箱
         JSONArray result = instance.run("/run", param);
+        System.out.println(result);
         JSONObject testcaseRes = (JSONObject) result.get(0);
         testcaseRes.set("originalStatus", testcaseRes.getStr("status"));
         testcaseRes.set("status", RESULT_MAP_STATUS.get(testcaseRes.getStr("status")));

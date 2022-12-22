@@ -1,85 +1,95 @@
 {
-  "judgeCaseMode": "default",
-  "testCases": [
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "d55572eafc020ec19fefb44c599dff4b",
-      "inputContent": "14\n20\n16\n10\n3\n5\n15\n14\n6\n20\n7\n20\n2\n14\n14"
-    },
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "eedb3551fb03a9f1d00258d1bc8ec27c",
-      "inputContent": "20\n5\n11\n17\n14\n20\n4\n9\n20\n20\n11\n16\n9\n19\n18\n20\n18\n10\n10\n7\n10"
-    },
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "866548d66cbe7162465e8051cc812ba0",
-      "inputContent": "15\n8\n12\n13\n9\n19\n9\n7\n19\n3\n4\n4\n7\n9\n10\n7\n"
-    },
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "56188641aae62b4f9853a0c076bb600c",
-      "inputContent": "11\n11\n16\n6\n18\n15\n15\n7\n10\n19\n20\n14\n"
-    },
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "a9469827815e7a943e1cf0804d29e463",
-      "inputContent": "16\n17\n12\n5\n20\n10\n8\n15\n11\n4\n8\n8\n12\n20\n13\n9\n16"
-    },
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "3200389bad6c7d9c8144ecbe57d207e7",
-      "inputContent": "12\n5\n10\n9\n12\n10\n9\n16\n14\n19\n2\n20\n16"
-    },
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "07575701c90951c8aacaab546c064102",
-      "inputContent": "13\n10\n15\n10\n10\n17\n3\n5\n15\n13\n17\n19\n15\n2"
-    },
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "84ccc62af92bf0f4143996b91faa6486",
-      "inputContent": "17\n6\n2\n9\n5\n18\n4\n16\n13\n9\n8\n8\n16\n3\n16\n11\n20\n13"
-    },
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "3fea3d2231a1ed5d26cf4c88a3b9027b",
-      "inputContent": "18\n10\n3\n17\n7\n12\n13\n14\n15\n17\n12\n4\n8\n11\n12\n2\n7\n9\n13"
-    },
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "7e5e91a92651ff79d5dc3b98e5f3f28a",
-      "inputContent": "19\n13\n4\n7\n17\n2\n2\n5\n7\n12\n3\n12\n20\n13\n12\n20\n6\n11\n16\n18"
-    }
-  ]
+    "judgeCaseMode": "default",
+    "testCases": [
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1021,
+            "score": 100,
+            "inputContent": "14\n20\n16\n10\n3\n5\n15\n14\n6\n20\n7\n20\n2\n14\n14\n",
+            "outputContent": "6765\n987\n55\n2\n5\n610\n377\n8\n6765\n13\n6765\n1\n377\n377\n",
+            "outputMd5": "836f8ca81af4ce0d2db5de50a55c6433"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1022,
+            "score": 100,
+            "inputContent": "20\n5\n11\n17\n14\n20\n4\n9\n20\n20\n11\n16\n9\n19\n18\n20\n18\n10\n10\n7\n10\n",
+            "outputContent": "5\n89\n1597\n377\n6765\n3\n34\n6765\n6765\n89\n987\n34\n4181\n2584\n6765\n2584\n55\n55\n13\n55\n",
+            "outputMd5": "bfde095243ab9e7ecff6c1f3d33a3236"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1023,
+            "score": 100,
+            "inputContent": "15\n8\n12\n13\n9\n19\n9\n7\n19\n3\n4\n4\n7\n9\n10\n7\n",
+            "outputContent": "21\n144\n233\n34\n4181\n34\n13\n4181\n2\n3\n3\n13\n34\n55\n13\n",
+            "outputMd5": "ad3ecae16ccef86b431f1b5e0449a573"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1024,
+            "score": 100,
+            "inputContent": "11\n11\n16\n6\n18\n15\n15\n7\n10\n19\n20\n14\n",
+            "outputContent": "89\n987\n8\n2584\n610\n610\n13\n55\n4181\n6765\n377\n",
+            "outputMd5": "6ed28d82575c411510318b45319baa2b"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1025,
+            "score": 100,
+            "inputContent": "16\n17\n12\n5\n20\n10\n8\n15\n11\n4\n8\n8\n12\n20\n13\n9\n16\n",
+            "outputContent": "1597\n144\n5\n6765\n55\n21\n610\n89\n3\n21\n21\n144\n6765\n233\n34\n987\n",
+            "outputMd5": "0055d92e3c9266421629b589fcbb1c7e"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1026,
+            "score": 100,
+            "inputContent": "12\n5\n10\n9\n12\n10\n9\n16\n14\n19\n2\n20\n16\n",
+            "outputContent": "5\n55\n34\n144\n55\n34\n987\n377\n4181\n1\n6765\n987\n",
+            "outputMd5": "6a4b4eff3c81131d7386c9b77a81b663"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1027,
+            "score": 100,
+            "inputContent": "13\n10\n15\n10\n10\n17\n3\n5\n15\n13\n17\n19\n15\n2\n",
+            "outputContent": "55\n610\n55\n55\n1597\n2\n5\n610\n233\n1597\n4181\n610\n1\n",
+            "outputMd5": "5360136a8bf64b8dc2021798f56df82c"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1028,
+            "score": 100,
+            "inputContent": "17\n6\n2\n9\n5\n18\n4\n16\n13\n9\n8\n8\n16\n3\n16\n11\n20\n13\n",
+            "outputContent": "8\n1\n34\n5\n2584\n3\n987\n233\n34\n21\n21\n987\n2\n987\n89\n6765\n233\n",
+            "outputMd5": "b973e1f52931c48ea333ca2a1f42a4ab"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1029,
+            "score": 100,
+            "inputContent": "18\n10\n3\n17\n7\n12\n13\n14\n15\n17\n12\n4\n8\n11\n12\n2\n7\n9\n13\n",
+            "outputContent": "55\n2\n1597\n13\n144\n233\n377\n610\n1597\n144\n3\n21\n89\n144\n1\n13\n34\n233",
+            "outputMd5": "f32ca37acf40fc401c366082d565bdb6"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1030,
+            "score": 100,
+            "inputContent": "19\n13\n4\n7\n17\n2\n2\n5\n7\n12\n3\n12\n20\n13\n12\n20\n6\n11\n16\n18\n",
+            "outputContent": "233\n3\n13\n1597\n1\n1\n5\n13\n144\n2\n144\n6765\n233\n144\n6765\n8\n89\n987\n2584\n",
+            "outputMd5": "1d0a953bd60a4507959be0b733f66578"
+        }
+    ]
 }

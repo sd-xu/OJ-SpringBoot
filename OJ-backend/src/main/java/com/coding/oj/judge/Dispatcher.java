@@ -1,6 +1,8 @@
 package com.coding.oj.judge;
 
 import cn.hutool.core.lang.UUID;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.coding.oj.common.result.CommonResult;
 import com.coding.oj.common.result.ResultStatus;
 import com.coding.oj.pojo.dto.ToJudgeDTO;
@@ -72,10 +74,10 @@ public class Dispatcher {
             count.getAndIncrement();
             JudgeServer judgeServer = judgeServerService.selectById(1); // 只有本机自身的判题机
             if (judgeServer != null) { // 获取到判题机资源
-                CommonResult result = null;
+                JSONObject result = null;
                 try {
                     String url = "http://" + judgeServer.getUrl() + path;
-                    result = restTemplate.postForObject(url, data, CommonResult.class);
+                    result = restTemplate.postForObject(url, data, JSONObject.class);
                     System.out.println(result);
                 } catch (Exception e) {
                     log.error("[Self Judge] Request the judge server [" + judgeServer.getUrl() + "] error -------------->", e); //这里有问题
@@ -90,7 +92,7 @@ public class Dispatcher {
         futureTaskMap.put(taskKey, scheduledFuture);
     }
 
-    private void checkResult(CommonResult<Void> result, Long submitId) {
+    private void checkResult(JSONObject result, Long submitId) {
 
         Judge judge = new Judge();
         if (result == null) { // 调用失败
@@ -99,10 +101,10 @@ public class Dispatcher {
             judge.setErrorMessage("Failed to connect the judgeServer. Please resubmit this submission again!");
             judgeEntityService.updateById(judge);
         } else {
-            if (result.getStatus() != ResultStatus.SUCCESS.getStatus()) { // 如果是结果码不是200 说明调用有错误
+            if (result.getInteger("status") != ResultStatus.SUCCESS.getStatus()) { // 如果是结果码不是200 说明调用有错误
                 // 判为系统错误
                 judge.setStatus(Constants.Judge.STATUS_SYSTEM_ERROR.getStatus());
-                judge.setErrorMessage(result.getMsg());
+                judge.setErrorMessage(result.getString("msg"));
                 judgeEntityService.updateById(judge);
             }
         }

@@ -1,44 +1,49 @@
 {
-  "cmd": [
-    {
-      "args": [
-        "main"
-      ],
-      "env": [
-        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-        "LANG=en_US.UTF-8",
-        "LC_ALL=en_US.UTF-8",
-        "LANGUAGE=en_US:en",
-        "HOME=/w"
-      ],
-      "files": [
-        {
-          "content": "1 2\n"
+  "cmd" :
+    [
+      {
+        "args" :
+          [
+            "/usr/bin/python3.8",
+            "-m",
+            "py_compile",
+            "/w/main.py"
+          ],
+        "env": [
+          "LANG=en_US.UTF-8",
+          "LANGUAGE=en_US:en",
+          "LC_ALL=en_US.UTF-8",
+          "PYTHONIOENCODING=utf-8"
+        ],
+        "files": [
+          {
+            "content": ""
+          },
+          {
+            "name": "stdout",
+            "max": 33554432
+          },
+          {
+            "name": "stderr",
+            "max": 33554432
+          }
+        ],
+        "cpuLimit": 5000000000,
+        "clockLimit": 10000000000,
+        "memoryLimit": 268435456,
+        "procLimit": 128,
+        "stackLimit": 268435456,
+        "copyIn": {
+          "main.py": {
+            "content":"print(\"Hello,World!\")"
+          }
         },
-        {
-          "name":"stdout",
-          "max":33554432
-        },
-        {
-          "name": "stderr",
-          "max":33554432
-        }
-      ],
-      "cpuLimit":10000000000,
-      "clockLimit":20000000000,
-      "memoryLimit":536870912,
-      "procLimit":128,
-      "stackLimit":268435456,
-      "copyIn":{
-        "main": {
-          "fileId":"LJ44YFHW"
-        }
-      },
-      "copyOut":[
-        "stdout",
-        "stderr"
-      ],
-      "copyOutCached":["main"]
-    }
-  ]
+        "copyOut": [
+          "stdout",
+          "stderr"
+        ],
+        "copyOutCached": [
+          "__pycache__/main.cpython-38.pyc"]
+      }
+    ]
 }

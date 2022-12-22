@@ -1,13 +1,14 @@
 {
-  "judgeCaseMode": "default",
-  "testCases": [
-    {
-      "inputName": "input",
-      "outputName": "output",
-      "caseId": 1000,
-      "score": 100,
-      "outputMd5": "98f97a791ef1457579a5b7e88a495063",
-      "inputContent": ""
-    }
-  ]
+    "judgeCaseMode": "default",
+    "testCases": [
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1000,
+            "score": 100,
+            "inputContent": "\n",
+            "outputContent": "Hello,World!\n",
+            "outputMd5": "c1f1883d22cf0cb27f6cf1a402771dfc"
+        }
+    ]
 }
