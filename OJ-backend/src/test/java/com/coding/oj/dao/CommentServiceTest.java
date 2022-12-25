@@ -5,15 +5,20 @@ import com.coding.oj.pojo.entity.Comment;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CommentServiceTest {
+    @Value("${file.staticAccessPath}")
+    private  String staticAccessPath;
     @Autowired
     private CommentService commentService;
 
@@ -55,7 +60,9 @@ public class CommentServiceTest {
     }
 
     @Test
-    public void getTopThreeComments(){
-        System.out.println(commentService.getTopThreeComments());
+    public void getTopThreeComments() throws UnknownHostException {
+        //System.out.println(commentService.getTopThreeComments());
+        String hostAddress = InetAddress.getLocalHost().getHostAddress();
+        System.out.println("http://"+hostAddress+":8088"+staticAccessPath.substring(0,7));
     }
 }

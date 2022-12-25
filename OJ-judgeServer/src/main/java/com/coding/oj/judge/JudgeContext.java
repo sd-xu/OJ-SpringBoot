@@ -29,7 +29,7 @@ public class JudgeContext {
         if (languageConfig.getSrcName() == null
                 || (!languageConfig.getSrcName().endsWith(".c")
                 && !languageConfig.getSrcName().endsWith(".cpp"))) {
-            problem.setTimeLimit(problem.getTimeLimit() * 2);
+            problem.setTimeLimit(problem.getTimeLimit() * 3);
             problem.setMemoryLimit(problem.getMemoryLimit() * 2);
         }
 

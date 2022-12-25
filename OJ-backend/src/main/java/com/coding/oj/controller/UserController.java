@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -101,7 +102,8 @@ public class UserController {
                 filedir.mkdirs();   // 判断目录是否存在，不存在直接创建
             }
             headerImg.transferTo(new File(uploadFolder, filename));
-            String url = staticAccessPath + filename; // 对应的url有后缀
+            String hostAddress = InetAddress.getLocalHost().getHostAddress();
+            String url = "http://"+hostAddress+":8088"+staticAccessPath.substring(0,7) + filename; // 对应的url有后缀
             boolean effectNum = userService.insertHeadImg(username, url);
             if(effectNum)
                 modelMap.put("url", url);

@@ -64,7 +64,7 @@ public class UserServiceTest {
 
     @Test
     public void getUserHistory(){
-        System.out.println(userService.getUserHistory(4));
+        System.out.println(userService.getUserHistory(1));
     }
 
     @Test
@@ -83,9 +83,10 @@ public class UserServiceTest {
         System.out.println(rankMap);
     }
 
+
     @Test
     public void getSolvedProblemNumInDate(){
-        List<Map<?, ?>> mapList = judgeMapper.selectSolvedProblemNumInDate(2);
+        List<Map<?, ?>> mapList = judgeMapper.selectSolvedProblemNumInDate(1);
         System.out.println(mapList);
     }
 

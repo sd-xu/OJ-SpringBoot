@@ -94,7 +94,7 @@ public class UserServiceImpl implements UserService {
         userInfo.setUsername(user.getUsername());
         userInfo.setGender(user.getGender());
         userInfo.setDescription(user.getDescription());
-        userInfo.setImageUrl(userInfo.getImageUrl());
+        userInfo.setImageUrl(user.getImageUrl());
         userInfo.setAnswerDate(judgeMapper.getLastSubmit(userId));
         userInfo.setCount(judgeMapper.lastDateCount(userId));
         return userInfo;

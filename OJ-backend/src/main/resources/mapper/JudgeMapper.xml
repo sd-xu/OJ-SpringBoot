@@ -195,10 +195,8 @@
   </select>
 
   <select id="getUsualLanguage" resultType="String" parameterType="map" >
-    select language
-    from language
-        where lid =(select language from judge where uid = #{userId,jdbcType=BIGINT}
-    GROUP BY `language` ORDER BY COUNT(1) DESC LIMIT 1 )
+    select language from judge where uid = #{userId,jdbcType=BIGINT}
+    GROUP BY `language` ORDER BY COUNT(1) DESC LIMIT 1
   </select>
 
 <select id="getMaxSubmit" resultType="int" parameterType="map" >

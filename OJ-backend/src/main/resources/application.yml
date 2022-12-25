@@ -56,6 +56,9 @@ spring:
           max-idle: 10   # 连接池中的最大空闲连接
           max-active: 20 # 连接池最大连接数（使用负值表示没有限制）
           max-wait: -1   # 连接池最大阻塞等待时间（使用负值表示没有限制）
+  web:
+    resources:
+      static-locations: file:D://static/image/
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -82,8 +85,9 @@ pagehelper:
 # 文件上传
 file:
   staticAccessPath: /image/**
-  uploadFolder: D:/static/image/
+  uploadFolder: D://static/image/
 
+spring.mvc.static-path-pattern: /image/**
 # 测试
 # curl -F "file=@C:/Users/19056/Desktop/2.jpeg" -F "username=张三" "http://localhost:8088/postUserImage"
 

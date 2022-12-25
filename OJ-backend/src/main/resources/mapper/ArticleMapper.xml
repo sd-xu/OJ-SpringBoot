@@ -43,8 +43,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, uid, title, content, sort, label, image_url, like_count, comment_count,
-    star_count
+    select *
     from article
     where id = #{id,jdbcType=BIGINT}
   </select>
