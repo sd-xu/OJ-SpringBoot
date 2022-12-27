@@ -15,7 +15,7 @@ spring:
     username: root
 #    password: D233
     password: 123456
-    url: 172.27.95.38
+    url: jdbc:mysql://172.27.95.38:3309/oj_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
     # url: jdbc:mysql://localhost:3306/oj_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
