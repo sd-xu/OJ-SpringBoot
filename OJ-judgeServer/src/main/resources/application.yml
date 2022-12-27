@@ -8,8 +8,9 @@ server:
   port: 8090
 
 mysql:
-  host: 127.0.0.1
-  port: 3306
+  # host: 127.0.0.1
+  host: 172.27.95.38
+  port: 3309
 
 spring:
   application:
@@ -21,7 +22,8 @@ spring:
     username: root
 #    password: D233
     password: 123456
-    url: jdbc:mysql://localhost:3306/oj_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
+    url: 172.27.95.38
+    # url: jdbc:mysql://localhost:3306/oj_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
