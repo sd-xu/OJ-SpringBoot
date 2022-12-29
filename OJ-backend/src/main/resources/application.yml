@@ -2,9 +2,8 @@ server:
   port: 8088
 
 mysql:
-  # host: 127.0.0.1
-  host: 172.27.95.38
-  port: 3309
+  host: 127.0.0.1
+  port: 3306
 
 spring:
   application:
@@ -15,8 +14,7 @@ spring:
     username: root
 #    password: D233
     password: 123456
-    url: jdbc:mysql://172.27.95.38:3309/oj_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
-    # url: jdbc:mysql://localhost:3306/oj_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
+    url: jdbc:mysql://localhost:3306/oj_database?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
@@ -47,8 +45,8 @@ spring:
   data:
     redis:
       # database: 0
-      host: 172.27.95.38
-      port: 6679
+      host: 127.0.0.1
+      port: 6379
       # password:
       timeout: 60000 # 0
       client-type: jedis
@@ -58,9 +56,6 @@ spring:
           max-idle: 10   # 连接池中的最大空闲连接
           max-active: 20 # 连接池最大连接数（使用负值表示没有限制）
           max-wait: -1   # 连接池最大阻塞等待时间（使用负值表示没有限制）
-  web:
-    resources:
-      static-locations: file:D://static/image/
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -87,17 +82,10 @@ pagehelper:
 # 文件上传
 file:
   staticAccessPath: /image/**
-  uploadFolder: D://static/image/
+  uploadFolder: D:/static/image/
 
-spring.mvc.static-path-pattern: /image/**
 # 测试
 # curl -F "file=@C:/Users/19056/Desktop/2.jpeg" -F "username=张三" "http://localhost:8088/postUserImage"
 
 
 #curl -X POST -H "Content-Type: application/json" -d @test/test.json "http://localhost:8088/submit-problem-judge"
-
-#docker镜像常用命令
-#docker images      显示当前目录下的所有镜像
-#docker run -itd --rm --privileged --shm-size=256m -p 5050:5050 oj/image:oj /opt/executorserver     启动镜像中的沙盒程序
-#docker ps -a       查看所有容器的状态
-#docker exec -it d2cab347eff9 /bin/bash         docker exec表示在运行的容器xxxxx中执行命令，-it和/bin/bash表示进入该容器的命令行交互模式
