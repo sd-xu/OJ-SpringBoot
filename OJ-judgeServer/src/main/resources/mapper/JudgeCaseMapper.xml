@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.oj.mapper.JudgeCaseMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.JudgeCase" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="submit_id" property="submitId" jdbcType="BIGINT" />
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <id column="pid" property="pid" jdbcType="BIGINT" />
+    <result column="case_id" property="caseId" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="INTEGER" />
+    <result column="memory" property="memory" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="group_num" property="groupNum" jdbcType="INTEGER" />
+    <result column="seq" property="seq" jdbcType="INTEGER" />
+    <result column="mode" property="mode" jdbcType="VARCHAR" />
+    <result column="input_data" property="inputData" jdbcType="VARCHAR" />
+    <result column="output_data" property="outputData" jdbcType="VARCHAR" />
+    <result column="user_output" property="userOutput" jdbcType="VARCHAR" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+    <insert id="insertBatch" parameterType="java.util.List">
+      insert into judge_case (id, submit_id, uid,
+        pid, case_id, status,
+        time, memory, score,
+        group_num, seq, mode,
+        input_data, output_data, user_output)
+      values
+      <foreach collection="judgeCaseList" item="judgeCase" separator=",">
+        (#{judgeCase.id,jdbcType=BIGINT}, #{judgeCase.submitId,jdbcType=BIGINT}, #{judgeCase.uid,jdbcType=INTEGER},
+        #{judgeCase.pid,jdbcType=BIGINT}, #{judgeCase.caseId,jdbcType=BIGINT}, #{judgeCase.status,jdbcType=INTEGER},
+        #{judgeCase.time,jdbcType=INTEGER}, #{judgeCase.memory,jdbcType=INTEGER}, #{judgeCase.score,jdbcType=INTEGER},
+        #{judgeCase.groupNum,jdbcType=INTEGER}, #{judgeCase.seq,jdbcType=INTEGER}, #{judgeCase.mode,jdbcType=VARCHAR},
+        #{judgeCase.inputData,jdbcType=VARCHAR}, #{judgeCase.outputData,jdbcType=VARCHAR}, #{judgeCase.userOutput,jdbcType=VARCHAR})
+      </foreach>
+    </insert>
+
+</mapper>

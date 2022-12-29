@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.oj.mapper.JudgeMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.Judge" >
+    <id column="submit_id" property="submitId" jdbcType="BIGINT" />
+    <id column="pid" property="pid" jdbcType="BIGINT" />
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="submit_time" property="submitTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="share" property="share" jdbcType="BIT" />
+    <result column="error_message" property="errorMessage" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="INTEGER" />
+    <result column="memory" property="memory" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="length" property="length" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="judger" property="judger" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="vjudge_submit_id" property="vjudgeSubmitId" jdbcType="BIGINT" />
+    <result column="vjudge_username" property="vjudgeUsername" jdbcType="VARCHAR" />
+    <result column="vjudge_password" property="vjudgePassword" jdbcType="VARCHAR" />
+    <result column="is_manual" property="isManual" jdbcType="BIT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <update id="updateByPrimaryKey" parameterType="com.coding.oj.pojo.entity.Judge" >
+    update judge
+    set username = #{username,jdbcType=VARCHAR},
+      submit_time = #{submitTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      share = #{share,jdbcType=BIT},
+      error_message = #{errorMessage,jdbcType=VARCHAR},
+      time = #{time,jdbcType=INTEGER},
+      memory = #{memory,jdbcType=INTEGER},
+      score = #{score,jdbcType=INTEGER},
+      length = #{length,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      judger = #{judger,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      vjudge_submit_id = #{vjudgeSubmitId,jdbcType=BIGINT},
+      vjudge_username = #{vjudgeUsername,jdbcType=VARCHAR},
+      vjudge_password = #{vjudgePassword,jdbcType=VARCHAR},
+      is_manual = #{isManual,jdbcType=BIT}
+    where submit_id = #{submitId,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateStatusByPrimaryKey" parameterType="map">
+    update judge
+    set status = #{status,jdbcType=INTEGER}
+    where submit_id = #{submitId,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select *
+    from judge
+    where submit_id = #{submitId,jdbcType=BIGINT}
+  </select>
+
+ <update id="updateInfo" parameterType="map">
+    update judge
+    set status = #{status,jdbcType=INTEGER},
+    time = #{time,jdbcType=INTEGER},
+    memory = #{memory,jdbcType=INTEGER}
+    where submit_id = #{submitId,jdbcType=BIGINT}
+  </update>
+</mapper>

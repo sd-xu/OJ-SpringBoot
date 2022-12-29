@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coding.oj.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="gender" jdbcType="INTEGER" property="gender"/>
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl"/>
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_info
+    where uid = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.coding.oj.pojo.entity.User">
+    insert into user_info (id, username, password, gender,
+      email, description, image_url)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+            #{gender,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR},#{description,jdbcType=LONGVARCHAR},
+            #{imageUrl,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.coding.oj.pojo.entity.User">
+    update user_info
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      description = #{description,jdbcType=LONGVARCHAR},
+      image_url = #{imageUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateUrlByUserName">
+    update user_info
+    set image_url = #{url,jdbcType=VARCHAR}
+    where username = #{username,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select *
+    from user_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from user_info
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select *
+    from user_info
+  </select>
+
+  <update id="insertUserDescription" parameterType="map">
+    update user_info
+    set description = #{description,jdbcType=LONGVARCHAR}
+    where id = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateUserGender" parameterType="map">
+    update user_info
+    set gender = #{gender}
+    where id = #{uid}
+  </update>
+
+</mapper>

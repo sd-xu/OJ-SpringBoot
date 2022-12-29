@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.coding.oj.mapper.JudgeMapper" >
+  <resultMap id="BaseResultMap" type="com.coding.oj.pojo.entity.Judge" >
+    <id column="submit_id" property="submitId" jdbcType="BIGINT" />
+    <id column="pid" property="pid" jdbcType="BIGINT" />
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="submit_time" property="submitTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="share" property="share" jdbcType="BIT" />
+    <result column="error_message" property="errorMessage" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="INTEGER" />
+    <result column="memory" property="memory" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="length" property="length" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="judger" property="judger" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="vjudge_submit_id" property="vjudgeSubmitId" jdbcType="BIGINT" />
+    <result column="vjudge_username" property="vjudgeUsername" jdbcType="VARCHAR" />
+    <result column="vjudge_password" property="vjudgePassword" jdbcType="VARCHAR" />
+    <result column="is_manual" property="isManual" jdbcType="BIT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from judge
+    where submit_id = #{submitId,jdbcType=BIGINT}
+      and pid = #{pid,jdbcType=BIGINT}
+      and uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="submitId" parameterType="com.coding.oj.pojo.entity.Judge" >
+    insert into judge (submit_id, pid, uid, 
+      username, submit_time, status, 
+      share, error_message, time, 
+      memory, score, length, 
+      code, language, judger,
+      ip, vjudge_submit_id, vjudge_username, 
+      vjudge_password, is_manual)
+    values (#{submitId,jdbcType=BIGINT}, #{pid,jdbcType=BIGINT}, #{uid,jdbcType=INTEGER}, 
+      #{username,jdbcType=VARCHAR}, #{submitTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{share,jdbcType=BIT}, #{errorMessage,jdbcType=VARCHAR}, #{time,jdbcType=INTEGER}, 
+      #{memory,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, #{length,jdbcType=INTEGER}, 
+      #{code,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{judger,jdbcType=VARCHAR},
+      #{ip,jdbcType=VARCHAR}, #{vjudgeSubmitId,jdbcType=BIGINT}, #{vjudgeUsername,jdbcType=VARCHAR}, 
+      #{vjudgePassword,jdbcType=VARCHAR}, #{isManual,jdbcType=BIT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.coding.oj.pojo.entity.Judge" >
+    update judge
+    set username = #{username,jdbcType=VARCHAR},
+      submit_time = #{submitTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      share = #{share,jdbcType=BIT},
+      error_message = #{errorMessage,jdbcType=VARCHAR},
+      time = #{time,jdbcType=INTEGER},
+      memory = #{memory,jdbcType=INTEGER},
+      score = #{score,jdbcType=INTEGER},
+      length = #{length,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      judger = #{judger,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      vjudge_submit_id = #{vjudgeSubmitId,jdbcType=BIGINT},
+      vjudge_username = #{vjudgeUsername,jdbcType=VARCHAR},
+      vjudge_password = #{vjudgePassword,jdbcType=VARCHAR},
+      is_manual = #{isManual,jdbcType=BIT},
+    where submit_id = #{submitId,jdbcType=BIGINT}
+      and pid = #{pid,jdbcType=BIGINT}
+      and uid = #{uid,jdbcType=INTEGER}
+  </update>
+
+  <update id="updateBySubmitId" parameterType="map" >
+    update judge
+    set username = #{username,jdbcType=VARCHAR},
+        submit_time = #{submitTime,jdbcType=TIMESTAMP},
+        status = #{status,jdbcType=INTEGER},
+        share = #{share,jdbcType=BIT},
+        error_message = #{errorMessage,jdbcType=VARCHAR},
+        time = #{time,jdbcType=INTEGER},
+        memory = #{memory,jdbcType=INTEGER},
+        score = #{score,jdbcType=INTEGER},
+        length = #{length,jdbcType=INTEGER},
+        code = #{code,jdbcType=VARCHAR},
+        language = #{lid,jdbcType=VARCHAR},
+        judger = #{judger,jdbcType=VARCHAR},
+        ip = #{ip,jdbcType=VARCHAR},
+        vjudge_submit_id = #{vjudgeSubmitId,jdbcType=BIGINT},
+        vjudge_username = #{vjudgeUsername,jdbcType=VARCHAR},
+        vjudge_password = #{vjudgePassword,jdbcType=VARCHAR},
+        is_manual = #{isManual,jdbcType=BIT}
+    where submit_id = #{submitId,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select *
+    from judge
+    where submit_id = #{submitId,jdbcType=BIGINT}
+      and pid = #{pid,jdbcType=BIGINT}
+      and uid = #{uid,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectBySubmitId" resultMap="BaseResultMap" parameterType="map" >
+    select *
+    from judge
+    where submit_id = #{submitId,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByStatus" resultMap="BaseResultMap" parameterType="map" >
+    select *
+    from judge
+    where status = #{status,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="map" >
+    select *
+    from judge
+    where uid = #{userId,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByUserIdAndStatus" resultMap="BaseResultMap" parameterType="map" >
+    select *
+    from judge
+    where uid = #{userId,jdbcType=BIGINT}
+    and   status = #{status,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByUserIdAndLanguage" resultMap="BaseResultMap" parameterType="map" >
+    select *
+    from judge
+    where uid = #{userId,jdbcType=BIGINT}
+    and   language = #{language,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByUserIdAndPid" resultMap="BaseResultMap" parameterType="map" >
+    select *
+    from judge
+    where uid = #{userId,jdbcType=BIGINT}
+      and pid = #{pid,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByPidAndStatus" resultMap="BaseResultMap" parameterType="map" >
+    select *
+    from judge
+    where uid = #{userId,jdbcType=BIGINT}
+      and status = #{status,jdbcType=BIGINT}
+      and pid = #{pid,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByPidAndLanguage" resultMap="BaseResultMap" parameterType="map" >
+    select *
+    from judge
+    where uid = #{userId,jdbcType=BIGINT}
+      and language = #{lid,jdbcType=VARCHAR}
+      and pid = #{pid,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByAllParam" resultMap="BaseResultMap" parameterType="map" >
+    select j.*
+    from judge j left outer join problem p
+    on j.pid = p.id
+    <where>
+      <if test="userId &gt; 0">
+        j.uid = #{userId,jdbcType=BIGINT}
+      </if>
+      <if test="pid != null and pid &gt; 0">
+        and j.pid = #{pid,jdbcType=BIGINT}
+      </if>
+      <if test="status != null and status &gt; -11 and status &lt; 10">
+        and j.status = #{status,jdbcType=BIGINT}
+      </if>
+      <if test="language != '' and language != null">
+        and j.language = #{language,jdbcType=VARCHAR}
+      </if>
+      <if test="title != '' and title != null">
+        and p.title like '%${title}%'
+      </if>
+    </where>
+
+  </select>
+
+  <select id="getProblemNum" resultType="int" parameterType="map" >
+    select COUNT(pid)
+    from judge
+    where uid = #{userId,jdbcType=BIGINT}
+
+  </select>
+
+  <select id="getLastSubmit" resultType="Date" parameterType="map" >
+    select submit_time
+    from judge
+    where uid = #{userId,jdbcType=BIGINT}
+    Order by submit_time DESC LIMIT 1
+  </select>
+
+  <select id="getUsualLanguage" resultType="String" parameterType="map" >
+    select language from judge where uid = #{userId,jdbcType=BIGINT}
+    GROUP BY `language` ORDER BY COUNT(1) DESC LIMIT 1
+  </select>
+
+<select id="getMaxSubmit" resultType="int" parameterType="map" >
+   select COUNT(1)
+    from judge
+		where uid = #{userId,jdbcType=BIGINT}
+    GROUP BY `pid`  ORDER BY COUNT(1) DESC LIMIT 1
+  </select>
+
+  <select id="getDifficulty" resultType="int" parameterType="map" >
+    select difficulty
+    from judge j,problem p
+		where uid = #{userId,jdbcType=BIGINT} and j.pid = p.id
+    GROUP BY `difficulty` ORDER BY COUNT(1) DESC LIMIT 1
+
+  </select>
+
+  <select id="lastDateCount" resultType="int" parameterType="map" >
+    select  count(distinct(pid))
+    from judge
+    where uid = #{userId,jdbcType=BIGINT} and
+      date(submit_time) =
+        (select date(submit_time) from judge ORDER BY submit_time DESC limit 1)
+
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select *
+    from judge
+  </select>
+
+  <select id="getRank" resultType="java.util.Map" parameterType="int">
+    SELECT uid,u.username,count(DISTINCT pid) solvenum
+    FROM judge j,user_info u
+    where status = 0 and j.uid = u.id GROUP BY uid ORDER BY count(pid) DESC
+      limit #{rankSize}
+  </select>
+
+  <select id="selectSolvedProblemNumInDate" resultType="java.util.Map" parameterType="int">
+    select date_format(gmt_create,'%Y-%m-%d') date,COUNT(DISTINCT pid) count
+    FROM judge where `status` = 0 and uid = #{userId} GROUP BY date_format(gmt_create,'%Y-%m-%d')
+  </select>
+
+</mapper>

@@ -1,0 +1,95 @@
+{
+    "judgeCaseMode": "default",
+    "testCases": [
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1011,
+            "score": 100,
+            "inputContent": "1216053 449782622 2065600\n",
+            "outputContent": "449782622\n",
+            "outputMd5": "6248679ccd0cea982e2faf0a56eab0cc"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1012,
+            "score": 100,
+            "inputContent": "391285097 277944252 206874729\n",
+            "outputContent": "277944252\n",
+            "outputMd5": "a4149f8f42e8d2ef0a3b6045c06fb81a"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1013,
+            "score": 100,
+            "inputContent": "104199964 657324684 887182705\n",
+            "outputContent": "657324684\n",
+            "outputMd5": "2d4f98935693e5f9b4d91bc9e49b8256"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1014,
+            "score": 100,
+            "inputContent": "706758023 393400306 256704880\n",
+            "outputContent": "393400306\n",
+            "outputMd5": "9e2c285332e7b24b9df7f62e033d07dd"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1015,
+            "score": 100,
+            "inputContent": "902217199 841577235 358735259\n",
+            "outputContent": "841577235\n",
+            "outputMd5": "ff7fc88e9d25e5833f068167344ecb10"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1016,
+            "score": 100,
+            "inputContent": "839999864 840149355 642734220\n",
+            "outputContent": "840149355\n",
+            "outputMd5": "3af064fefcb46ed6dddcd0516e566004"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1017,
+            "score": 100,
+            "inputContent": "65685466 176418350 899394287\n",
+            "outputContent": "176418350\n",
+            "outputMd5": "e4dca21c6c4bca7c684a513fdbd38d10"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1018,
+            "score": 100,
+            "inputContent": "706301506 385598186 519459055\n",
+            "outputContent": "385598186\n",
+            "outputMd5": "58a4480e173ee510f7a323773588bfff"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1019,
+            "score": 100,
+            "inputContent": "418238545 326437745 458262087\n",
+            "outputContent": "326437745\n",
+            "outputMd5": "3e3b2994f34ee18c74c5ca13a22874a2"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1020,
+            "score": 100,
+            "inputContent": "864204384 816743830 777381229\n",
+            "outputContent": "816743830\n",
+            "outputMd5": "07c507a09178b8c12d1c77f4fb6df944"
+        }
+    ]
+}

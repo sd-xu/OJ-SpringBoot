@@ -1,0 +1,45 @@
+target/
+.mvn
+mvnw
+mvnw.cmd
+**/src/main/**/target/
+**/src/test/**/target/
+
+/oj_image
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+**/src/main/**/build/
+**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+/.mvn/

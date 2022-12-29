@@ -1,0 +1,95 @@
+{
+    "judgeCaseMode": "default",
+    "testCases": [
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1001,
+            "score": 100,
+            "inputContent": "329109 265394",
+            "outputContent": "594503\n",
+            "outputMd5": "62e2e9edb9912563354d980a91b3a882"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1002,
+            "score": 100,
+            "inputContent": "812268 645539",
+            "outputContent": "1457807\n",
+            "outputMd5": "691f7093b16d37fc43ff6f3393935129"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1003,
+            "score": 100,
+            "inputContent": "882033 827852",
+            "outputContent": "1709885\n",
+            "outputMd5": "df20d88e8e4c8d9e75e2f8ab741fef6a"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1004,
+            "score": 100,
+            "inputContent": "804020 889981",
+            "outputContent": "1694001\n",
+            "outputMd5": "bd6cc9a497bedab5d6b72f7e24d17930"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1005,
+            "score": 100,
+            "inputContent": "708019 613238",
+            "outputContent": "1321257\n",
+            "outputMd5": "995fa297eb093b0c92c980b1dc5bd545"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1006,
+            "score": 100,
+            "inputContent": "778556 807732",
+            "outputContent": "1586288\n",
+            "outputMd5": "3270770fd632148e2f2bb2965d8b65f5"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1007,
+            "score": 100,
+            "inputContent": "499600 943069",
+            "outputContent": "1442669\n",
+            "outputMd5": "8267f98f2925edcc95420dc8adb5ab03"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1008,
+            "score": 100,
+            "inputContent": "679967 1626",
+            "outputContent": "681593\n",
+            "outputMd5": "bc35630f1dc9e87deb19e946f42460ad"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1009,
+            "score": 100,
+            "inputContent": "467799 18237",
+            "outputContent": "486036\n",
+            "outputMd5": "20abda5385c7dcab9b59f99a3b6ae220"
+        },
+        {
+            "inputName": "input",
+            "outputName": "output",
+            "caseId": 1010,
+            "score": 100,
+            "inputContent": "293534 1243",
+            "outputContent": "294777\n",
+            "outputMd5": "da398fcbec5301f0032e5821315f5dc9"
+        }
+    ]
+}
