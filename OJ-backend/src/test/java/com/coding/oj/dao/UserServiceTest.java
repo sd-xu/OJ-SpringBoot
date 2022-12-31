@@ -32,9 +32,7 @@ public class UserServiceTest {
 
     @Test
     public void selectByUserName() {
-
-        User user = userService.selectByUserName("alice","123456");
-        assertEquals(1,user.getId());
+        System.out.println(userService.selectByUserName("张三","123456"));
     }
 
     @Test

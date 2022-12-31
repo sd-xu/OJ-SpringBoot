@@ -63,5 +63,9 @@
     set gender = #{gender}
     where id = #{uid}
   </update>
-
+  <select id="selectByUserNameAndPassword" parameterType="map" resultMap="BaseResultMap">
+    select *
+    from user_info
+    where username = #{username,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+  </select>
 </mapper>

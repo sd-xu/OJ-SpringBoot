@@ -26,4 +26,5 @@ public interface UserMapper {
 
     int updateUserGender(@Param("uid")Integer userId, @Param("gender")Integer gender);
 
+    User selectByUserNameAndPassword(@Param("username")String username, @Param("password")String password);
 }
