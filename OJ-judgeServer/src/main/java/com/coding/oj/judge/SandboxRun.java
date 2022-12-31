@@ -216,8 +216,6 @@ public class SandboxRun {
      * @param copyOutDir        生成编译后的用户程序exe文件的指定路径
      * @MethodName compile
      * @Description 编译运行
-     * @Return
-     * @Since 2022/1/3
      */
     public static JSONArray compile(Long maxCpuTime,
                                     Long maxRealTime,
@@ -283,8 +281,6 @@ public class SandboxRun {
      * @param fileContent     评测的用户程序文件内容，如果userFileId存在则为null
      * @MethodName testCase
      * @Description 普通评测
-     * @Return JSONArray
-     * @Since 2022/1/3
      */
     public static JSONArray testCase(List<String> args,
                                      List<String> envs,
