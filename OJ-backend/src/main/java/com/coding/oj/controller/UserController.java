@@ -92,20 +92,20 @@ public class UserController {
         Map<String, Object> modelMap = new HashMap<>();
 
         String username = (String) params.get("username");
-        if(!headerImg.isEmpty() && headerImg.getOriginalFilename() != null) {
+        if (!headerImg.isEmpty() && headerImg.getOriginalFilename() != null) {
             String filename = headerImg.getOriginalFilename();
             String hzName = filename.substring(filename.lastIndexOf("."));
             String uuid =  UUID.randomUUID().toString().replace("-","");
             filename = uuid + hzName;
             File filedir = new File(uploadFolder);
-            if(!filedir.exists()){
+            if (!filedir.exists()) {
                 filedir.mkdirs();   // 判断目录是否存在，不存在直接创建
             }
             headerImg.transferTo(new File(uploadFolder, filename));
             String hostAddress = InetAddress.getLocalHost().getHostAddress();
             String url = "http://"+hostAddress+":8088"+staticAccessPath.substring(0,7) + filename; // 对应的url有后缀
             boolean effectNum = userService.insertHeadImg(username, url);
-            if(effectNum)
+            if (effectNum)
                 modelMap.put("url", url);
             else
                 modelMap.put("fail", false);

@@ -184,7 +184,6 @@
     select COUNT(pid)
     from judge
     where uid = #{userId,jdbcType=BIGINT}
-
   </select>
 
   <select id="getLastSubmit" resultType="Date" parameterType="map" >
@@ -199,8 +198,8 @@
     GROUP BY `language` ORDER BY COUNT(1) DESC LIMIT 1
   </select>
 
-<select id="getMaxSubmit" resultType="int" parameterType="map" >
-   select COUNT(1)
+  <select id="getMaxSubmit" resultType="int" parameterType="map" >
+    select COUNT(1)
     from judge
 		where uid = #{userId,jdbcType=BIGINT}
     GROUP BY `pid`  ORDER BY COUNT(1) DESC LIMIT 1
@@ -211,7 +210,6 @@
     from judge j,problem p
 		where uid = #{userId,jdbcType=BIGINT} and j.pid = p.id
     GROUP BY `difficulty` ORDER BY COUNT(1) DESC LIMIT 1
-
   </select>
 
   <select id="lastDateCount" resultType="int" parameterType="map" >
@@ -220,7 +218,6 @@
     where uid = #{userId,jdbcType=BIGINT} and
       date(submit_time) =
         (select date(submit_time) from judge ORDER BY submit_time DESC limit 1)
-
   </select>
 
   <select id="selectAll" resultMap="BaseResultMap" >
