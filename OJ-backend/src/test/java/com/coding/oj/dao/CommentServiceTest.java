@@ -61,8 +61,8 @@ public class CommentServiceTest {
 
     @Test
     public void getTopThreeComments() throws UnknownHostException {
-        //System.out.println(commentService.getTopThreeComments());
-        String hostAddress = InetAddress.getLocalHost().getHostAddress();
-        System.out.println("http://"+hostAddress+":8088"+staticAccessPath.substring(0,7));
+        System.out.println(commentService.getTopThreeComments());
+        //String hostAddress = InetAddress.getLocalHost().getHostAddress();
+        //System.out.println("http://"+hostAddress+":8088"+staticAccessPath.substring(0,7));
     }
 }

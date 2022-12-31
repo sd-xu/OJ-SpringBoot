@@ -1,8 +1,5 @@
 package com.coding.oj.judge;
 
-/**
- * @Description:
- */
 public abstract class AbstractReceiver {
 
     public void handleWaitingTask(String... queues) {

@@ -10,9 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 
-/**
- * @Description:
- */
 @Component
 public class JudgeContext {
 

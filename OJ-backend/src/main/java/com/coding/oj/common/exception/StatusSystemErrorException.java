@@ -1,8 +1,5 @@
 package com.coding.oj.common.exception;
 
-/**
- * @Description:
- */
 public class StatusSystemErrorException extends Exception {
 
     public StatusSystemErrorException() {

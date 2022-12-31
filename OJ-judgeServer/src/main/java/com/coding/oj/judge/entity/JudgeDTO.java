@@ -7,9 +7,6 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
-/**
- * @Author: Himit_ZH
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)

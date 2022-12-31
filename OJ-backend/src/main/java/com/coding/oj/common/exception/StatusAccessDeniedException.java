@@ -1,8 +1,5 @@
 package com.coding.oj.common.exception;
 
-/**
- * @Description:
- */
 public class StatusAccessDeniedException extends Exception {
 
     public StatusAccessDeniedException() {
