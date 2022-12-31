@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface ArticleService {
-    List<Map<String,Object>> getArticleList(Integer userId);
+    List<Map<String, Object>> getArticleList(Integer userId);
 
     List<String> getArticleSort();
 
@@ -15,7 +15,7 @@ public interface ArticleService {
 
     boolean addArticle(Article article);
 
-    Map<String,Object> getArticleById(Long id, Integer uid);
+    Map<String, Object> getArticleById(Long id, Integer uid);
 
     boolean deleteArticle(Long id);
 

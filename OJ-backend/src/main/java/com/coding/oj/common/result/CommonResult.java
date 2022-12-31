@@ -8,7 +8,6 @@ public class CommonResult<T>  {
 
     private final Integer status;   // 状态码
 
-
     private final T data;   // 返回的数据
 
     private final String msg;    // 自定义信息

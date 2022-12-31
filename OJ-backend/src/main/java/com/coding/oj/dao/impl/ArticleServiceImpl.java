@@ -60,7 +60,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Map<String,Object> getArticleById(Long id, Integer uid) {
+    public Map<String, Object> getArticleById(Long id, Integer uid) {
         Map<String,Object> articleMap = new HashMap<>();
         Article article = articleMapper.selectByPrimaryKey(id);
         articleMap.put("Article", article);
