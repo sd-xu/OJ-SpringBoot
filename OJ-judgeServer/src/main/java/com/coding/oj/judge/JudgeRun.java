@@ -45,7 +45,7 @@ public class JudgeRun {
             throw new SystemError("The evaluation data of the problem does not exist", null, null);
         }
 
-        JSONArray testcaseList = (JSONArray) testCasesInfo.get("testCases"); // key-value是什么时候加进去的
+        JSONArray testcaseList = (JSONArray) testCasesInfo.get("testCases");
 
         // 默认给题目限制时间+200ms用来测评
         Long testTime = (long) problem.getTimeLimit() + 200;
@@ -99,7 +99,7 @@ public class JudgeRun {
             // 将每个需要测试的线程任务加入任务列表中
             final int testCaseId = index + 1;
             // 输入文件名
-            final String inputFileName = testcase.getStr("inputName"); // 这个key对吗 ?
+            final String inputFileName = testcase.getStr("inputName");
             // 输出文件名
             final String outputFileName = testcase.getStr("outputName");
             // 题目数据的输入文件的路径
@@ -138,7 +138,7 @@ public class JudgeRun {
             }));
 
         }
-        return SubmitBatchTask2ThreadPool(futureTasks); // 这里提交线程池干嘛 ?
+        return SubmitBatchTask2ThreadPool(futureTasks);
     }
 
     private AbstractJudge getAbstractJudge(Constants.JudgeMode judgeMode) {
