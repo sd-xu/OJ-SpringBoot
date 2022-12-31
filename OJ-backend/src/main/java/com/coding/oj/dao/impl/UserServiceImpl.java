@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User selectByUserName(String username, String password) {
 
-        return userMapper.selectByUserName(username);
+        return userMapper.selectByUserNameAndPassword(username,password);
     }
 
     @Override

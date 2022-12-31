@@ -33,8 +33,8 @@ public class UserServiceTest {
     @Test
     public void selectByUserName() {
 
-        User user = userService.selectByUserName("alice","123456");
-        assertEquals(1,user.getId());
+        User user = userService.selectByUserName("张三","1234");
+        System.out.println(user);
     }
 
     @Test
