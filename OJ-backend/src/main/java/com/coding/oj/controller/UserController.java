@@ -32,7 +32,7 @@ public class UserController {
 
     // 通过用户名密码登录
     @GetMapping(value = "/loginByUserName")
-    public Map<String,Object> loginByUserName(String username, String password)
+    public Map<String, Object> loginByUserName(String username, String password)
     {
         Map<String, Object> modelMap = new HashMap<>();
         modelMap.put("user", userService.selectByUserName(username, password));
