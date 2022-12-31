@@ -14,9 +14,6 @@ import java.io.File;
 import java.util.List;
 import java.util.regex.Pattern;
 
-/**
- * @Description:
- */
 public abstract class AbstractJudge {
 
     private final static Pattern EOL_PATTERN = Pattern.compile("[^\\S\\n]+(?=\\n)");

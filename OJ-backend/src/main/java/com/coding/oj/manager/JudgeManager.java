@@ -17,7 +17,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.util.Date;
 
-
 @Component
 public class JudgeManager {
 

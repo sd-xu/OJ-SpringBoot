@@ -3,9 +3,6 @@ package com.coding.oj.common;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * @Description:
- */
 @Getter
 @AllArgsConstructor
 public enum ResultStatus {
