@@ -32,7 +32,7 @@ public class CommentController {
     public Map<String, Object> deleteComment(Long id) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        modelMap.put("success",commentService.deleteComment(id));
+        modelMap.put("success", commentService.deleteComment(id));
         return modelMap;
     }
 
@@ -41,7 +41,7 @@ public class CommentController {
     public Map<String, Object> modifyComment(Comment comment) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        modelMap.put("success",commentService.modifyComment(comment));
+        modelMap.put("success", commentService.modifyComment(comment));
         return modelMap;
     }
 
@@ -49,7 +49,7 @@ public class CommentController {
     @GetMapping(value = "/getArticleComment")
     public Map<String, Object> getArticleComment(Long aid, Integer uid, Integer pageNum, Integer pageSize) {
         Map<String, Object> modelMap = new HashMap<>();
-        List<Map<String,Object>> list = commentService.getCommentByAid(aid, uid, pageNum, pageSize);
+        List<Map<String, Object>> list = commentService.getCommentByAid(aid, uid, pageNum, pageSize);
         // 获取区域列表
         modelMap.put("commentList", list);
         return modelMap;
@@ -69,7 +69,7 @@ public class CommentController {
     @GetMapping(value = "/getTopThree")
     public Map<String,Object> getTopThreeComments(){
         Map<String, Object> modelMap = new HashMap<>();
-        List<Map<?, ?>> topthree =commentService.getTopThreeComments();
+        List<Map<?, ?>> topthree = commentService.getTopThreeComments();
         // 获取区域列表
         modelMap.put("topthree",topthree);
         return modelMap;

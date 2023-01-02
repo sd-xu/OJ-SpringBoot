@@ -29,8 +29,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User selectByUserName(String username, String password) {
-
-        return userMapper.selectByUserNameAndPassword(username,password);
+        return userMapper.selectByUserNameAndPassword(username, password);
     }
 
     @Override
