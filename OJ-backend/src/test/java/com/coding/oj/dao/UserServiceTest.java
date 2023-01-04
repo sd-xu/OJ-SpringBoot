@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -50,7 +51,7 @@ public class UserServiceTest {
         //将该对象实例添加入库
         boolean t =userService.addUser(user);
         //检测影响行数
-        assertEquals(true, t);
+        assertTrue(t);
         //校验总数是否+1
         List<User> userList1 = userService.getUserList();
         assertEquals(userList.size()+1, userList1.size());
