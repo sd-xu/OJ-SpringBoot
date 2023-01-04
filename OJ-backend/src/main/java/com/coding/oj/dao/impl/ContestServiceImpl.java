@@ -35,9 +35,9 @@ public class ContestServiceImpl implements ContestService {
     }
 
     @Override
-    public List<Map<String,Object>> getContestsByType(int type) {
+    public List<Map<String, Object>> getContestsByType(int type) {
         List<Contest> contestList = contestMapper.selectByType(type);
-        List<Map<String,Object>> contestInfoList = new ArrayList<>();
+        List<Map<String, Object>> contestInfoList = new ArrayList<>();
         for(Contest contest : contestList) {
             Map<String,Object> contestInfo = new HashMap<>();
             contestInfo.put("start_time", contest.getStartTime());

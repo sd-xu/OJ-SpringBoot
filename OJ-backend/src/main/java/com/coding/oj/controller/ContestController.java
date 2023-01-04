@@ -42,7 +42,7 @@ public class ContestController {
     public Map<String, Object> getOtherContests(Integer type) {
         Map<String, Object> modelMap = new HashMap<>();
         // 获取区域列表
-        List<Map<String,Object>> list = contestService.getContestsByType(type);
+        List<Map<String, Object>> list = contestService.getContestsByType(type);
         modelMap.put("contestList", list);
         return modelMap;
     }

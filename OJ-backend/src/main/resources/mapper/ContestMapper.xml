@@ -78,7 +78,7 @@
   </select>
 
   <select id="selectByType" resultMap="BaseResultMap">
-    select title, link, type, start_time,end_time,difficulty
+    select title, link, type, start_time, end_time, difficulty
     from contest
     where type = #{type,jdbcType=INTEGER}
   </select>
