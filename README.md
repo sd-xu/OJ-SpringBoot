@@ -1,29 +1,7 @@
 # OJ-SpringBoot
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+- 中山大学软件工程学院-软件工程实训（中级）项目，开发人员为5位20级学生
 
-#### 软件架构
-软件架构说明
+- 此为 OJ 平台后端仓库，前端仓库链接：https://gitee.com/vision-a/vue-learning
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+- Docker 镜像地址：https://hub.docker.com/r/mariowjl/onlinejudgeimage
