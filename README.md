@@ -1,13 +1,16 @@
 # OJ-SpringBoot
-## 背景
-- 中山大学软件工程学院-软件工程实训（中级）项目，开发人员为5位20级学生
 
-- 项目报告文档：https://a3hexktkih.feishu.cn/file/boxcn8vLehwbQ1qzHlQo2J4sojX
+## Background
 
-- 此为 OJ 平台后端仓库，前端仓库链接：https://gitee.com/vision-a/vue-learning
+An OnlineJudge system (total 14,000+ Java codes, user module, answer module, competition module, forum module, etc.) to help computer science learners improve their knowledge and programming skills.
 
-- Docker 镜像地址：https://hub.docker.com/r/mariowjl/onlinejudgeimage
+- This repository is for the backend，you can find the frontend [here](https://gitee.com/vision-a/vue-learning).
 
-## 分支说明
-- master 分支开发和运行环境是在 win
-- linux-version 为在 Docker 部署的版本
+- [Docker image](https://hub.docker.com/r/mariowjl/onlinejudgeimage)
+
+- [Project report](https://a3hexktkih.feishu.cn/file/boxcn8vLehwbQ1qzHlQo2J4sojX)
+
+## Branch
+
+- "master" is run in Windows.
+- "linux-version" is the version deployed in Docker.
